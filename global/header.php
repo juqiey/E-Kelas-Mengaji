@@ -8,5 +8,7 @@
 <!-- Main style css file here -->
 <link href="../resources/main.css" rel="stylesheet" />
 
+<!-- Sweet alert css -->
+<link rel="stylesheet" href="../resources/vendors/sweetalert2/sweetalert2.min.css">
 
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
