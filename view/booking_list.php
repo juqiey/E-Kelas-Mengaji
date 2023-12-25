@@ -1,4 +1,7 @@
 <!-- Session start here -->
+<?php
+    require '../model/booking_function.php';
+?>
 
 <html lang="en">
 <head>
@@ -64,25 +67,32 @@ require '../global/navigation_header.php';
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
-                            <tbody>
+                            <tbody class="text-center">
+                                <?
+                                    $user=getBookingList(1);
+
+                                    while($row=$user->fetch_assoc()){
+                                ?>
                                 <tr>
-                                    <td>1 Januari 2024</td>
-                                    <td>9:00 a.m.</td>
-                                    <td>Masjid Kubang Ikan</td>
-                                    <td>Ustaz Marzuqi</td>
+                                    <td><? echo date('d F Y', strtotime($row['bookingdate'])); ?></td>
+                                    <td><? echo date('h:i A', strtotime($row['bookingdate'])); ?></td>
+                                    <td><? echo $row['classlocation'] ?></td>
+                                    <td><? echo $row['teachername'] ?></td>
                                     <td>
-                                        <a href="" class="btn btn-success">View</a>
+                                        <div class="row text-center">
+                                            <div class="col-md-6">
+                                                <a href="" class="btn btn-success" id="card-btn">View</a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="" class="btn btn-danger" id="card-btn">Delete</a>
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2 Januari 2024</td>
-                                    <td>9:00 a.m.</td>
-                                    <td>Masjid Kubang Ikan</td>
-                                    <td>Fakhrullah</td>
-                                    <td>
-                                        <a href="" class="btn btn-success">View</a>
-                                    </td>
-                                </tr>
+                                <?
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>
