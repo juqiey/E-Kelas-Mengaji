@@ -8143,8 +8143,7 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color: cccccc;
-  /* background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important; */
+  background-color: cccccc !important;
 }
 
 .bg-secondary {
@@ -11243,7 +11242,7 @@ body {
   border-radius: 0.375rem !important;
 }
 
-/*login*/
+
 
 
     
