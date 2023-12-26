@@ -44,7 +44,7 @@ require '../global/navigation_header.php';
                     <div class="card-header text-center">
                         <h3>
                             <i class="fas fa-table me-1"></i>
-                            My Class
+                            Senarai Kelas Saya
                         </h3>
                     </div>
                     <div class="card-body">
@@ -96,11 +96,14 @@ require '../global/navigation_header.php';
                                     </td>
                                     <td>
                                         <div class="row text-center">
-                                            <div class="col-md-6">
-                                                <a href="" class="btn btn-success" id="card-btn">View</a>
+                                            <div class="col">
+                                                <a href="../view/booking_view.php?id=<? echo $row['bookingid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
-                                            <div class="col-md-6">
-                                                <a href="" class="btn btn-danger" id="card-btn">Delete</a>
+                                            <div class="col">
+                                                <a href="" class="btn btn-danger" id="card-btn">Padam</a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="" class="btn btn-success" id="card-btn">Bayar</a>
                                             </div>
                                         </div>
 
