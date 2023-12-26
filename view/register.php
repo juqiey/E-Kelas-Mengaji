@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <?
+    <?php
         $title="Register";
         require '../global/header.php';
     ?>
