@@ -96,13 +96,13 @@ require '../global/navigation_header.php';
                                     </td>
                                     <td>
                                         <div class="row text-center">
-                                            <div class="col">
+                                            <div class="col-md-4">
                                                 <a href="../view/booking_view.php?id=<? echo $row['bookingid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-4">
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-4">
                                                 <a href="" class="btn btn-success" id="card-btn">Bayar</a>
                                             </div>
                                         </div>
