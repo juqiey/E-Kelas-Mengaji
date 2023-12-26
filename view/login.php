@@ -43,6 +43,26 @@
                                        class="nav-link" onclick="toggleRoleRadio('staff')"> STAFF </a>
                                 </li>
                             </ul>
+                            <!-- <div class="tab-content">
+                                <form action="/login" class="form-horizontal" id="StaffForm" autocomplete="off"
+                                      method="post" accept-charset="utf-8">
+                                    <div id="roleDiv" class="form-group text-center">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="data[User][role]"
+                                                   id="adminCheckbox" value="2" required="required" checked>
+                                            <label class="form-check-label"> Admin </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="data[User][role]"
+                                                   id="teacherCheckbox" value="1" required="required">
+                                            <label class="form-check-label"> Teacher </label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> -->
+                            <div class="card-header">
+                                <h3 class="text-center font-weight-light my-4">Login</h3>
+                            </div>
                             <br>
                             <div class="tab-content">
                                 <form action="/login" class="form-horizontal" id="StaffForm" autocomplete="off"
@@ -60,10 +80,6 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                            <br>
-                            <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Login</h3>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="login.php">
