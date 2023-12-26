@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <?
-    $title="Tempahan Slot Kelas";
+    $title="Senarai Kelas Mengaji";
     require '../global/header.php';
     ?>
     <style>
@@ -51,19 +51,23 @@ require '../global/navigation_header.php';
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th>Tarikh</th>
-                                    <th>Masa</th>
+                                    <th>Tarikh & Masa</th>
+                                    <th>Tajuk Kuliah</th>
+                                    <th>Yuran(RM)</th>
                                     <th>Lokasi</th>
                                     <th>Pengajar</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Tarikh</th>
-                                    <th>Masa</th>
+                                    <th>Tarikh & Masa</th>
+                                    <th>Tajuk Kuliah</th>
+                                    <th>Yuran(RM)</th>
                                     <th>Lokasi</th>
                                     <th>Pengajar</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
@@ -74,10 +78,22 @@ require '../global/navigation_header.php';
                                     while($row=$user->fetch_assoc()){
                                 ?>
                                 <tr>
-                                    <td><? echo date('d F Y', strtotime($row['bookingdate'])); ?></td>
-                                    <td><? echo date('h:i A', strtotime($row['bookingdate'])); ?></td>
+                                    <td><? echo date('d F Y, h:i A', strtotime($row['classdate'])); ?></td>
+                                    <td><? echo $row['classsubject']; ?></td>
+                                    <td><? echo $row['classfee']; ?></td>
                                     <td><? echo $row['classlocation'] ?></td>
                                     <td><? echo $row['teachername'] ?></td>
+                                    <td>
+                                        <?
+                                            if($row['bookingstatus']==1){
+                                                echo "Sudah Dibayar";
+                                            }else if($row['bookingstatus']==0){
+                                                echo "Belum Dibayar";
+                                            }else{
+                                                echo "Tidak Diketahui";
+                                            }
+                                        ?>
+                                    </td>
                                     <td>
                                         <div class="row text-center">
                                             <div class="col-md-6">

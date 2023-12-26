@@ -15,10 +15,10 @@
         $conn=db();
         $sql="SELECT booking.*,student.*,class.*,teacher.*
             FROM booking
-            JOIN student ON booking.studid=student.studid
+            JOIN student ON booking.studentid=student.studentid
             JOIN class ON booking.classid=class.classid
             JOIN teacher ON class.teacherid = teacher.teacherid
-            WHERE booking.studid='$id'";
+            WHERE booking.studentid='$id'";
 
         return $conn->query($sql);
     }
