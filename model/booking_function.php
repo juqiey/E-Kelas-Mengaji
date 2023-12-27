@@ -1,0 +1,37 @@
+<?php
+    include '../db/config.php';
+
+    //this function to clean data that passed
+    function clean($str) {
+        $conn=db();
+        $str = @trim($str);
+        if(get_magic_quotes_gpc()) {
+            $str = stripslashes($str);
+        }
+        return mysqli_real_escape_string($conn,$str);
+    }
+
+    function getBookingList($id){
+        $conn=db();
+        $sql="SELECT booking.*,student.*,class.*,teacher.*
+            FROM booking
+            JOIN student ON booking.studentid=student.studentid
+            JOIN class ON booking.classid=class.classid
+            JOIN teacher ON class.teacherid = teacher.teacherid
+            WHERE booking.studentid='$id'";
+
+        return $conn->query($sql);
+    }
+
+    function viewBooking($id){
+        $conn=db();
+        $sql="SELECT booking.*,student.*,class.*,teacher.*
+            FROM booking
+            JOIN student ON booking.studentid=student.studentid
+            JOIN class ON booking.classid=class.classid
+            JOIN teacher ON class.teacherid = teacher.teacherid
+            WHERE booking.bookingid='$id'";
+
+        return $conn->query($sql);
+    }
+?>
