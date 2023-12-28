@@ -102,6 +102,9 @@
                             <h5 class="user-name">Khalil Wahid</h5>
                             <div class="card-body" style="text-align: left">
                               <p class="mb-0">
+                                <strong class="pr-1">Username: </strong>khalilwahid
+                              </p>
+                              <p class="mb-0">
                                 <strong class="pr-1">ID Pelajar: </strong>321000001
                               </p>
                               <p class="mb-0">
@@ -110,6 +113,7 @@
                               <p class="mb-0">
                                 <strong class="pr-1">Tahap: </strong>Al-Quran
                               </p>
+                              <!-- <button type="button" class="btn btn-warning" id="updatePassword">Update Password</button> -->
                             </div>
                           </div>
                         </div>
@@ -206,9 +210,28 @@
 
                         <div class="row gutters">
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                              <h6 class="mt-3 mb-2 text-primary">Update New Password</h6>
+                          </div>
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                              <div class="form-group">
+                                  <label for="newPassword">New Password</label>
+                                  <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                              </div>
+                          </div>
+                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                              <div class="form-group">
+                                  <label for="confirmPassword">Confirm Password</label>
+                                  <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                              </div>
+                          </div>
+                      </div> <br>
+
+                        <div class="row gutters">
+                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
                               <a href="edit_profile.php" class="btn btn-secondary">Cancel</a>
                               <a href="student_profile.php" class="btn btn-primary">Update</a>
+                              <button type="button" class="btn btn-warning" id="updatePassword">Update Password</button>
                             </div>
                           </div>
                         </div>
