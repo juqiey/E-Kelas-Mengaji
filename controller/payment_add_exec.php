@@ -8,6 +8,10 @@
     $bookingid=clean($_POST['bookingid']);
 
     $result=addPayment($total,$method,$transactionid,$bookingid);
+
+    if($result!="" && $result>0){
+        $updatestatus=updateStatus($bookingid);
+    }
 ?>
 <script>
     $(document).ready(function(){
