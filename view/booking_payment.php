@@ -1,5 +1,8 @@
 <?
     require '../model/booking_function.php';
+
+    $id=$_GET['id'];
+    $pay=viewBooking($id)->fetch_assoc();
 ?>
 <html>
     <head>
@@ -165,7 +168,10 @@
                 background-color: #f1f1f1;
             }
 
-
+            .disabled-input span {
+                transform: translateX(-0px) translateY(-15px);
+                font-size: 12px;
+            }
         </style>
     </head>
     <body>
@@ -176,66 +182,68 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <div class="card p-3">
-                    <h6 class="text-uppercase">Butiran Pembayar</h6>
-                    <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Nama</span> </div>
-                    <div class="inputbox mt-3">
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <div class="custom-select">
-                                    <select id="bankSelect" class="form-control" name="bank" required="required">
-                                        <option value="" disabled selected>Pilih Bank</option>
-                                        <? echo getDropdownBank(''); ?>
-                                    </select>
+                <form method="post" action="../controller/payment_add_exec.php" enctype="multipart/form-data">
+                    <div class="card p-3">
+                        <h6 class="text-uppercase">Butiran Pembayar</h6>
+                        <div class="inputbox mt-3"> <input value="<? echo $pay['studentname']; ?>" type="text" name="name" class="form-control" required="required"> <span>Nama</span> </div>
+                        <div class="inputbox mt-3">
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="custom-select">
+                                        <select id="bankSelect" class="form-control" name="bank" required="required">
+                                            <option value="" disabled selected>Pilih Bank</option>
+                                            <? echo getDropdownBank(''); ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Nombor Akaun" required="required">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Nombor Akaun" required="required">
-                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <? $transactionid=generateBankTransactionId(); ?>
-                            <span>ID Transaksi: <?php echo $transactionid; ?></span>
-                            <input type="hidden" name="transactionid" value="<?php echo $transactionid; ?>">
-                        </div>
-                    </div>
-                    <div class="mt-4 mb-4">
-                        <h6 class="text-uppercase">Butiran Penerima</h6>
                         <div class="row mt-3">
-                            <div class="col-md-6">
-                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Street Address</span> </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>City</span> </div>
+                            <div class="col-md-12">
+                                <? $transactionid=generateBankTransactionId(); ?>
+                                <span>ID Transaksi: <?php echo $transactionid; ?></span>
+                                <!-- Hidden input here -->
+                                <input type="hidden" name="transactionid" value="<?php echo $transactionid; ?>">
+                                <input type="hidden" name="classfee" value="<? echo $pay['classfee'] ?>">
+                                <input type="hidden" name="bookingid" value="<? echo $pay['bookingid'] ?>">
                             </div>
                         </div>
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>State/Province</span> </div>
+                        <div class="mt-4 mb-4">
+                            <h6 class="text-uppercase">Butiran Penerima</h6>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <div class="inputbox mt-3 mr-2 disabled-input"> <input value="<? echo $pay['teachername']; ?>" type="text" name="receiver_name" class="form-control" required="required" disabled> <span>Nama Penerima</span> </div>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Zip code</span> </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <div class="inputbox mt-3 mr-2 disabled-input"> <input value="<? echo $pay['teacherbank'] ?>" type="text" name="bank" class="form-control" required="required" disabled> <span>Bank</span> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="inputbox mt-3 mr-2 disabled-input"> <input value="<? echo $pay['teachernumaccount'];?>" type="text" name="account_number" class="form-control" required="required" disabled> <span>Nombor Akaun</span> </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mt-4 mb-4 d-flex justify-content-between">
-                    <button class="btn btn-dark px-3">Kembali</button>
-                    <button class="btn btn-success px-3">Pay $840</button>
-              </div>
+                    <div class="mt-4 mb-4 d-flex justify-content-between">
+                        <button class="btn btn-dark px-3">Kembali</button>
+                        <button type="submit" class="btn btn-success px-3">Bayar</button>
+                    </div>
+                </form>
             </div>
             <div class="col-md-4">
                 <div class="card card-blue p-3 text-white mb-3">
-                    <span>You have to pay</span>
+                    <span>Jumlah Bayaran:</span>
                     <div class="d-flex flex-row align-items-end mb-3">
-                        <h1 class="mb-0 yellow">$549</h1> <span>.99</span>
+                        <h1 class="mb-0 yellow">RM<? echo $pay['classfee']; ?></h1>
                     </div>
-                    <span>Enjoy all the features and perk after you complete the payment</span>
-                    <a href="#" class="yellow decoration">Know all the features</a>
+                    <span>Sila pastikan jumlah yang perlu dibayar adalah betul.</span>
+                    <a href="#" class="yellow decoration">Sebarang kesilapan adalah tanggungjawab pengguna.</a>
                     <div class="hightlight">
-                        <span>100% Guaranteed support and update for the next 5 years.</span>
+                        <span>Terima kasih kerana menggunakan perkhidmatan ini.</span>
                     </div>
                 </div>
             </div>
