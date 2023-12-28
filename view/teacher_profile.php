@@ -2,16 +2,16 @@
 <html lang="en">
   <head> 
         <?php
-            $title="Profile Pelajar";
+            $title="Profile Pengajar";
             require '../global/header.php';
         ?>
     <link href="../resources/main.css" rel="stylesheet" />
     <style>
-      .student-profile .card {
+      .teacher-profile .card {
         border-radius: 10px;
       }
 
-      .student-profile .card .card-header .profile_img {
+      .teacher-profile .card .card-header .profile_img {
         width: 150px;
         height: 150px;
         object-fit: cover;
@@ -20,18 +20,18 @@
         border-radius: 50%;
       }
 
-      .student-profile .card h3 {
+      .teacher-profile .card h3 {
         font-size: 20px;
         font-weight: 700;
       }
 
-      .student-profile .card p {
+      .teacher-profile .card p {
         font-size: 16px;
         color: #000;
       }
 
-      .student-profile .table th,
-      .student-profile .table td {
+      .teacher-profile .table th,
+      .teacher-profile .table td {
         font-size: 14px;
         padding: 5px 10px;
         color: #000;
@@ -49,11 +49,11 @@
         ?>
       <div id="layoutSidenav_content">
         <main>
-          <!-- Student Profile -->
-          <div class="student-profile py-4">
+          <!-- Teacher Profile -->
+          <div class="teacher-profile py-4">
             <div class="container">
             <div class="card-header text-center">
-                <h3>Profile Pelajar</h3>
+                <h3>Profile Pengajar</h3>
                 <br>
             </div>
               <div class="row">
@@ -61,31 +61,29 @@
                   <div class="card shadow-sm">
                     <div class="card-header bg-transparent text-center">
                         <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
-                        <h3>Khalil Wahid</h3>
-                        <a href="edit_student_profile.php" class="btn btn-primary">Edit Profile</a>
+                        <h3>Ustaz Ali</h3>
+                        <a href="edit_teacher_profile.php" class="btn btn-primary">Edit Profile</a>
                     </div>
                     <div class="card-body">
                       <p class="mb-0">
-                        <strong class="pr-1">Username: </strong>khalilwahid
+                        <strong class="pr-1">Username: </strong>ustazali
                       </p>
                       <p class="mb-0">
-                        <strong class="pr-1">ID Pelajar: </strong>321000001
+                        <strong class="pr-1">ID Pengajar: </strong>321000001
                       </p>
                       <p class="mb-0">
-                        <strong class="pr-1">Kelas: </strong>4
-                      </p>
-                      <p class="mb-0">
-                        <strong class="pr-1">Tahap: </strong>Al-Quran
+                        <strong class="pr-1">Email: </strong>ustaz@gmail.com
                       </p>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-8">
-                <!-- pelajar -->
+
+                <!-- maklumat peribadi -->
                   <div class="card shadow-sm">
                     <div class="card-header bg-transparent border-0">
                       <h3 class="mb-0">
-                        <i class="far fa-clone pr-1"></i>Maklumat Pelajar
+                        <i class="far fa-clone pr-1"></i>Maklumat Peribadi
                       </h3>
                     </div>
                     <div class="card-body pt-0">
@@ -93,12 +91,7 @@
                         <tr>
                           <th width="30%">Nama Penuh</th>
                           <td width="2%">:</td>
-                          <td>Khalil Bin Wahid</td>
-                        </tr>
-                        <tr>
-                          <th width="30%">Tarikh Lahir</th>
-                          <td width="2%">:</td>
-                          <td>27/12/2009</td>
+                          <td>Ali bin Abu</td>
                         </tr>
                         <tr>
                           <th width="30%">Jantina</th>
@@ -118,35 +111,31 @@
                         <tr>
                           <th width="30%">Email</th>
                           <td width="2%">:</td>
-                          <td>khalilwahid@gmail.com</td>
+                          <td>ali@gmail.com</td>
                         </tr>
                       </table>
                     </div>
                   </div>
                   <br>
-                  <!-- ibubapa/penjaga -->
+
+                  <!-- kualifikasi-->
                   <div class="card shadow-sm">
                     <div class="card-header bg-transparent border-0">
                       <h3 class="mb-0">
-                        <i class="far fa-clone pr-1"></i>Maklumat Ibu Bapa/Penjaga
+                        <i class="far fa-clone pr-1"></i>Maklumat Bank
                       </h3>
                     </div>
                     <div class="card-body pt-0">
                       <table class="table table-bordered">
                         <tr>
-                          <th width="30%">Nama Ibu/Bapa/Penjaga</th>
+                          <th width="30%">Nama Bank</th>
                           <td width="2%">:</td>
-                          <td>Wahid Bin Md Aziz</td>
+                          <td>Maybank</td>
                         </tr>
                         <tr>
-                          <th width="30%">No. Telefon</th>
+                          <th width="30%">No. Akaun Bank</th>
                           <td width="2%">:</td>
-                          <td>010-123 4567</td>
-                        </tr>
-                        <tr>
-                          <th width="30%">Email</th>
-                          <td width="2%">:</td>
-                          <td>wahid@gmail.com</td>
+                          <td>90237002</td>
                         </tr>
                       </table>
                     </div>
