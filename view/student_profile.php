@@ -62,7 +62,7 @@
                     <div class="card-header bg-transparent text-center">
                         <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
                         <h3>Khalil Wahid</h3>
-                        <a href="edit_profile.php" class="btn btn-primary">Edit Profile</a>
+                        <a href="edit_student_profile.php" class="btn btn-primary">Edit Profile</a>
                     </div>
                     <div class="card-body">
                       <p class="mb-0">

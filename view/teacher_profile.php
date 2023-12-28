@@ -62,7 +62,7 @@
                     <div class="card-header bg-transparent text-center">
                         <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
                         <h3>Ustaz Ali</h3>
-                        <a href="edit_profile.php" class="btn btn-primary">Edit Profile</a>
+                        <a href="edit_teacher_profile.php" class="btn btn-primary">Edit Profile</a>
                     </div>
                     <div class="card-body">
                       <p class="mb-0">
@@ -122,25 +122,20 @@
                   <div class="card shadow-sm">
                     <div class="card-header bg-transparent border-0">
                       <h3 class="mb-0">
-                        <i class="far fa-clone pr-1"></i>Maklumat Ibu Bapa/Penjaga
+                        <i class="far fa-clone pr-1"></i>Maklumat Bank
                       </h3>
                     </div>
                     <div class="card-body pt-0">
                       <table class="table table-bordered">
                         <tr>
-                          <th width="30%">Nama Ibu/Bapa/Penjaga</th>
+                          <th width="30%">Nama Bank</th>
                           <td width="2%">:</td>
-                          <td>Wahid Bin Md Aziz</td>
+                          <td>Maybank</td>
                         </tr>
                         <tr>
-                          <th width="30%">No. Telefon</th>
+                          <th width="30%">No. Akaun Bank</th>
                           <td width="2%">:</td>
-                          <td>010-123 4567</td>
-                        </tr>
-                        <tr>
-                          <th width="30%">Alamat Email</th>
-                          <td width="2%">:</td>
-                          <td>wahid@gmail.com</td>
+                          <td>90237002</td>
                         </tr>
                       </table>
                     </div>

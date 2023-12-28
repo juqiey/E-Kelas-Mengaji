@@ -113,7 +113,6 @@
                               <p class="mb-0">
                                 <strong class="pr-1">Tahap: </strong>Al-Quran
                               </p>
-                              <!-- <button type="button" class="btn btn-warning" id="updatePassword">Update Password</button> -->
                             </div>
                           </div>
                         </div>
@@ -229,7 +228,7 @@
                         <div class="row gutters">
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
-                              <a href="edit_profile.php" class="btn btn-secondary">Cancel</a>
+                              <a href="edit_student_profile.php" class="btn btn-secondary">Cancel</a>
                               <a href="student_profile.php" class="btn btn-primary">Update</a>
                               <button type="button" class="btn btn-warning" id="updatePassword">Update Password</button>
                             </div>
