@@ -1,5 +1,5 @@
 <?
-
+    require '../model/booking_function.php';
 ?>
 <html>
     <head>
@@ -121,9 +121,9 @@
                 color: #495057;
             }
 
-            .custom-select select {
-                display: none;
-            }
+            /*.custom-select select {*/
+            /*    display: none;*/
+            /*}*/
 
             .select-selected {
                 background-color: #fff;
@@ -164,6 +164,8 @@
             .select-items div:hover {
                 background-color: #f1f1f1;
             }
+
+
         </style>
     </head>
     <body>
@@ -176,30 +178,31 @@
             <div class="col-md-8">
                 <div class="card p-3">
                     <h6 class="text-uppercase">Butiran Pembayar</h6>
-                    <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Name on card</span> </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required">
-                                <span>Card Number</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <!-- Replace Expiry and CVV with Select Bank -->
-                            <div class="inputbox mt-3">
+                    <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Nama</span> </div>
+                    <div class="inputbox mt-3">
+                        <div class="row mt-3">
+                            <div class="col-md-6">
                                 <div class="custom-select">
-                                    <select id="bankSelect" class="form-select" name="bank" required="required">
-                                        <option value="maybank">Maybank</option>
-                                        <option value="cimb">CIMB Bank</option>
-                                        <option value="public">Public Bank</option>
-                                        <!-- Add more options as needed -->
+                                    <select id="bankSelect" class="form-control" name="bank" required="required">
+                                        <option value="" disabled selected>Pilih Bank</option>
+                                        <? echo getDropdownBank(''); ?>
                                     </select>
                                 </div>
-                                <span>Select Bank</span>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Nombor Akaun" required="required">
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <? $transactionid=generateBankTransactionId(); ?>
+                            <span>ID Transaksi: <?php echo $transactionid; ?></span>
+                            <input type="hidden" name="transactionid" value="<?php echo $transactionid; ?>">
+                        </div>
+                    </div>
                     <div class="mt-4 mb-4">
-                        <h6 class="text-uppercase">Billing Address</h6>
+                        <h6 class="text-uppercase">Butiran Penerima</h6>
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <div class="inputbox mt-3 mr-2"> <input type="text" name="name" class="form-control" required="required"> <span>Street Address</span> </div>
