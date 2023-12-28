@@ -1,6 +1,5 @@
 <!-- Template plugin here -->
 
-
 <!-- Calendar JavaScript -->
 <script src='../lib/calendar/lib/main.js'></script>
 
@@ -16,13 +15,13 @@
 <script src="js/datatables-simple-demo.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.all.min.js"></script>
-<link href="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css" rel="stylesheet">
 
 <!-- Script for sweetalert -->
 <script src="../resources/vendors/sweetalert2/sweetalert2.all.min.js"></script>
 
 <!-- jQuery -->
 <script src="../resources/vendors/jquery/jquery.min.js"></script>
+
 <!-- Sweet alert -->
 <link rel="stylesheet" href="../resources/vendors/sweetalert2/sweetalert2.min.css">

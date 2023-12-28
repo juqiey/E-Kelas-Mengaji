@@ -19,4 +19,11 @@
         $conn->query($sql);
         return $conn->insert_id;
     }
+
+    function updateStatus($id){
+        $conn=db();
+        $sql="UPDATE booking SET bookingstatus=1 WHERE bookingid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>
