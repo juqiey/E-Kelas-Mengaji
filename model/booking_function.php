@@ -1,7 +1,6 @@
 <?
     include '../db/config.php';
 
-
     //this function to clean data that passed
     function clean($str) {
         $conn=db();

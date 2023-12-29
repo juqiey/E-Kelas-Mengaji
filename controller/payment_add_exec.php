@@ -23,7 +23,7 @@
 
             .then((value)=>{
                 if(value.isConfirmed){
-                    window.location.href='../view/booking_avail_list.php';
+                    window.location.href='../view/class_avail_list.php';
                 }
             });
     });

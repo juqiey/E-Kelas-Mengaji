@@ -51,7 +51,7 @@
                     </nav>
                 </div>
                 <div class="sb-sidenav-menu-heading">Kelas Mengaji</div>
-                <a class="nav-link" href="../view/booking_avail_list.php">
+                <a class="nav-link" href="../view/class_avail_list.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Senarai Kelas
                 </a>
