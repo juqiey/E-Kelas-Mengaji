@@ -1,4 +1,4 @@
-<?php
+<?
     include '../db/config.php';
 
     //this function to clean data that passed
@@ -34,4 +34,52 @@
 
         return $conn->query($sql);
     }
+
+    function getDropdownBank($selected){
+        $banks = [
+            'maybank' => 'Maybank',
+            'cimb' => 'CIMB Bank',
+            'public' => 'Public Bank',
+            'hongleong' => 'Hong Leong Bank',
+            'rhb' => 'RHB Bank',
+            'ambank' => 'AmBank',
+            'uob' => 'United Overseas Bank (UOB)',
+            'hsbc' => 'HSBC Bank',
+            'standardchartered' => 'Standard Chartered Bank',
+            'bankislam' => 'Bank Islam Malaysia',
+            // Add more banks as needed
+        ];
+
+        $txt_result = "";
+
+        foreach ($banks as $index => $bank) {
+            $selected_txt = ($index == $selected) ? 'selected' : '';
+
+            $txt_result .= "<option " . $selected_txt . " value=\"" . $index . "\">" . $bank . "</option>";
+        }
+
+        return $txt_result;
+
+    }
+
+    function generateBankTransactionId($length = 12) {
+        // Define characters that can be used in the transaction ID
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Get the current timestamp
+        $timestamp = time();
+
+        // Generate a random string of the specified length
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+
+        // Combine timestamp and random string to create a unique ID
+        $transactionId = 'TXN' . $timestamp . $randomString;
+
+        return $transactionId;
+    }
+
+
 ?>

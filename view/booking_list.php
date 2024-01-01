@@ -96,15 +96,17 @@ require '../global/navigation_header.php';
                                     </td>
                                     <td>
                                         <div class="row text-center">
-                                            <div class="col-md-4">
+                                            <div class="<? echo $row['bookingstatus']==0?'col-md-4':'col-md-6'; ?>">
                                                 <a href="../view/booking_view.php?id=<? echo $row['bookingid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="<? echo $row['bookingstatus']==0?'col-md-4':'col-md-6'; ?>">
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>
                                             </div>
+                                            <? if($row['bookingstatus']==0){ ?>
                                             <div class="col-md-4">
-                                                <a href="" class="btn btn-success" id="card-btn">Bayar</a>
+                                                <a href="../view/booking_payment.php?id=<? echo $row['bookingid'] ?>" class="btn btn-success" id="card-btn">Bayar</a>
                                             </div>
+                                            <? } ?>
                                         </div>
 
                                     </td>

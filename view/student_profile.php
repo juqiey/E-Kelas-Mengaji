@@ -62,9 +62,12 @@
                     <div class="card-header bg-transparent text-center">
                         <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
                         <h3>Khalil Wahid</h3>
-                        <a href="edit_profile.php" class="btn btn-primary">Edit Profile</a>
+                        <a href="edit_student_profile.php" class="btn btn-primary">Edit Profile</a>
                     </div>
                     <div class="card-body">
+                      <p class="mb-0">
+                        <strong class="pr-1">Username: </strong>khalilwahid
+                      </p>
                       <p class="mb-0">
                         <strong class="pr-1">ID Pelajar: </strong>321000001
                       </p>
@@ -113,7 +116,7 @@
                           <td>010-123 4567</td>
                         </tr>
                         <tr>
-                          <th width="30%">Alamat Email</th>
+                          <th width="30%">Email</th>
                           <td width="2%">:</td>
                           <td>khalilwahid@gmail.com</td>
                         </tr>
@@ -141,7 +144,7 @@
                           <td>010-123 4567</td>
                         </tr>
                         <tr>
-                          <th width="30%">Alamat Email</th>
+                          <th width="30%">Email</th>
                           <td width="2%">:</td>
                           <td>wahid@gmail.com</td>
                         </tr>

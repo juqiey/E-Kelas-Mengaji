@@ -111,7 +111,7 @@ require '../global/navigation_header.php';
                             <? if($booking['bookingstatus']==0){ ?>
                             <div class="row justify-content-center mt-4 mb-4">
                                 <div class="col-md-3">
-                                    <a href="" class="btn btn-success" id="card-btn">Bayar</a>
+                                    <a href="../view/booking_payment.php?id=<? echo $booking['bookingid'] ?>" class="btn btn-success" id="card-btn">Bayar</a>
                                 </div>
                             </div>
                             <? }?>
