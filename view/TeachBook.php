@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Page</title>
+    <?
+    $title="Checkout Page";
+    require '../global/header.php';
+    ?>
     <style>
        
     body {
@@ -457,6 +460,9 @@ Similar snip
 </div>
         </div>
     </div>
+    <?
+        require '../global/script.php';
+    ?>
 </body>
 
 </html>
