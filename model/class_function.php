@@ -19,4 +19,13 @@
 
         return $conn->query($sql);
     }
+
+    function viewClass($id){
+        $conn=db();
+        $sql="SELECT class.*,teacher.* FROM class
+            JOIN teacher ON class.teacherid=teacher.teacherid
+            WHERE class.classid=$id";
+
+        return $conn->query($sql);
+    }
 ?>
