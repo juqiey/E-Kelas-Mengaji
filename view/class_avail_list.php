@@ -80,7 +80,7 @@
                                                         Yuran: <b><? echo $row['classfee']!=null?'RM'.$row['classfee']:'Percuma' ?></b>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        Quota: <b><? echo $row['quota']!=null?$row['quota']:'Terbuka'; ?></b>
+                                                        Quota: <b><? echo $row['classquota']!=null?$row['classquota']:'Terbuka'; ?></b>
                                                     </div>
                                                 </div>
                                                 <div class="row text-center mb-2">

@@ -103,12 +103,11 @@ require '../global/navigation_header.php';
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>
                                             </div>
                                             <? if($row['bookingstatus']==0){ ?>
-                                            <div class="col-md-4">
-                                                <a href="../view/booking_payment.php?id=<? echo $row['bookingid'] ?>" class="btn btn-success" id="card-btn">Bayar</a>
-                                            </div>
+                                                <div class="col-md-4">
+                                                    <a href="../view/booking_payment.php?id=<? echo $row['bookingid'] ?>" class="btn btn-success" id="card-btn">Bayar</a>
+                                                </div>
                                             <? } ?>
                                         </div>
-
                                     </td>
                                 </tr>
                                 <?

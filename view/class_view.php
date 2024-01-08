@@ -126,11 +126,15 @@ require '../global/navigation_header.php';
                                 </div>
                             </div>
                         </div>
-                        <div class="row justify-content-center mt-4 mb-4">
-                            <div class="col-md-3">
-                                <a href="" class="btn btn-success" id="card-btn">Tempah Slot</a>
+                        <form action="../controller/booking_add_exec.php" method="POST" enctype="multipart/form-data">
+                            <div class="row justify-content-center mt-4 mb-4">
+                                <div class="col-md-3 text-center">
+                                    <input type="hidden" name="classid" value="<? echo $class['classid'] ?>">
+                                    <input type="hidden" name="userid" value="1">
+                                    <button type="submit" class="btn btn-success" id="card-btn">Tempah Slot</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
