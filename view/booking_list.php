@@ -99,7 +99,7 @@ require '../global/navigation_header.php';
                                             <div class="<? echo $row['bookingstatus']==0?'col-md-4':'col-md-6'; ?>">
                                                 <a href="../view/booking_view.php?id=<? echo $row['bookingid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
-                                            <div class="<? echo $row['bookingstatus']==0?'col-md-4':'col-md-6'; ?>">
+                                            <div class="<? echo $row['bookingstatus']==0?'col-md-4':'col-md-6'; ?> delete" data-id="<? echo $row['bookingid'] ?>">
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>
                                             </div>
                                             <? if($row['bookingstatus']==0){ ?>
@@ -121,9 +121,30 @@ require '../global/navigation_header.php';
         </main>
     </div>
 </div>
-
 <?
 require '../global/script.php';
 ?>
+<script>
+    // Delete data
+    $(document).on('click', '.delete', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        var name = $(this).data('name')
+
+        Swal.fire({
+            title: "Padam Tempahan Ini?",
+            text: "Tempahan ini akan dipadam secara kekal",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: 'Yes!',
+            confirmButtonColor: '#E71C1C',
+        })
+            .then((value) => {
+                if (value.isConfirmed) {
+                    location.href = "../controller/booking_delete_exec.php?id="+id;
+                }
+            });
+    });
+</script>
 </body >
 </html>

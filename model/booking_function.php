@@ -96,4 +96,11 @@
 
         return $conn->query($sql);
     }
+
+    function deleteBooking($id){
+        $conn=db();
+        $sql="DELETE FROM booking WHERE bookingid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>
