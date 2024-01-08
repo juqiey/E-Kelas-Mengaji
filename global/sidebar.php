@@ -79,7 +79,7 @@
                 </a>
                 <div class="collapse" id="collapseClass" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="">Senarai Kelas</a>
+                        <a class="nav-link" href="../view/class_list.php">Senarai Kelas</a>
                     </nav>
                 </div>
             </div>

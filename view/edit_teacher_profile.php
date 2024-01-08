@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?
+    require '../model/user_function.php';
+?>
 <html lang="en">
   <head> <?php
             $title="Edit Profile Pengajar";
@@ -139,7 +142,10 @@
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <label for="gender">Jantina</label>
-                              <input type="text" class="form-control" id="gender" placeholder="">
+                                <select id="gender" class="form-control" placeholder="Sila pilih jantina">
+                                    <option value="Lelaki">Lelaki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
                             </div>
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -187,7 +193,9 @@
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                             <label for="bank">Nama Bank</label>
-                            <input type="name" class="form-control" id="bank" placeholder="">
+                                <select id="bank" class="form-control">
+                                    <? echo getDropdownBank('') ?>
+                                </select>
                             </div>
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

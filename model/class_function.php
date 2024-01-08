@@ -28,4 +28,12 @@
 
         return $conn->query($sql);
     }
+
+    function getClassList(){
+        $conn=db();
+        $sql="SELECT class.*, teacher.* FROM class
+            JOIN teacher ON class.teacherid=teacher.teacherid";
+
+        return $conn->query($sql);
+    }
 ?>
