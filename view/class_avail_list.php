@@ -44,6 +44,18 @@
                                 <h3>Slot Kelas Mengaji</h3>
                             </div>
                             <div class="card-body">
+                                <form action="" name="search" method="get">
+                                    <div class="row">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control" placeholder="Search for class">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="submit" class="btn btn-success">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                                 <div class="row">
                                     <?
                                         $class=getClassAvailable();
@@ -68,7 +80,7 @@
                                                         Yuran: <b><? echo $row['classfee']!=null?'RM'.$row['classfee']:'Percuma' ?></b>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        Quota: <b><? echo $row['quota']!=null?$row['quota']:'Terbuka'; ?></b>
+                                                        Quota: <b><? echo $row['classquota']!=null?$row['classquota']:'Terbuka'; ?></b>
                                                     </div>
                                                 </div>
                                                 <div class="row text-center mb-2">
@@ -80,7 +92,7 @@
                                             <div class="card-footer">
                                                 <div class="row">
                                                     <div class="col-md-6 mb-md-3 text-center">
-                                                        <a href="" class="btn btn-primary" id="card-btn">View</a>
+                                                        <a href="../view/class_view.php?id=<? echo $row['classid'] ?>" class="btn btn-primary" id="card-btn">View</a>
                                                     </div>
                                                     <div class="col-md-6 mb-md-3 text-center">
                                                         <a href="" class="btn btn-success" id="card-btn">Tempah</a>

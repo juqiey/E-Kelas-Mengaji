@@ -229,7 +229,7 @@
                         </div>
                     </div>
                     <div class="mt-4 mb-4 d-flex justify-content-between">
-                        <button class="btn btn-dark px-3">Kembali</button>
+                        <button  onclick="history.back()" class="btn btn-dark px-3">Kembali</button>
                         <button type="submit" class="btn btn-success px-3">Bayar</button>
                     </div>
                 </form>

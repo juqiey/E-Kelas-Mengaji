@@ -81,5 +81,26 @@
         return $transactionId;
     }
 
+    function addBooking($classid,$userid){
+        $conn=db();
+        $sql="INSERT INTO booking(bookingdate,bookingstatus,studentid,classid) VALUES(CURRENT_TIMESTAMP,'0','$userid','$classid')";
 
+        $result=$conn->query($sql);
+
+        return !$result?mysqli_error($conn):1;
+    }
+
+    function updateClassQuota($classid){
+        $conn=db();
+        $sql="UPDATE class SET classquota=classquota-1 WHERE classid='$classid'";
+
+        return $conn->query($sql);
+    }
+
+    function deleteBooking($id){
+        $conn=db();
+        $sql="DELETE FROM booking WHERE bookingid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>
