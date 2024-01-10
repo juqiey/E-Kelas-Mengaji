@@ -140,6 +140,7 @@ require '../global/navigation_header.php';
                                     <th>Jantina</th>
                                     <th>Emel</th>
                                     <th>Nombor Telefon</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Tarikh Tempahan</th>
                                 </tr>
                                 </thead>
@@ -150,6 +151,7 @@ require '../global/navigation_header.php';
                                     <th>Jantina</th>
                                     <th>Emel</th>
                                     <th>Nombor Telefon</th>
+                                    <th>Status Pembayaran</th>
                                     <th>Tarikh Tempahan</th>
                                 </tr>
                                 </tfoot>
@@ -167,6 +169,17 @@ require '../global/navigation_header.php';
                                         <td><? echo $row['studentsex'] ?></td>
                                         <td><? echo $row['studentemail'] ?></td>
                                         <td><? echo $row['studentphoneno'] ?></td>
+                                        <td>
+                                            <?
+                                            if($row['bookingstatus']==1){
+                                                echo "Sudah Dibayar";
+                                            }else if($row['bookingstatus']==0){
+                                                echo "Belum Dibayar";
+                                            }else{
+                                                echo "Tidak Diketahui";
+                                            }
+                                            ?>
+                                        </td>
                                         <td><? echo date('d F Y',strtotime($row['bookingdate'])) ?></td>
                                     </tr>
                                     <?

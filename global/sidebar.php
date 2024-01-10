@@ -50,10 +50,15 @@
                         </div>
                     </nav>
                 </div>
+                <!-- Teacher here -->
                 <div class="sb-sidenav-menu-heading">Kegunaan Pengajar</div>
-                <a class="nav-link" href="../view/teacher_class_list.php">
+                <a class="nav-link" href="../view/class_teacher_list.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Senarai Kelas Pengajar
+                </a>
+                <a class="nav-link" href="../view/class_teacher_add.php">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Tambah Kelas Baharu
                 </a>
                 <!-- Student sidebar here -->
                 <div class="sb-sidenav-menu-heading">Kelas Mengaji</div>
