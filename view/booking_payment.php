@@ -223,7 +223,7 @@
                                     <div class="inputbox mt-3 mr-2 disabled-input"> <input value="<? echo $pay['teacherbank'] ?>" type="text" name="bank" class="form-control" required="required" disabled> <span>Bank</span> </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="inputbox mt-3 mr-2 disabled-input"> <input value="<? echo $pay['teachernumaccount'];?>" type="text" name="account_number" class="form-control" required="required" disabled> <span>Nombor Akaun</span> </div>
+                                    <div class="inputbox mt-3 mr-2 disabled-input"> <input value="<? echo $pay['teacheraccountno'];?>" type="text" name="account_number" class="form-control" required="required" disabled> <span>Nombor Akaun</span> </div>
                                 </div>
                             </div>
                         </div>

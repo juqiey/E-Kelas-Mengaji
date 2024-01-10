@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <?
-    $title="Senarai Kelas Mengaji";
+    $title="Senarai Tempahan Kelas Mengaji";
     require '../global/header.php';
     ?>
     <style>
@@ -54,7 +54,6 @@ require '../global/navigation_header.php';
                                     <th>Tarikh & Masa</th>
                                     <th>Tajuk Kuliah</th>
                                     <th>Yuran(RM)</th>
-                                    <th>Lokasi</th>
                                     <th>Pengajar</th>
                                     <th>Status Pembayaran</th>
                                     <th>Action</th>
@@ -65,7 +64,6 @@ require '../global/navigation_header.php';
                                     <th>Tarikh & Masa</th>
                                     <th>Tajuk Kuliah</th>
                                     <th>Yuran(RM)</th>
-                                    <th>Lokasi</th>
                                     <th>Pengajar</th>
                                     <th>Status Pembayaran</th>
                                     <th>Action</th>
@@ -81,7 +79,6 @@ require '../global/navigation_header.php';
                                     <td><? echo date('d F Y, h:i A', strtotime($row['classdate'])); ?></td>
                                     <td><? echo $row['classsubject']; ?></td>
                                     <td><? echo $row['classfee']; ?></td>
-                                    <td><? echo $row['classlocation'] ?></td>
                                     <td><? echo $row['teachername'] ?></td>
                                     <td>
                                         <?
@@ -96,17 +93,12 @@ require '../global/navigation_header.php';
                                     </td>
                                     <td>
                                         <div class="row text-center">
-                                            <div class="<? echo $row['bookingstatus']==0?'col-md-4':'col-md-6'; ?>">
+                                            <div class="col-md-6">
                                                 <a href="../view/booking_view.php?id=<? echo $row['bookingid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
-                                            <div class="<? echo $row['bookingstatus']==0?'col-md-4':'col-md-6'; ?> delete" data-id="<? echo $row['bookingid'] ?>">
+                                            <div class="col-md-6 delete" data-id="<? echo $row['bookingid'] ?>">
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>
                                             </div>
-                                            <? if($row['bookingstatus']==0){ ?>
-                                                <div class="col-md-4">
-                                                    <a href="../view/booking_payment.php?id=<? echo $row['bookingid'] ?>" class="btn btn-success" id="card-btn">Bayar</a>
-                                                </div>
-                                            <? } ?>
                                         </div>
                                     </td>
                                 </tr>

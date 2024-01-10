@@ -9,6 +9,7 @@
 
     $result=addPayment($total,$method,$transactionid,$bookingid);
 
+
     if($result!="" && $result>0){
         $updatestatus=updateStatus($bookingid);
     }

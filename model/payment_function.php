@@ -16,8 +16,9 @@
         $sql="INSERT INTO payment(paymentdate,paymenttotal,paymentmethod,transactionid,bookingid) 
             VALUES (CURRENT_TIMESTAMP,'$total','$method','$transactionid','$bookingid')";
 
-        $conn->query($sql);
-        return $conn->insert_id;
+        $result=$conn->query($sql);
+
+        return !$result?mysqli_error($conn):$result;
     }
 
     function updateStatus($id){
