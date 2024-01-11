@@ -92,10 +92,7 @@
                                             <div class="card-footer">
                                                 <div class="row">
                                                     <div class="col-md-6 mb-md-3 text-center">
-                                                        <a href="../view/class_view.php?id=<? echo $row['classid'] ?>" class="btn btn-primary" id="card-btn">View</a>
-                                                    </div>
-                                                    <div class="col-md-6 mb-md-3 text-center">
-                                                        <a href="" class="btn btn-success" id="card-btn">Tempah</a>
+                                                        <a href="../view/class_view.php?id=<? echo $row['classid'] ?>" class="btn btn-success" id="card-btn">View</a>
                                                     </div>
                                                 </div>
                                             </div>

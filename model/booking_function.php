@@ -87,7 +87,7 @@
 
         $result=$conn->query($sql);
 
-        return !$result?mysqli_error($conn):1;
+        return !$result?mysqli_error($conn):$result;
     }
 
     function updateClassQuota($classid){
