@@ -5,7 +5,7 @@
         $title="Register";
         require '../global/header.php';
     ?>
-    <link href="../resources/styles.css" rel="stylesheet" />
+
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">

@@ -1,14 +1,14 @@
 <?
-    require '../model/booking_function.php';
+require '../model/class_function.php';
 
-    $id=$_GET['id'];
-    $booking=viewBooking($id)->fetch_assoc();
+$id=$_GET['id'];
+$class=viewClass($id)->fetch_assoc();
 ?>
 
 <html lang="en">
 <head>
     <?
-    $title="Butiran Tempahan Kelas";
+    $title="Butiran Kelas";
     require '../global/header.php';
     ?>
     <style>
@@ -80,14 +80,14 @@ require '../global/navigation_header.php';
             <div class="container-fluid px-4">
                 <h1 class="mt-4"><? echo $title; ?></h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a class="visit" href="booking_list.php">Senarai Kelas Saya</a></li>
+                    <li class="breadcrumb-item"><a class="visit" href="class_avail_list.php">Tempahan Kelas</a></li>
                     <li class="breadcrumb-item active"><? echo $title; ?></li>
                 </ol>
                 <div class="card">
                     <div class="card-body">
                         <div class="text-center">
-                            <h2 class="card-title mb-4"><? echo $booking['classsubject']; ?></h2>
-                            <h6 class="card-text"><i><? echo ($booking['classdescription']!=null)?$booking['classdescription']:"Tiada Maklumat Lanjut"; ?></i></h6>
+                            <h2 class="card-title mb-4"><? echo $class['classsubject']; ?></h2>
+                            <h6 class="card-text"><i><i><? echo ($class['classdescription']!=null)?$class['classdescription']:"Tiada Maklumat Lanjut"; ?></i></i></h6>
                         </div>
                         <div class="row">
                             <div class="text-center">
@@ -97,25 +97,44 @@ require '../global/navigation_header.php';
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-6 text-center">
-                                    <p class="text">Tarikh: <b><? echo date('d F Y, h:i A', strtotime($booking['classdate'])); ?></b></p>
-                                    <p class="text">Lokasi: <b><? echo $booking['classlocation']; ?></b></p>
+                                    <p class="text">Tarikh: <b><? echo date('d F Y, h:i A', strtotime($class['classdate'])); ?></b></p>
+                                    <p class="text">Lokasi: <b><? echo $class['classlocation'] ?></b></p>
                                 </div>
                                 <div class="col-md-6 text-center">
-                                    <p class="text">Yuran (RM): <b>RM<? echo $booking['classfee'];?></b></p>
-                                    <p class="text">Status Bayaran: <b><? echo ($booking['bookingstatus']==1)?"Sudah Dibayar":"Belum Dibayar"; ?></b></p>
+                                    <p class="text">Yuran (RM): <b><? echo $class['classfee'] ?></b></p>
+                                    <p class="text">Quota Tersedia: <b><? echo $class['classquota']!=null?$class['classquota']:"Terbuka" ?></b></p>
                                 </div>
                             </div>
-                            <div class="text-center">
-                                <p class="text">Pengajar: <b><? echo $booking['teachername']; ?></b></p>
-                            </div>
-                            <? if($booking['bookingstatus']==0){ ?>
-                            <div class="row justify-content-center mt-4 mb-4">
-                                <div class="col-md-3">
-                                    <a href="../view/booking_payment.php?id=<? echo $booking['bookingid'] ?>" class="btn btn-success" id="card-btn">Bayar</a>
-                                </div>
-                            </div>
-                            <? }?>
                         </div>
+                        <div class="row">
+                            <div class="text-center">
+                                <hr>
+                                <p style="font-size:16px;font-style: italic">Butiran Pengajar</p>
+                                <hr>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-12 text-center">
+                                    <p class="text">Nama: <b><? echo $class['teachername']; ?></b></p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Nombor Telefon: <b><? echo $class['teacherphoneno']; ?></b></p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Emel: <b><? echo $class['teacheremail']; ?></b></p>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="../controller/booking_add_exec.php" method="POST" enctype="multipart/form-data">
+                            <div class="row justify-content-center mt-4 mb-4">
+                                <div class="col-md-3 text-center">
+                                    <input type="hidden" name="classid" value="<? echo $class['classid'] ?>">
+                                    <input type="hidden" name="userid" value="1">
+                                    <button type="submit" class="btn btn-success" id="card-btn">Tempah Slot</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -50,8 +50,19 @@
                         </div>
                     </nav>
                 </div>
+                <!-- Teacher here -->
+                <div class="sb-sidenav-menu-heading">Kegunaan Pengajar</div>
+                <a class="nav-link" href="../view/class_teacher_list.php">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    Senarai Kelas Pengajar
+                </a>
+                <a class="nav-link" href="../view/class_teacher_add.php">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Tambah Kelas Baharu
+                </a>
+                <!-- Student sidebar here -->
                 <div class="sb-sidenav-menu-heading">Kelas Mengaji</div>
-                <a class="nav-link" href="../view/booking_avail_list.php">
+                <a class="nav-link" href="../view/class_avail_list.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Senarai Kelas
                 </a>
@@ -59,6 +70,29 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Kelas Saya
                 </a>
+                <!-- Admin sidebar here -->
+                <div class="sb-sidenav-menu-heading">Kegunaan Admin</div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapsePages">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Pengguna
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseUser" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../view/student_list.php">Senarai Pelajar</a>
+                        <a class="nav-link" href="../view/teacher_list.php">Senarai Pengajar</a>
+                    </nav>
+                </div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClass" aria-expanded="false" aria-controls="collapsePages">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Kelas
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseClass" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="../view/class_list.php">Senarai Kelas</a>
+                    </nav>
+                </div>
             </div>
         </div>
         <div class="sb-sidenav-footer">

@@ -1,12 +1,12 @@
 <!-- Session start here -->
 <?php
-    require '../model/booking_function.php';
+require '../model/class_function.php';
 ?>
 
 <html lang="en">
 <head>
     <?
-    $title="Senarai Tempahan Kelas Mengaji";
+    $title="Senarai Kelas Mengaji (Pengajar)";
     require '../global/header.php';
     ?>
     <style>
@@ -50,61 +50,53 @@ require '../global/navigation_header.php';
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
-                                <tr>
-                                    <th>Tarikh & Masa</th>
-                                    <th>Tajuk Kuliah</th>
-                                    <th>Yuran(RM)</th>
-                                    <th>Pengajar</th>
-                                    <th>Status Pembayaran</th>
-                                    <th>Action</th>
-                                </tr>
+                            <tr>
+                                <th>Tarikh</th>
+                                <th>Tajuk Kuliah</th>
+                                <th>Quota</th>
+                                <th>Yuran(RM)</th>
+                                <th>Lokasi</th>
+                                <th>Action</th>
+                            </tr>
                             </thead>
                             <tfoot>
-                                <tr>
-                                    <th>Tarikh & Masa</th>
-                                    <th>Tajuk Kuliah</th>
-                                    <th>Yuran(RM)</th>
-                                    <th>Pengajar</th>
-                                    <th>Status Pembayaran</th>
-                                    <th>Action</th>
-                                </tr>
+                            <tr>
+                                <th>Tarikh</th>
+                                <th>Tajuk Kuliah</th>
+                                <th>Quota</th>
+                                <th>Yuran(RM)</th>
+                                <th>Lokasi</th>
+                                <th>Action</th>
+                            </tr>
                             </tfoot>
                             <tbody class="text-center">
-                                <?
-                                    $user=getBookingList(1);
+                            <?
 
-                                    while($row=$user->fetch_assoc()){
+                            //Nanti ubah ke session id
+                            $class=getClassTeacherList(1);
+
+                            while($row=$class->fetch_assoc()){
                                 ?>
                                 <tr>
-                                    <td><? echo date('d F Y, h:i A', strtotime($row['classdate'])); ?></td>
+                                    <td><? echo date('d F Y, h:i A',strtotime($row['classdate'])) ?></td>
                                     <td><? echo $row['classsubject']; ?></td>
-                                    <td><? echo $row['classfee']; ?></td>
-                                    <td><? echo $row['teachername'] ?></td>
-                                    <td>
-                                        <?
-                                            if($row['bookingstatus']==1){
-                                                echo "Sudah Dibayar";
-                                            }else if($row['bookingstatus']==0){
-                                                echo "Belum Dibayar";
-                                            }else{
-                                                echo "Tidak Diketahui";
-                                            }
-                                        ?>
-                                    </td>
+                                    <td><? echo $row['classquota'] ?></td>
+                                    <td><? echo $row['classfee'] ?></td>
+                                    <td><? echo $row['mosquename'] ?></td>
                                     <td>
                                         <div class="row text-center">
                                             <div class="col-md-6">
-                                                <a href="../view/booking_view.php?id=<? echo $row['bookingid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
+                                                <a href="../view/class_admin_view.php?id=<? echo $row['classid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
-                                            <div class="col-md-6 delete" data-id="<? echo $row['bookingid'] ?>">
+                                            <div class="col-md-6">
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <?
-                                    }
-                                ?>
+                            }
+                            ?>
                             </tbody>
                         </table>
                     </div>

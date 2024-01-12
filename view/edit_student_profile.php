@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> <?php
+        <?
             $title="Edit Profile Pelajar";
             require '../global/header.php';
+
         ?>
     <link href="../resources/main.css" rel="stylesheet" />
     <style>
