@@ -108,20 +108,6 @@
                     <img src="https://shorturl.at/s0379" class="rounded-circle" alt="Profile">
                     <h2>Kevin Anderson</h2>
                     <h3>Admin</h3> <br>
-                    <!-- <div class="social-links mt-2">
-                      <a href="#" class="twitter">
-                        <i class="bi bi-twitter"></i>
-                      </a>
-                      <a href="#" class="facebook">
-                        <i class="bi bi-facebook"></i>
-                      </a>
-                      <a href="#" class="instagram">
-                        <i class="bi bi-instagram"></i>
-                      </a>
-                      <a href="#" class="linkedin">
-                        <i class="bi bi-linkedin"></i>
-                      </a>
-                    </div> -->
                   </div>
                 </div>
               </div>
@@ -222,30 +208,6 @@
                             <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                             <div class="col-md-8 col-lg-9">
                               <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
                             </div>
                           </div>
                           <div class="text-center">
