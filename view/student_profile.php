@@ -60,7 +60,7 @@
                 <div class="col-lg-4">
                   <div class="card shadow-sm">
                     <div class="card-header bg-transparent text-center">
-                        <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
+                        <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
                         <h3>Khalil Wahid</h3>
                         <a href="edit_student_profile.php" class="btn btn-primary">Edit Profile</a>
                     </div>

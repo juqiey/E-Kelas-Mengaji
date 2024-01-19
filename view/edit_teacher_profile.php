@@ -101,7 +101,7 @@
                       <div class="card-body">
                         <div class="account-settings">
                           <div class="user-profile">
-                            <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
+                            <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
                             <h5 class="user-name">Ustaz Ali</h5>
                             <div class="card-body" style="text-align: left">
                               <p class="mb-0">
