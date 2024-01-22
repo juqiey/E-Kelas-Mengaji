@@ -15,26 +15,59 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Cipta Akaun Baru</h3></div>
                                     <div class="card-body">
                                         <form>
                                             <div class="row mb-3">
+                                            <h3 class="text-left font-weight-light mb-3">Maklumat Pelajar</h3>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                         <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
-                                                        <label for="inputFirstName">First name</label>
+                                                        <label for="inputFirstName">Nama Penuh</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
-                                                        <label for="inputLastName">Last name</label>
+                                                        <input class="form-control" id="inputLastName" type="date" placeholder="" />
+                                                        <label for="birthdate">Tarikh Lahir</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputgender" type="text" placeholder="" />
+                                                        <label for="inputgender">Jantina</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="phone" type="tel" placeholder="" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+                                                        <label for="phone">No. Telefon</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputAddress" type="text" placeholder="" />
+                                                <label for="inputAddress">Alamat Penuh</label>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="poskod" type="number" placeholder="" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+                                                        <label for="poskod">Poskod</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="city" type="text" placeholder="" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+                                                        <label for="city">Bandar</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                                <label for="inputEmail">Email</label>
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
@@ -50,13 +83,28 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row mb-3">
+                                            <h3 class="text-left font-weight-light my-4">Maklumat Ibu/Bapa/Penjaga</h3>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                        <label for="inputFirstName">Nama Penuh</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="phone" type="tel" placeholder="" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+                                                        <label for="phone">No. Telefon</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.php">Create Account</a></div>
+                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.php">Daftar</a></div>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="login.php">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="login.php">Mempunyai akaun? Pergi ke login</a></div>
                                     </div>
                                 </div>
                             </div>

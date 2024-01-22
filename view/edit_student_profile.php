@@ -200,12 +200,6 @@
                               <input type="tel" class="form-control" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                             </div>
                           </div>
-                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                              <label for="email">Email</label>
-                              <input type="email" class="form-control" id="email" placeholder="">
-                            </div>
-                          </div>
                         </div> <br>
 
                         <div class="row gutters">
