@@ -66,8 +66,10 @@ if ($teacher) {
           <div class="col-lg-4">
             <div class="card shadow-sm">
               <div class="card-header bg-transparent text-center">
-                <!-- Fetch and display student profile picture, name, and username --> <?php // Your existing code for fetching and displaying student profile picture, name, and username ?> <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
-                <h3> <?php echo $teacher['teachername'];?> </h3>
+                <!-- Fetch and display student profile picture, name, and username --> 
+                <?php // Your existing code for fetching and displaying student profile picture, name, and username ?> 
+                <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
+                <h3> <?php echo $teacher['teachername']; ?> </h3>
                 <a href="edit\_teacher\_profile.php" class="btn btn-primary">Edit Profile</a>
               </div>
               <div class="card-body">
