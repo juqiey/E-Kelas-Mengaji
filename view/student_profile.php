@@ -4,16 +4,15 @@
   // Get the student ID from the URL parameter
   $student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
 
-  // Fetch the student profile using the getStudentProfile function
-  $student_profile = getStudentProfile ($student_id, $student_name, $student_username, $student_password, $student_class, $student_birth, $student_gender,$student_address, $student_num, $student_email);
+  // Fetch the teacher profile using the getTeacherProfile function
+  $student = getStudentProfile($student_id);
 
-  // Check if the student profile exists
-  if ($student_profile->num_rows > 0) {
-      $student = $student_profile->fetch_assoc();
+  // Check if the teacher profile exists
+  if ($student) {
+      // Display the teacher profile
   } else {
-      // Redirect to an error page if the student profile is not found
-      header('Location: error.php');
-      exit;
+      // Display an error message
+      echo "Error: Teacher not found.";
   }
 ?>
 
