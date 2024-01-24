@@ -1,31 +1,20 @@
 <?php
-require '../model/profile_function.php';
+  require '../model/profile_function.php';
 
-// Get the student ID from the URL parameter
-$student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
+  // Get the student ID from the URL parameter
+  $student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
 
-// Fetch the student profile using the getStudentProfile function
-$student_profile = getStudentProfile($student_id);
+  // Fetch the student profile using the getStudentProfile function
+  $student_profile = getStudentProfile ($student_id, $student_name, $student_username, $student_password, $student_class, $student_birth, $student_gender,$student_address, $student_num, $student_email);
 
-// Check if the student profile exists
-if ($student_profile->num_rows > 0) {
-    $student = $student_profile->fetch_assoc();
-
-    // Assign values to variables
-    $student_name = $student['studentname'];
-    $student_username = $student['studentusername'];
-    $student_password = $student['studentpassword'];
-    $student_class = $student['studentclass'];
-    $student_birth = $student['studentbirth'];
-    $student_gender = $student['studentgender'];
-    $student_address = $student['studentaddress'];
-    $student_num = $student['studentnum'];
-    $student_email = $student['studentemail'];
-} else {
-    // Redirect to an error page if the student profile is not found
-    header('Location: error.php');
-    exit;
-}
+  // Check if the student profile exists
+  if ($student_profile->num_rows > 0) {
+      $student = $student_profile->fetch_assoc();
+  } else {
+      // Redirect to an error page if the student profile is not found
+      header('Location: error.php');
+      exit;
+  }
 ?>
 
 <!DOCTYPE html>
