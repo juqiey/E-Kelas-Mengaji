@@ -1,6 +1,31 @@
 <?php
-//require '../model/profile_function.php';
-include '../db/config.php';
+require '../model/profile_function.php';
+
+// Get the student ID from the URL parameter
+$student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
+
+// Fetch the student profile using the getStudentProfile function
+$student_profile = getStudentProfile($student_id);
+
+// Check if the student profile exists
+if ($student_profile->num_rows > 0) {
+    $student = $student_profile->fetch_assoc();
+
+    // Assign values to variables
+    $student_name = $student['studentname'];
+    $student_username = $student['studentusername'];
+    $student_password = $student['studentpassword'];
+    $student_class = $student['studentclass'];
+    $student_birth = $student['studentbirth'];
+    $student_gender = $student['studentgender'];
+    $student_address = $student['studentaddress'];
+    $student_num = $student['studentnum'];
+    $student_email = $student['studentemail'];
+} else {
+    // Redirect to an error page if the student profile is not found
+    header('Location: error.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,24 +93,13 @@ include '../db/config.php';
                   <div class="card-header bg-transparent text-center">
                     <!-- Fetch and display student profile picture, name, and username -->
                     <?php
-                    $student_id = 1; // Assuming you want to display information for student with ID 1
-                    
-                    $sql = "SELECT * FROM student WHERE studentid = $student_id";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                      $row = $result->fetch_assoc();
-
-                      $student_name = $row['studentname'];
-                      $student_username = $row['studentusername'];
-                      $student_class = $row['studentclass'];
-                      ?>
-                      <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
-                      <h3>
-                        <?php echo $student_name; ?>
-                      </h3>
-                      <?php
-                    }
+                    // Your existing code for fetching and displaying student profile picture, name, and username
+                    ?>
+                    <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
+                    <h3>
+                      <?php echo $student['studentname']; ?>
+                    </h3>
+                    <?php
                     ?>
                     <a href="edit_student_profile.php" class="btn btn-primary">Edit Profile</a>
                   </div>
@@ -93,7 +107,7 @@ include '../db/config.php';
                     <!-- Display other student information -->
                     <p class="mb-0">
                       <strong class="pr-1">Username: </strong>
-                      <?php echo $student_username; ?>
+                      <?php echo $student['studentusername']; ?>
                     </p>
                     <p class="mb-0">
                       <strong class="pr-1">ID Pelajar: </strong>
@@ -101,7 +115,7 @@ include '../db/config.php';
                     </p>
                     <p class="mb-0">
                       <strong class="pr-1">Kelas: </strong>
-                      <?php echo $student_class; ?>
+                      <?php echo $student['studentclass']; ?>
                     </p>
                   </div>
                 </div>
@@ -119,32 +133,32 @@ include '../db/config.php';
                       <tr>
                         <th width="30%">Nama Penuh</th>
                         <td width="2%">:</td>
-                        <td>Khalil Bin Wahid</td>
+                        <td><?php echo htmlspecialchars($student['studentname']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">Tarikh Lahir</th>
-                        <td width="2%">:</td>
-                        <td>27/12/2009</td>
+			<td width="2%">:</td>
+                        <td><?php echo htmlspecialchars($student['studentbirth']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">Jantina</th>
                         <td width="2%">:</td>
-                        <td>Lelaki</td>
+                        <td><?php echo htmlspecialchars($student['studentgender']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">Alamat Rumah</th>
                         <td width="2%">:</td>
-                        <td>Miami, Terengganu</td>
+                        <td><?php echo htmlspecialchars($student['studentaddress']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">No. Telefon</th>
                         <td width="2%">:</td>
-                        <td>010-123 4567</td>
+                        <td><?php echo htmlspecialchars($student['studentnum']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">Email</th>
                         <td width="2%">:</td>
-                        <td>khalilwahid@gmail.com</td>
+                        <td><?php echo htmlspecialchars($student['studentemail']); ?></td>
                       </tr>
                     </table>
                   </div>
@@ -162,12 +176,12 @@ include '../db/config.php';
                       <tr>
                         <th width="30%">Nama Ibu/Bapa/Penjaga</th>
                         <td width="2%">:</td>
-                        <td>Wahid Bin Md Aziz</td>
+                        <td><?php echo htmlspecialchars($student['parentsname']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">No. Telefon</th>
                         <td width="2%">:</td>
-                        <td>010-123 4567</td>
+                        <td><?php echo htmlspecialchars($student['parentsnum']); ?></td>
                       </tr>
                     </table>
                   </div>

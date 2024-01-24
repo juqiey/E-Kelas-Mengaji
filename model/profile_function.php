@@ -1,24 +1,98 @@
 <?php
 include '../db/config.php';
 
-function getStudentProfile($student_id) {
-    $conn = db();
-    $sql = "SELECT * FROM student WHERE studentid = $student_id";
-    return $conn->query($sql);
+//Get the student profile by ID
+function getStudentProfile($student_id, $student_name, $student_username, $student_password, $student_class, $student_birth, $student_gender,
+$student_address, $student_num, $student_email) {
+    global $conn;
+    $sql = "SELECT * FROM student WHERE studentid = ? OR studentname = ? OR studentusername = ? OR studentpassword = ? OR studentclass = ? OR studentbirth = ? 
+    OR studentgender = ? OR studentaddress = ? OR studentnum = ? OR studentemail = ? OR parentsname = ? OR parentsnum = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('isssssssssss', $student_id, $student_name, $student_username, $student_password, $student_class, $student_birth, $student_gender, 
+    $student_address,  $student_num, $student_email,  $parents_name, $parents_num);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();  // Close the statement to free up resources
+    return $result;
 }
 
-function updateStudentProfile($student_id, $new_data) {
-    $conn = db();
-    // Implement the logic to update the student's profile based on the new data
-    // You can use mysqli UPDATE statement here
+
+// function getStudentProfile($student_id, &$student_name, &$student_username, &$student_password, &$student_class, &$student_birth, &$student_gender,
+//                            &$student_address, &$student_num, &$student_email) {
+//     global $conn;
+//     $sql = "SELECT * FROM student WHERE studentid = ?";
+//     $stmt = $conn->prepare($sql);
+//     $stmt->bind_param('i', $student_id);
+//     $stmt->execute();
+//     $result = $stmt->get_result();
+//     $row = $result->fetch_assoc();
+//     $stmt->close();
+
+//     // Assign the fetched data to the passed variable references
+//     $student_name = $row['studentname'];
+//     $student_username = $row['studentusername'];
+//     $student_password = $row['studentpassword'];
+//     $student_class = $row['studentclass'];
+//     $student_birth = $row['studentbirth'];
+//     $student_gender = $row['studentgender'];
+//     $student_address = $row['studentaddress'];
+//     $student_num = $row['studentnum'];
+//     $student_email = $row['studentemail'];
+// }
+
+// Update the student profile by ID
+function updateStudentProfile($student_id, $name, $class, $picture) {
+    global $conn;
+    $picture = file_get_contents($picture['tmp_name']);
+    $sql = "UPDATE student SET studentname = ?, studentclass = ?, profilepicture = ? WHERE studentid = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('sssi', $name, $class, $picture, $student_id); // Corrected the data types in bind_param
+    $result = $stmt->execute();
+    $stmt->close();  // Close the statement to free up resources
+    return $result;
 }
 
-function getParentGuardianInfo($student_id) {
-    $conn = db();
-    $sql = "SELECT * FROM parent_guardian WHERE studentid = $student_id";
-    return $conn->query($sql);
+function deleteStudentProfile($student_id) {}
+
+// function getTeacherProfile($teacher_id, $teacher_name, $teacher_phoneno, $teacher_email, $teacher_bank, $teacher_accountno,
+// $teacher_username, $teacher_password, $teacher_address) {
+//     global $conn;
+//     $sql = "SELECT * FROM teacher WHERE teacherid = ? OR teachername = ? OR teacherphoneno = ? OR teacheremail = ? OR teacherbank = ? 
+//     OR teacheraccountno = ? OR teacherusername = ? OR teacherpassword = ? OR teacheraddress = ?";  
+//     $stmt = $conn->prepare($sql);
+//     $stmt->bind_param("isssssss", $teacher_id, $teacher_name, $teacher_phoneno, $teacher_email, $teacher_bank, $teacher_accountno,
+//     $teacher_username, $teacher_password, $teacher_address);
+//     $result = $stmt->get_result();
+//     $stmt->close();
+//     return $result;
+// }
+
+function getTeacherProfile($teacher_id) {
+    global $conn;
+
+    $query = "SELECT * FROM teacher WHERE teacher_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $teacher_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row;
+    } else {
+        return false;
+    }
 }
 
-// Add more functions as needed for your specific requirements
+// function getTeacherProfile($conn, $teacher_id) {
+//     $sql = "SELECT teachername, teacherphoneno, teacheremail, teacherbank, teacheraccountno, teacherusername, teacherpassword, teacheraddress FROM teacher WHERE teacherid = ?";
+//     $stmt = $conn->prepare($sql);
+//     $stmt->bind_param("i", $teacher_id);
+//     $stmt->execute();
+//     $result = $stmt->get_result();
+//     $stmt->close();
+//     return $result;
+// }
+
 
 ?>
