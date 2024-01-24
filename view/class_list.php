@@ -82,7 +82,7 @@ require '../global/navigation_header.php';
                                     <td><? echo $row['classsubject']; ?></td>
                                     <td><? echo $row['classquota'] ?></td>
                                     <td><? echo $row['classfee'] ?></td>
-                                    <td><? echo $row['classlocation'] ?></td>
+                                    <td><? echo $row['mosquename'] ?></td>
                                     <td><? echo $row['teachername'] ?></td>
                                     <td>
                                         <div class="row text-center">

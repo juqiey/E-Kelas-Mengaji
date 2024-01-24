@@ -105,7 +105,7 @@ require '../global/navigation_header.php';
                                             <label for="date">Tarikh & Masa Kuliah<span class="text-danger">*</span></label>
                                             <div class="row">
                                                 <div class="col-md-5">
-                                                    <input type="date" class="form-control" name="date" id="date" value="2024-01-10">
+                                                    <input type="date" class="form-control" name="date" id="date" min="<?php echo date('Y-m-d'); ?>" value="<? echo date('Y-m-d') ?>">
                                                 </div>
                                                 <div class="d-none">
                                                     <label for="time">Masa</label><code>*</code>
@@ -123,7 +123,7 @@ require '../global/navigation_header.php';
                                     <div class="form-group">
                                         <div class="col-md-10">
                                             <label for="desc">Maklumat Kelas</label>
-                                            <textarea id="desc" class="form-control" name="desc" rows="3" required></textarea>
+                                            <textarea id="desc" class="form-control" name="desc" rows="4" required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -135,6 +135,8 @@ require '../global/navigation_header.php';
                                                     <label for="quota">Quota Kelas</label>
                                                     <input type="number" class="form-control" name="quota" min="0">
                                                 </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-5">
                                                     <label for="fee">Yuran (RM)</label>
                                                     <input type="number" class="form-control" name="fee" min="0">
