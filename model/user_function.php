@@ -51,4 +51,18 @@
         return $txt_result;
 
     }
+
+    function viewTeacher($id){
+        $conn=db();
+        $sql="SELECT * FROM teacher WHERE teacherid='$id'";
+
+        return $conn->query($sql);
+    }
+
+    function viewStudent($id){
+        $conn=db();
+        $sql="SELECT * FROM student WHERE studentid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>

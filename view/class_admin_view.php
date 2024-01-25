@@ -124,7 +124,13 @@ require '../global/navigation_header.php';
                             <!-- Photo here -->
                             <div class="row justify-content-center">
                                 <div class="col-md-6 text-center">
-                                    <img src="../img/<? echo $class['teacherurl'] ?>" class="image-cover">
+                                    <?
+                                        $profile=$class['teacherurl'];
+
+                                        if($class['teacherurl']==null)
+                                            $profile='default.jpg'
+                                    ?>
+                                    <img src="../img/<? echo $profile ?>" class="image-cover">
                                 </div>
                             </div>
                             <div class="row justify-content-center">

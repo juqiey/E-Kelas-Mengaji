@@ -87,7 +87,7 @@ require '../global/navigation_header.php';
                                     <td>
                                         <div class="row text-center">
                                             <div class="col-md-6">
-                                                <a href="../view/class_view.php?id=<? echo $row['classid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
+                                                <a href="../view/class_admin_view.php?id=<? echo $row['classid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
                                             <div class="col-md-6">
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>
