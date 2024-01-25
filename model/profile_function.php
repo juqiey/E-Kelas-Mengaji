@@ -16,15 +16,14 @@ function getStudentProfile($student_id){
     }
 }
 
-// Update the student profile by ID
-function updateStudentProfile($student_id, $name, $class, $picture) {
+
+function updateStudentProfile($student_id, $name, $class, $img_ucua_url, $img_action_url) {
     global $conn;
-    $picture = file_get_contents($picture['tmp_name']);
-    $sql = "UPDATE student SET studentname = ?, studentclass = ?, profilepicture = ? WHERE studentid = ?";
+    $sql = "UPDATE student SET studentname = ?, studentclass = ?, img_ucua = ?, img_action = ? WHERE studentid = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sssi', $name, $class, $picture, $student_id); // Corrected the data types in bind_param
+    $stmt->bind_param('ssssi', $name, $class, $img_ucua_url, $img_action_url, $student_id);
     $result = $stmt->execute();
-    $stmt->close();  // Close the statement to free up resources
+    $stmt->close();
     return $result;
 }
 

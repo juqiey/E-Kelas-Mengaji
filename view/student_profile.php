@@ -14,6 +14,27 @@
       // Display an error message
       echo "Error: Student not found.";
   }
+
+  // Handle image upload if the form was submitted
+  if (isset($_POST['upload_image'])) {
+    // Call the function to handle image uploads
+    $image_upload_errors = handleUCUAImageUploads($student_id);
+
+    // If there were no errors, update the student profile with the uploaded image URL
+    if (empty($image_upload_errors)) {
+        $result = updateStudentProfile($student_id, $student['studentname'], $student['studentclass'], $img_ucua_url, $img_action_url);
+
+        // Display a success message
+        if ($result) {
+            echo "<p class='alert alert-success'>Image uploaded successfully.</p>";
+        } else {
+            echo "<p class='alert alert-danger'>Error updating student profile.</p>";
+        }
+    } else {
+        // Display the errors
+        echo "<p class='alert alert-danger'>" . htmlspecialchars($image_upload_errors) . "</p>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +107,8 @@
                     <?php
                     // Your existing code for fetching and displaying student profile picture, name, and username
                     ?>
-                    <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
+                    <!-- <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile"> -->
+                    <img class="rounded-circle" src="<?php echo htmlspecialchars($student['profileurl']); ?>" alt="Profile">
                     <h3>
                       <?php echo $student['studentname']; ?>
                     </h3>
