@@ -12,7 +12,7 @@
       // Display the teacher profile
   } else {
       // Display an error message
-      echo "Error: Teacher not found.";
+      echo "Error: Student not found.";
   }
 ?>
 
@@ -24,6 +24,9 @@
   $title = "Profile Pelajar";
   require '../global/header.php';
   ?>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Pelajar</title>
   <link href="../resources/main.css" rel="stylesheet" />
   <style>
     .student-profile .card {
