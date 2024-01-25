@@ -1,21 +1,21 @@
 <?php
 require '../model/profile_function.php';
 
-// Function to handle image uploads
-function handleUCUAImageUploads($student_id) {
+//Function to handle image uploads
+function handleImageUpload($student_id, $teacher_id)
+{
     // Initialize errors array
     $errors = [];
 
-    // Handle img_ucua upload
-    if (!empty($_FILES['img_ucua']) && $_FILES['img_ucua']['name'] != null) {
-        $file_name = $_FILES['img_ucua']['name'];
-        $file_size = $_FILES['img_ucua']['size'];
-        $file_tmp = $_FILES['img_ucua']['tmp_name'];
+    if (!empty($_FILES['profileurl']) && $_FILES['profileurl']['name'] != null) {
+        $file_name = $_FILES['profileurl']['name'];
+        $file_size = $_FILES['profileurl']['size'];
+        $file_tmp = $_FILES['profileurl']['tmp_name'];
         $ext_name = explode('.', $file_name);
         $file_ext = strtolower(end($ext_name));
-        $img_ucua = date('Ymd_his') . '_' . str_replace(' ', '_', $file_name);
+        $profileurl = date('Ymd_his') . '_' . str_replace(' ', '_', $file_name);
         $target_dir = "../ucua_images/ucua_finding/";
-        $target_file = $target_dir . $img_ucua;
+        $target_file = $target_dir . $profileurl;
 
         $allowed_extensions = ["jpeg", "jpg", "png", "gif"];
         $max_file_size = 4 * 1024 * 1024; // Set the maximum file size to 4 MB
@@ -29,31 +29,23 @@ function handleUCUAImageUploads($student_id) {
         }
 
         if (empty($errors)) {
-            $filepath = "../ucua_images/ucua_finding/" . $img_ucua;
+            $filepath = "../ucua_images/ucua_finding/" . $profileurl;
             move_uploaded_file($file_tmp, $target_file);
-            $img_ucua_url = "/ucua_images/ucua_finding/" . $img_ucua;
-            return $img_ucua_url;
+            $profileurl_url = "/ucua_images/ucua_finding/" . $profileurl;
+            return $profileurl_url;
         }
     }
 
-    // Handle img_action upload
-    if (!empty($_FILES['img_action']) && $_FILES['img_action']['name'] != null) {
-        // ... (same as before)
-
-        if (empty($errors)) {
-            $filepath = "../ucua_images/ucua_action/" . $img_action;
-            move_uploaded_file($file_tmp, $target_file);
-            $img_action_url = "/ucua_images/ucua_action/" . $img_action;
-            return $img_action_url;
-        }
+    // If there were any errors, return an empty string or an error message
+    if (!empty($errors)) {
+        return implode('<br>', $errors);
+    } else {
+        return '';
     }
-
-    // If no images were uploaded or there were errors, return an empty string
-    return "";
 }
 
 // Call the function to handle image uploads
-$image_urls = handleUCUAImageUploads($student_id);
+$image_urls = handleImageUpload($student_id, $teacher_id);
 
 // Check if there were any errors during the upload process
 if (!empty($errors)) {
@@ -77,5 +69,4 @@ if (!empty($errors)) {
 }
 
 $conn->close();
-
 ?>
