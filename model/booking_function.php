@@ -25,11 +25,12 @@
 
     function viewBooking($id){
         $conn=db();
-        $sql="SELECT booking.*,student.*,class.*,teacher.*
+        $sql="SELECT booking.*,student.*,class.*,teacher.*,mosque.*
             FROM booking
             JOIN student ON booking.studentid=student.studentid
             JOIN class ON booking.classid=class.classid
             JOIN teacher ON class.teacherid = teacher.teacherid
+            JOIN mosque ON class.mosqueid = mosque.mosqueid
             WHERE booking.bookingid='$id'";
 
         return $conn->query($sql);
@@ -85,9 +86,9 @@
         $conn=db();
         $sql="INSERT INTO booking(bookingdate,bookingstatus,studentid,classid) VALUES(CURRENT_TIMESTAMP,'0','$userid','$classid')";
 
-        $result=$conn->query($sql);
+        $conn->query($sql);
 
-        return !$result?mysqli_error($conn):$result;
+        return $conn->insert_id;
     }
 
     function updateClassQuota($classid){

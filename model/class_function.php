@@ -79,4 +79,11 @@
 
         return $conn->query($sql);
     }
+
+    function searchClass($query){
+        $conn=db();
+        $sql="SELECT * FROM class WHERE classsubject LIKE '%$query%'";
+
+        return $conn->query($sql);
+    }
 ?>
