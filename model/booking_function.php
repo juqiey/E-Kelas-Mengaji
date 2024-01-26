@@ -104,4 +104,11 @@
 
         return $conn->query($sql);
     }
+
+    function getPaymentID($id){
+        $conn=db();
+        $sql="SELECT paymentid FROM payment WHERE bookingid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>

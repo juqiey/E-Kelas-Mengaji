@@ -219,7 +219,7 @@ require '../global/navigation_header.php';
                                 </tbody>
                             </table>
                             <div class="text-center justify-content-center">
-                                <button class="btn btn-success">Cetak Laporan</button>
+                                <a href="../view/pdf_class_report.php?id=<? echo $class['classid'] ?>" class="btn btn-success">Cetak Laporan</a>
                             </div>
                         </div>
                     </div>
