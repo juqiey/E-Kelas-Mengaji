@@ -1,39 +1,18 @@
 <?php
-  require '../model/profile_function.php';
+require '../model/profile_function.php';
 
-  // Get the student ID from the URL parameter
-  $student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
+// Get the student ID from the URL parameter
+$student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
 
-  // Fetch the teacher profile using the getTeacherProfile function
-  $student = getStudentProfile($student_id);
+// Fetch the student profile using the getstudentProfile function
+$student = getStudentProfile($student_id);
 
-  // Check if the teacher profile exists
-  if ($student) {
-      // Display the teacher profile
-  } else {
-      // Display an error message
-      echo "Error: Student not found.";
-  }
-
-  // Handle image upload if the form was submitted
-  if (isset($_POST['upload_image'])) {
-    // Call the function to handle image uploads
-    $image_upload_errors = handleUCUAImageUploads($student_id);
-
-    // If there were no errors, update the student profile with the uploaded image URL
-    if (empty($image_upload_errors)) {
-        $result = updateStudentProfile($student_id, $student['studentname'], $student['studentclass'], $img_ucua_url, $img_action_url);
-
-        // Display a success message
-        if ($result) {
-            echo "<p class='alert alert-success'>Image uploaded successfully.</p>";
-        } else {
-            echo "<p class='alert alert-danger'>Error updating student profile.</p>";
-        }
-    } else {
-        // Display the errors
-        echo "<p class='alert alert-danger'>" . htmlspecialchars($image_upload_errors) . "</p>";
-    }
+// Check if the student profile exists
+if ($student) {
+  // Display the student profile
+} else {
+  // Display an error message
+  echo "Error: student not found.";
 }
 ?>
 

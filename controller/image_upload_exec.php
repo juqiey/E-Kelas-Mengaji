@@ -1,5 +1,6 @@
 <?php
 require '../model/profile_function.php';
+require '../global/script.php';
 
 //Function to handle image uploads
 function handleImageUpload($student_id, $teacher_id)

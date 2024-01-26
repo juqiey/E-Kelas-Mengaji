@@ -1,3 +1,7 @@
+<?php
+  require '../model/profile_function.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
         <?
