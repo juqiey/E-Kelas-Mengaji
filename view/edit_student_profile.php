@@ -177,7 +177,7 @@
                           <div class="form-group">
                             <label for="studentemail">studentemail</label>
                             <input type="studentemail" class="form-control" id="studentemail"
-                              value="<?php echo $student_data['studentstudentemail']; ?>">
+                              value="<?php echo $student_data['studentemail']; ?>">
                           </div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -208,8 +208,8 @@
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
-                              <label for="studentname">Nama Penuh</label>
-                              <input type="text" class="form-control" id="studentname" placeholder=""
+                              <label for="parentsname">Nama Penuh</label>
+                              <input type="text" class="form-control" id="parentsname" placeholder=""
                                 value="<?php echo $student_data['parentsname'] ?>">
                             </div>
                           </div>
