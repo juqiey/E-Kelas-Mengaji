@@ -13,9 +13,6 @@
   require '../global/header.php';
   ?>
   <link href="../resources/main.css" rel="stylesheet" />
-  <script src="../js/updateStudentProfile.js"></script>
-  <form id="updateStudentForm" method="post" action="update_student_profile.php">
-
   <style>
     .account-settings .user-profile {
       margin: 0 0 1rem 0;
@@ -92,7 +89,8 @@
 
 <body class="sb-nav-fixed">
   <?php
-  require '../global/navigation_header.php';
+    require '../global/navigation_header.php';
+  ?>
   ?>
   <div id="layoutSidenav">
     <?php
@@ -263,6 +261,13 @@
       </main>
     </div>
   </div>
+  <!-- Include the script.php file here -->
+  <script src="../js/updateStudentProfile.js"></script>
+  <!--form action attributes-->
+  <form id="updateStudentForm" method="post" action="update_student_profile.php">
+    <!-- Hidden input field for student ID -->
+    <input type="hidden" name="student_id" id="student_id" value="<?php echo $student_data['studentid']; ?>">
+  </form>
   <?php
   require '../global/script.php'
     ?>
