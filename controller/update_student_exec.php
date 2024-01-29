@@ -14,3 +14,4 @@ updateStudentProfile($student_id, $formData['studentname'], $formData['studentbi
 // Redirect back to the student profile page
 header('Location: student_profile.php?id=' . $student_id);
 exit;
+?>
