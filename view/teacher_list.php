@@ -60,8 +60,6 @@ require '../global/navigation_header.php';
                                 <th>Jantina</th>
                                 <th>Nombor Telefon</th>
                                 <th>Emel</th>
-                                <th>Bank</th>
-                                <th>Nombor Akaun</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -73,8 +71,6 @@ require '../global/navigation_header.php';
                                 <th>Jantina</th>
                                 <th>Nombor Telefon</th>
                                 <th>Emel</th>
-                                <th>Bank</th>
-                                <th>Nombor Akaun</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
@@ -91,8 +87,6 @@ require '../global/navigation_header.php';
                                     <td><? echo $row['teachersex'] ?></td>
                                     <td><? echo $row['teacherphoneno'] ?></td>
                                     <td><? echo $row['teacheremail'] ?></td>
-                                    <td><? echo $row['teacherbank'] ?></td>
-                                    <td><? echo $row['teacheraccountno'] ?></td>
                                     <td>
                                         <div class="row text-center">
                                             <div class="col-md-6">

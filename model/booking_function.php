@@ -38,16 +38,16 @@
 
     function getDropdownBank($selected){
         $banks = [
-            'maybank' => 'Maybank',
-            'cimb' => 'CIMB Bank',
-            'public' => 'Public Bank',
-            'hongleong' => 'Hong Leong Bank',
-            'rhb' => 'RHB Bank',
-            'ambank' => 'AmBank',
-            'uob' => 'United Overseas Bank (UOB)',
-            'hsbc' => 'HSBC Bank',
-            'standardchartered' => 'Standard Chartered Bank',
-            'bankislam' => 'Bank Islam Malaysia',
+            'Maybank' => 'Maybank',
+            'CIMB' => 'CIMB Bank',
+            'Public' => 'Public Bank',
+            'Hong Leong' => 'Hong Leong Bank',
+            'RHB' => 'RHB Bank',
+            'AmBank' => 'AmBank',
+            'UOB' => 'United Overseas Bank (UOB)',
+            'HSBC' => 'HSBC Bank',
+            'Standard Chartered' => 'Standard Chartered Bank',
+            'Bank Islam' => 'Bank Islam Malaysia',
             // Add more banks as needed
         ];
 
