@@ -1,4 +1,48 @@
-</html>
+<?php
+require_once 'C:\Users\softphea\E-Kelas-Mengaji\db\config.php';
+
+// Check if the user has submitted the form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the user's input
+    $email = $_POST['inputEmail'];
+    $password = $_POST['inputPassword'];
+
+    // Prepare a SQL query to select the user from the database
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = db()->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if the user exists
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+
+            // Verify the password
+            if (password_verify($password, $user['password'])) {
+                // Password is correct, log the user in
+                session_start();
+                $_SESSION['user'] = $user;
+                header("Location: dashboard.php");
+                exit;
+            } else {
+                // Incorrect password
+                $error = "Incorrect password";
+            }
+        } else {
+            // User not found
+            $error = "User not found";
+        }
+
+        // Close the prepared statement
+        $stmt->close();
+    } else {
+        echo "Error preparing statement: " . db()->error;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
