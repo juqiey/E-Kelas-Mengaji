@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e179ef93-e606-4d2b-a283-4d39567680d8" name="Default Changelist" comment="finish class module">
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/booking_add_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/booking_add_exec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/booking_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/booking_function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/class_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/class_function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_admin_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_admin_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/teacher_add_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/teacher_add_exec.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/script.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/script.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/teacher_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/teacher_function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/teacher_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/teacher_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/teacher_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/teacher_list.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +37,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/dompdf/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -131,6 +136,7 @@
       <workItem from="1706101747167" duration="5177000" />
       <workItem from="1706187969292" duration="7336000" />
       <workItem from="1706273673732" duration="9190000" />
+      <workItem from="1706536685953" duration="8834000" />
     </task>
     <task id="LOCAL-00001" summary="test view">
       <created>1703089717482</created>
@@ -335,7 +341,28 @@
       <option name="project" value="LOCAL" />
       <updated>1706194956272</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="mosque list">
+      <created>1706524283679</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1706524283679</updated>
+    </task>
+    <task id="LOCAL-00031" summary="teacher add, borang belum siap">
+      <created>1706524311284</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1706524311284</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add teacher module">
+      <created>1706541653214</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1706541653214</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,9 +381,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="database ekelas mengaji" />
-    <MESSAGE value="connection database" />
-    <MESSAGE value="push script.php &amp; calendar plugin" />
     <MESSAGE value="push header.php" />
     <MESSAGE value="fix header.php &amp; login.php" />
     <MESSAGE value="new database" />
@@ -379,7 +403,10 @@
     <MESSAGE value="Fix class module" />
     <MESSAGE value="settle view module" />
     <MESSAGE value="default picture" />
-    <option name="LAST_COMMIT_MESSAGE" value="default picture" />
+    <MESSAGE value="mosque list" />
+    <MESSAGE value="teacher add, borang belum siap" />
+    <MESSAGE value="add teacher module" />
+    <option name="LAST_COMMIT_MESSAGE" value="add teacher module" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="264" key="#SQL_Resolution_Scopes" timestamp="1703685709017">
@@ -402,18 +429,18 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="591" y="111" key="RollbackChangesDialog/0.0.1536.816@0.0.1536.816" timestamp="1703766052080" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706194959861">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706541654974">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706194959861" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706541654974" />
     <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706273680041">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816@0.0.1536.816" timestamp="1706273680041" />
-    <state x="550" y="121" key="git4idea.branch.GitSmartOperationDialog" timestamp="1703573863924">
+    <state x="550" y="121" key="git4idea.branch.GitSmartOperationDialog" timestamp="1706542551606">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="550" y="121" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.816@0.0.1536.816" timestamp="1703573863924" />
+    <state x="550" y="121" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.816@0.0.1536.816" timestamp="1706542551606" />
     <state x="425" y="185" key="run.anything.popup" timestamp="1706108201092">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

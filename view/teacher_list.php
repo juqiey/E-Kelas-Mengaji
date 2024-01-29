@@ -93,7 +93,7 @@ require '../global/navigation_header.php';
                                                 <a href="../view/teacher_view.php?id=<? echo $row['teacherid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
                                             <div class="col-md-6">
-                                                <a href="" class="btn btn-danger" id="card-btn">Padam</a>
+                                                <a href="" class="btn btn-danger delete" data-name="<? echo $row['teachername'] ?>" data-id="<? echo $row['teacherid'] ?> id="card-btn">Padam</a>
                                             </div>
                                         </div>
                                     </td>
@@ -113,5 +113,27 @@ require '../global/navigation_header.php';
 <?
 require '../global/script.php';
 ?>
+<script>
+    // Delete data
+    $(document).on('click', '.delete', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        var name = $(this).data('name')
+
+        Swal.fire({
+            title: "Padam Akaun Ini?",
+            text: "Akaun "+name+" akan dipadam secara kekal",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: 'Yes!',
+            confirmButtonColor: '#E71C1C',
+        })
+            .then((value) => {
+                if (value.isConfirmed) {
+                    location.href = "../controller/teacher_delete_exec.php?id="+id;
+                }
+            });
+    });
+</script>
 </body >
 </html>

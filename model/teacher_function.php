@@ -65,4 +65,11 @@
         return $conn->query($sql);
 
     }
+
+    function deleteTeacher($id){
+        $conn=db();
+        $sql="DELETE FROM teacher WHERE teacherid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>

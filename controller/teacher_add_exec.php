@@ -21,7 +21,7 @@
         $file_tmp =$_FILES['profileurl']['tmp_name'];
         $ext_name = explode('.', $file_name);
         $file_ext=strtolower(end($ext_name));
-        $profileurl = "profile_".$username;
+        $profileurl = "profile_".str_replace(' ', '_', $file_name);
         $target_dir = "../img/";
         $target_file = $target_dir . $profileurl;
 

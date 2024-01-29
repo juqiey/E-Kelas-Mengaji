@@ -23,8 +23,8 @@
             box-shadow: -6px 14px 12px 2px rgba(90, 90, 90, .12);
         }
         .image-cover {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 60%;
             margin: 20px;
 
@@ -158,7 +158,7 @@ require '../global/navigation_header.php';
                                 </div>
                             </div>
                             <div class="row justify-content-center mt-4 mb-4">
-                                <div class="col-md-6">
+                                <div class="col-md-6 text-center">
                                     <button type="submit" class="btn btn-success" id="card-btn">Simpan</button>
                                 </div>
                             </div>
