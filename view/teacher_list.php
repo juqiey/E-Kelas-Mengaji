@@ -45,6 +45,9 @@ require '../global/navigation_header.php';
                         <h3>
                             <i class="fas fa-table me-1"></i>
                             Senarai Pengajar
+                            <a href="../view/teacher_add.php" class="btn btn-md btn-success" style="color:#ebedef" >
+                                Tambah Pengajar
+                            </a>
                         </h3>
                     </div>
                     <div class="card-body">

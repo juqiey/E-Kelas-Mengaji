@@ -151,8 +151,8 @@ require '../global/navigation_header.php';
                                     <div class="form-group">
                                         <div class="col-md-10">
                                             <label for="mosque">Lokasi (Masjid)</label>
-                                            <select name="mosque" id="mosque" class="form-control">
-                                                <? echo getDropdownMosque(''); ?>
+                                            <select name="mosque" id="mosque" class="form-select">
+                                                <? echo getDropdownMosque('') ?>
                                             </select>
                                         </div>
                                     </div>
