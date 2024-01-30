@@ -1,0 +1,29 @@
+<?
+    include '../db/config.php';
+
+    //this function to clean data that passed
+    function clean($str) {
+        $conn=db();
+        $str = @trim($str);
+        if(get_magic_quotes_gpc()) {
+            $str = stripslashes($str);
+        }
+        return mysqli_real_escape_string($conn,$str);
+    }
+
+    function viewAdmin($id){
+        $conn=db();
+        $sql="SELECT * FROM admin WHERE adminid='$id'";
+
+        return $conn->query($sql);
+    }
+
+    function updateAdmin($id,$name,$email,$phone,$poskod,$city,$address){
+        $conn=db();
+        $sql="UPDATE admin SET adminname='$name, adminemail='$email',
+                   adminphone='$phone',adminposkod='$poskod',
+                   admincity='$city',adminaddress='$address' WHERE adminid='$id'";
+
+        return $conn->query($sql);
+    }
+?>
