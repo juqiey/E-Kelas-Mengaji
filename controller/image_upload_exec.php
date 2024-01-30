@@ -15,7 +15,7 @@ function handleImageUpload($student_id, $teacher_id)
         $ext_name = explode('.', $file_name);
         $file_ext = strtolower(end($ext_name));
         $profileurl = date('Ymd_his') . '_' . str_replace(' ', '_', $file_name);
-        $target_dir = "../ucua_images/ucua_finding/";
+        $target_dir = "../img/";
         $target_file = $target_dir . $profileurl;
 
         $allowed_extensions = ["jpeg", "jpg", "png", "gif"];

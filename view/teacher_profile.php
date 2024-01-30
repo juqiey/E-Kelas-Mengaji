@@ -1,17 +1,12 @@
 <?php
   require '../model/profile_function.php';
 
-  // Get the teacher ID from the URL parameter
   $teacher_id = isset($_GET['id']) ? intval($_GET['id']) : 1;
-
-  // Fetch the teacher profile using the getTeacherProfile function
   $teacher = getTeacherProfile($teacher_id);
 
   // Check if the teacher profile exists
   if ($teacher) {
-    // Display the teacher profile
   } else {
-    // Display an error message
     echo "Error: Teacher not found.";
   }
 ?>
@@ -82,13 +77,11 @@
             <div class="col-lg-4">
               <div class="card shadow-sm">
                 <div class="card-header bg-transparent text-center">
-                  <!-- Fetch and display student profile picture, name, and username -->
-                  <?php // Your existing code for fetching and displaying student profile picture, name, and username ?>
                   <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
                   <h3>
                     <?php echo $teacher['teachername']; ?>
                   </h3>
-                  <a href="edit\_teacher\_profile.php" class="btn btn-primary">Edit Profile</a>
+                  <a href="edit_teacher_profile.php" class="btn btn-primary">Edit Profile</a>
                 </div>
                 <div class="card-body">
                   <p class="mb-0">
