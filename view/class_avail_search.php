@@ -65,7 +65,7 @@ require '../global/navigation_header.php';
                             $class=searchClass($query);
 
                             if(mysqli_num_rows($class)==0){ ?>
-                                <div class="row text-center">
+                                <div class="row text-center justify-content-center">
                                     <div class="col-md-6">
                                         <h3>Harap Maaf, carian anda tidak tersedia</h3>
                                     </div>
