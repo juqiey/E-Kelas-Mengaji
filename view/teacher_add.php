@@ -82,6 +82,12 @@ require '../global/navigation_header.php';
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <div class="col-md-10">
+                                            <label for="teacheric">Nombor Kad Pengenalan</label>
+                                            <input type="text" class="form-control" name="teacheric" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <div class="col-md-9">
                                             <label for="teacherdob">Tarikh Lahir</label>
                                             <input type="date" name="teacherdob" class="form-control" required>

@@ -57,10 +57,10 @@
         return $dropdownHTML;
     }
 
-    function addTeacher($name,$sex,$dob,$phoneno,$email,$bank,$accountno,$username,$profileurl){
+    function addTeacher($name,$sex,$dob,$phoneno,$email,$bank,$accountno,$username,$profileurl,$ic){
         $conn=db();
-        $sql="INSERT INTO teacher(teachername,teachersex,teacherdob,teacherphoneno,teacheremail,teacherbank,teacheraccountno,teacherusername,teacherurl)
-            VALUES('$name','$sex','$dob','$phoneno','$email','$bank','$accountno','$username','$profileurl')";
+        $sql="INSERT INTO teacher(teachername,teachersex,teacherdob,teacherphoneno,teacheremail,teacherbank,teacheraccountno,teacherusername,teacherurl,password)
+            VALUES('$name','$sex','$dob','$phoneno','$email','$bank','$accountno','$username','$profileurl','$ic')";
 
         return $conn->query($sql);
 

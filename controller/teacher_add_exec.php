@@ -4,6 +4,7 @@
 
     $name=$_POST['teachername'];
     $sex=$_POST['teachersex'];
+    $ic=$_POST['teacheric'];
     $dob=$_POST['teacherdob'];
     $phoneno=$_POST['teacherphoneno'];
     $email=clean($_POST['teacheremail']);
@@ -45,7 +46,7 @@
         }
     }
 
-    $result=addTeacher($name,$sex,$dob,$phoneno,$email,$bank,$accountno,$username,$profileurl);
+    $result=addTeacher($name,$sex,$dob,$phoneno,$email,$bank,$accountno,$username,$profileurl,$ic);
 ?>
 <script>
     $(document).ready(function(){
