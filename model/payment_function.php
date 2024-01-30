@@ -27,4 +27,14 @@
 
         return $conn->query($sql);
     }
+
+    function viewPayment($id){
+        $conn=db();
+        $sql="SELECT p.*,b.*,s.* FROM payment p
+            JOIN booking b ON p.bookingid=b.bookingid
+            JOIN student s ON b.studentid=s.studentid
+            WHERE paymentid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>

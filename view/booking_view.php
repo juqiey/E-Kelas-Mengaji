@@ -65,6 +65,15 @@
         .text{
             font-size: 18px;
         }
+        .image-cover {
+            width: 200px;
+            height: 200px;
+            border-radius: 60%;
+            margin: 20px;
+
+            object-fit: cover;
+            object-position: center right;
+        }
     </style>
 </head>
 <body class="sb-nav-fixed">
@@ -98,7 +107,7 @@ require '../global/navigation_header.php';
                             <div class="row justify-content-center">
                                 <div class="col-md-6 text-center">
                                     <p class="text">Tarikh: <b><? echo date('d F Y, h:i A', strtotime($booking['classdate'])); ?></b></p>
-                                    <p class="text">Lokasi: <b><? echo $booking['classlocation']; ?></b></p>
+                                    <p class="text">Lokasi: <b><? echo $booking['mosquename']; ?></b></p>
                                 </div>
                                 <div class="col-md-6 text-center">
                                     <p class="text">Yuran (RM): <b>RM<? echo $booking['classfee'];?></b></p>
@@ -106,7 +115,43 @@ require '../global/navigation_header.php';
                                 </div>
                             </div>
                             <div class="text-center">
-                                <p class="text">Pengajar: <b><? echo $booking['teachername']; ?></b></p>
+                                <hr>
+                                <p style="font-size:16px;font-style: italic">Butiran Pengajar</p>
+                                <hr>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <?
+                                    $profile=$booking['teacherurl'];
+
+                                    if($booking['teacherurl']==null)
+                                        $profile='default.jpg'
+                                    ?>
+                                    <img src="../img/<? echo $profile ?>" class="image-cover">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Nama: <b><? echo $booking['teachername']; ?></b></p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Tarikh Lahir: <b><? echo date('d F Y',strtotime($booking['teacherdob'])) ?></b></p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Jantina: <b><? echo $booking['teachersex']; ?></b></p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Nombor Telefon: <b><? echo $booking['teacherphoneno']; ?></b></p>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Emel: <b><? echo $booking['teacheremail']; ?></b></p>
+                                </div>
                             </div>
                             <? if($booking['bookingstatus']==0){ ?>
                             <div class="row justify-content-center mt-4 mb-4">
@@ -114,6 +159,17 @@ require '../global/navigation_header.php';
                                     <a href="../view/booking_payment.php?id=<? echo $booking['bookingid'] ?>" class="btn btn-success" id="card-btn">Bayar</a>
                                 </div>
                             </div>
+                            <? }?>
+                            <?
+                                if($booking['bookingstatus']==1){
+                                    $payment=getPaymentID($booking['bookingid'])->fetch_assoc();
+                            ?>
+
+                                <div class="row justify-content-center mt-4 mb-4">
+                                    <div class="col-md-3">
+                                        <a href="../view/pdf_payment.php?id=<? echo $payment['paymentid'] ?>" class="btn btn-success" id="card-btn">Cetak Resit</a>
+                                    </div>
+                                </div>
                             <? }?>
                         </div>
                     </div>
