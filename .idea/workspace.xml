@@ -20,24 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e179ef93-e606-4d2b-a283-4d39567680d8" name="Default Changelist" comment="finish class module">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/booking_add_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/booking_add_exec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/login_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login_exec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/booking_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/booking_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/booking_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_admin_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_admin_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_avail_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_avail_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_avail_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_avail_search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_teacher_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_teacher_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_teacher_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_teacher_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/dashboard_teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/dashboard_teacher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -417,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706627738288</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="update session">
+      <created>1706634682751</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1706634682751</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +427,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add booking_payment.php" />
     <MESSAGE value="edit butiran pembayar dalam booking_payment.php" />
     <MESSAGE value="add payment_add_exec.php" />
     <MESSAGE value="finish payment_add_exec.php and sweetalert" />
@@ -461,7 +451,8 @@
     <MESSAGE value="login" />
     <MESSAGE value="edit profile student" />
     <MESSAGE value="class_avail_search.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="class_avail_search.php" />
+    <MESSAGE value="update session" />
+    <option name="LAST_COMMIT_MESSAGE" value="update session" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="264" key="#SQL_Resolution_Scopes" timestamp="1703685709017">
@@ -500,10 +491,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="591" y="111" key="RollbackChangesDialog/0.0.1536.816@0.0.1536.816" timestamp="1703766052080" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706627739502">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706634711302">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706627739502" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706634711302" />
     <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706619966124">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

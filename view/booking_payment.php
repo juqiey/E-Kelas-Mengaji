@@ -191,7 +191,7 @@
                         <div class="inputbox mt-3">
                             <div class="row mt-3">
                                 <div class="col-md-6">
-                                    <div class="custom-select">
+                                    <div>
                                         <select id="bankSelect" class="form-control" name="bank" required="required">
                                             <option value="" disabled selected>Pilih Bank</option>
                                             <? echo getDropdownBank(''); ?>
@@ -208,7 +208,7 @@
                                 <? $transactionid=generateBankTransactionId(); ?>
                                 <span>ID Transaksi: <?php echo $transactionid; ?></span>
                                 <!-- Hidden input here -->
-                                <input type="hidden" name="transactionid" value="<?php echo $transactionid; ?>">
+                                <input type="hidden" name="transactionid" value="<? echo $transactionid; ?>">
                                 <input type="hidden" name="classfee" value="<? echo $pay['classfee'] ?>">
                                 <input type="hidden" name="bookingid" value="<? echo $pay['bookingid'] ?>">
                             </div>
