@@ -3,7 +3,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect to the welcome page
 if (isset($_SESSION["auth"]) && $_SESSION["auth"] === true) {
-    header("location: dashboard_teacher.php");
+    header("location: dashboard.php");
     exit;
 }
 

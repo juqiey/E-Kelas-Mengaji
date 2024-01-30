@@ -1,4 +1,6 @@
 <?php
+session_start();
+require '../global/session_check.php';
   require '../model/profile_function.php';
 
   $teacher_id = isset($_GET['id']) ? intval($_GET['id']) : 1;
@@ -77,7 +79,12 @@
             <div class="col-lg-4">
               <div class="card shadow-sm">
                 <div class="card-header bg-transparent text-center">
-                  <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
+                    <?
+                    $profile=$teacher['teacherurl'];
+                    if($profile==null)
+                        $profile="default.jpg";
+                    ?>
+                  <img class="rounded-circle" src="../img/<? echo $profile ?>" alt="Profile">
                   <h3>
                     <?php echo $teacher['teachername']; ?>
                   </h3>

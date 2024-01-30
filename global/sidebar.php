@@ -6,7 +6,7 @@ $user=getAuthInfo($_SESSION['id']);
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="../view/dashboard_teacher.php">
+                <a class="nav-link" href="../view/dashboard.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>

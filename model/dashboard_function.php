@@ -39,4 +39,16 @@
         $result=$conn->query($sql);
         return $result->fetch_object()->total;
     }
+
+    function getBookingList($id){
+        $conn=db();
+        $sql="SELECT booking.*,student.*,class.*,teacher.*
+                FROM booking
+                JOIN student ON booking.studentid=student.studentid
+                JOIN class ON booking.classid=class.classid
+                JOIN teacher ON class.teacherid = teacher.teacherid
+                WHERE booking.studentid='$id'";
+
+        return $conn->query($sql);
+    }
 ?>
