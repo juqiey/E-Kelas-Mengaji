@@ -1,5 +1,7 @@
 <!-- Session start here -->
 <?php
+    session_start();
+    require '../global/session_check.php';
     require '../model/booking_function.php';
 ?>
 
@@ -71,7 +73,7 @@ require '../global/navigation_header.php';
                             </tfoot>
                             <tbody class="text-center">
                                 <?
-                                    $user=getBookingList(1);
+                                    $user=getBookingList($_SESSION['id']);
 
                                     while($row=$user->fetch_assoc()){
                                 ?>

@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Check if the user is already logged in, if yes then redirect to the welcome page
+/*// Check if the user is already logged in, if yes then redirect to the welcome page
 if (isset($_SESSION["auth"]) && $_SESSION["auth"] === true) {
-    header("location: dashboard.php");
+    header("location: dashboard_teacher.php");
     exit;
-}
+}*/
 
 session_destroy();
 
@@ -33,12 +33,12 @@ $navname = "login";
                 roleDiv.style.display = 'none';
                 studentTab.classList.add('active');
                 staffTab.classList.remove('active');
-                userRoleInput.value = 'student';
+                userRoleInput.value = '3'; // Set to 3 for 'Admin'
             } else if (role === 'staff') {
                 roleDiv.style.display = 'block';
                 staffTab.classList.add('active');
                 studentTab.classList.remove('active');
-                userRoleInput.value = 'teacher';
+                userRoleInput.value = '2'; // Set to 2 for 'Pengajar'
             }
         }
 
@@ -53,7 +53,7 @@ $navname = "login";
 
             // Set default value if no radio button is selected
             if ($('input[name="userRole"]:checked').length === 0) {
-                $('#userRole').val('student');
+                $('#userRole').val('1'); // Set to 1 for default value
             }
         });
     </script>
@@ -118,8 +118,6 @@ $navname = "login";
                                     </div>
                                 </form>
                             </div>
-
-
                             <div class="card-footer text-center py-3">
                                 <div class="small">
                                     <a href="register.php">Anda tiada akaun? Daftar sekarang!</a>

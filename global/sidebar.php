@@ -1,3 +1,6 @@
+<?
+$user=getAuthInfo($_SESSION['id']);
+?>
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
@@ -78,8 +81,17 @@
                 </div>
             </div>
         </div>
+        <?
+            if($_SESSION['role']==3){
+                $name=$user->studentusername;
+            } else if($_SESSION['role']==2){
+                $name=$user->teacherusername;
+            }
+        ?>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
+            <div class="small">
+                Logged in as: <? echo $name ?>
+            </div>
             <!-- Username here -->
         </div>
     </nav>

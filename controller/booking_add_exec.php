@@ -3,7 +3,7 @@
     require '../global/script.php';
 
     $classid=clean($_POST['classid']);
-    $userid=3; //Session id here
+    $userid=clean($_POST['userid']); //Session id here
 
     $result=addBooking($classid,$userid);
 

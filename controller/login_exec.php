@@ -8,23 +8,23 @@ $userRole = ($_POST['userRole']);
 
 echo $studentemail.' '.$password.' '.$userRole;
 
-if($userRole=='student'){
+if($userRole=='3'){
     $login=loginStudent($studentemail);
 }else if($userRole==2){
     $login=loginTeacher($studentemail);
-} /*else if($userRole==3){
-    $login=log
-}*/
+}
 
 
 if (mysqli_num_rows($login)>0){
 
+    $login=$login->fetch_assoc();
+
   if (verifyPassword($password,$login['password'])){
     session_regenerate_id(true);
     // Store data in session variables
-    if($userRole==3){
+    if($userRole==1){
         $_SESSION["auth"] = true;
-        $_SESSION["adminid"] = $login['adminid'];
+        $_SESSION["id"] = $login['adminid'];
         $_SESSION["adminusername"] = $login['adminusername'];
         $_SESSION["adminpassword"] = $login['adminpassword'];
         $_SESSION["adminname"] = $login['adminname'];
@@ -36,26 +36,27 @@ if (mysqli_num_rows($login)>0){
         $_SESSION["profileurl"] = $login['profileurl'];
     }
 
-    if($userRole=='student'){
-        $_SESSION["studentid"] = $login['studentid'];
-        $_SESSION["studentname"] = $login['studentname'];
+    if($userRole==3){
+        $_SESSION["auth"] = true;
+        $_SESSION["id"] = $login['studentid'];
+        $_SESSION["name"] = $login['studentname'];
         $_SESSION["studentusername"] = $login['studentusername'];
-        $_SESSION["studentpassword"] = $login['studentpassword'];
-        $_SESSION["studentclass"] = $login['studentclass'];
-        $_SESSION["studentbirth"] = $login['studentbirth'];
-        $_SESSION["studentgender"] = $login['studentgender'];
+        $_SESSION["password"] = $login['password'];
+        $_SESSION["studentdob"] = $login['studentdob'];
+        $_SESSION["studentgender"] = $login['studentsex'];
         $_SESSION["studentaddress"] = $login['studentaddress'];
-        $_SESSION["studentnum"] = $login['studentnum'];
+        $_SESSION["studentphoneno"] = $login['studentphoneno'];
         $_SESSION["studentemail"] = $login['studentemail'];
         $_SESSION["parentsname"] = $login['parentsname'];
-        $_SESSION["parentsnum"] = $login['parentsnum'];
-        $_SESSION["profileurl"] = $login['profileurl'];
-        $_SESSION["studentposkod"] = $login['studentposkod'];
+        $_SESSION["parentsphoneno"] = $login['parentsphoneno'];
+        $_SESSION["studenturl"] = $login['studenturl'];
+        $_SESSION["studentposkod"] = $login['studentpostcode'];
         $_SESSION["studentcity"] = $login['studentcity'];
     }
 
     if($userRole==2){
-        $_SESSION["teacherid"] = $login['teacherid'];
+        $_SESSION["auth"] = true;
+        $_SESSION["id"] = $login['teacherid'];
         $_SESSION["teachername"] = $login['teachername'];
         $_SESSION["teacherphoneno"] = $login['teacherphoneno'];
         $_SESSION["teacheremail"] = $login['teacheremail'];
@@ -71,7 +72,7 @@ if (mysqli_num_rows($login)>0){
 
     $_SESSION["role"] = $userRole;
 
-    echo "<script>window.location.href = '../view/test.php';</script>";
+    echo "<script>window.location.href = '../view/dashboard_teacher.php';</script>";
     exit();
   } else {
     $fail = 'Failed to login. Invalid Username or Password.';

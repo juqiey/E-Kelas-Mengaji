@@ -1,5 +1,8 @@
 <?
+session_start();
+require '../global/session_check.php';
 require '../model/class_function.php';
+
 
 $id=$_GET['id'];
 $class=viewClass($id)->fetch_assoc();
@@ -149,7 +152,7 @@ require '../global/navigation_header.php';
                             <div class="row justify-content-center mt-4 mb-4">
                                 <div class="col-md-6 text-center">
                                     <input type="hidden" name="classid" value="<? echo $class['classid'] ?>">
-                                    <input type="hidden" name="userid" value="1"><!-- Session here -->
+                                    <input type="hidden" name="userid" value="<? echo $_SESSION['id'] ?>"><!-- Session here -->
                                     <button type="submit" class="btn btn-success" id="card-btn">Tempah Slot</button>
                                 </div>
                             </div>

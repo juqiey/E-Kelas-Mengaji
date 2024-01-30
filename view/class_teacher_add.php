@@ -1,4 +1,6 @@
 <?
+session_start();
+require '../global/session_check.php';
 require '../model/class_function.php';
 
 ?>

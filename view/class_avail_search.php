@@ -1,8 +1,12 @@
 <!-- Session start here -->
 <?
+
+require '../global/session_check.php';
 require '../model/class_function.php';
+echo $_SESSION['role'];
 
 $query=$_GET['query']?:'';
+
 ?>
 
 <html lang="en">

@@ -1,6 +1,10 @@
 <!-- Session start here -->
 <?
+    session_start();
+    require "../global/session_check.php";
     require '../model/class_function.php';
+
+    echo $_SESSION['role'];
 ?>
 
 <html lang="en">

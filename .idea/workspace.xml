@@ -23,27 +23,35 @@
       <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/teacher_add_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/teacher_add_exec.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/booking_add_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/booking_add_exec.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/login_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login_exec.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global/script.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/script.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/teacher_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/teacher_function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/teacher_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/teacher_add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/teacher_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/teacher_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/booking_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/booking_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/booking_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/class_admin_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_admin_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/class_avail_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_avail_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/class_avail_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_avail_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/class_teacher_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_teacher_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/class_teacher_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_teacher_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/class_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/dashboard_teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/dashboard_teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/dompdf/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="juqiey" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,8 +66,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cpbdsystem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunManager" selected="JavaScript Debug.class_avail_list.php">
     <configuration name="booking_avail_list.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/E-Kelas-Mengaji/view/booking_avail_list.php" useBuiltInWebServerPort="true">
@@ -137,6 +146,10 @@
       <workItem from="1706187969292" duration="7336000" />
       <workItem from="1706273673732" duration="9190000" />
       <workItem from="1706536685953" duration="8834000" />
+      <workItem from="1706579718362" duration="6650000" />
+      <workItem from="1706610254155" duration="1198000" />
+      <workItem from="1706619609407" duration="4665000" />
+      <workItem from="1706625473181" duration="5306000" />
     </task>
     <task id="LOCAL-00001" summary="test view">
       <created>1703089717482</created>
@@ -362,7 +375,49 @@
       <option name="project" value="LOCAL" />
       <updated>1706541653214</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Update script.php">
+      <created>1706545996360</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1706545996360</updated>
+    </task>
+    <task id="LOCAL-00034" summary="pdf monthly report">
+      <created>1706584364477</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1706584364477</updated>
+    </task>
+    <task id="LOCAL-00035" summary="search class">
+      <created>1706588571290</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1706588571290</updated>
+    </task>
+    <task id="LOCAL-00036" summary="login">
+      <created>1706626992806</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1706626992806</updated>
+    </task>
+    <task id="LOCAL-00037" summary="edit profile student">
+      <created>1706627413496</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1706627413496</updated>
+    </task>
+    <task id="LOCAL-00038" summary="class_avail_search.php">
+      <created>1706627738288</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1706627738288</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,12 +436,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="push header.php" />
-    <MESSAGE value="fix header.php &amp; login.php" />
-    <MESSAGE value="new database" />
-    <MESSAGE value="update booking_function &amp; booking_list" />
-    <MESSAGE value="add booking_view.php" />
-    <MESSAGE value="update booking_view.php" />
     <MESSAGE value="add booking_payment.php" />
     <MESSAGE value="edit butiran pembayar dalam booking_payment.php" />
     <MESSAGE value="add payment_add_exec.php" />
@@ -406,7 +455,13 @@
     <MESSAGE value="mosque list" />
     <MESSAGE value="teacher add, borang belum siap" />
     <MESSAGE value="add teacher module" />
-    <option name="LAST_COMMIT_MESSAGE" value="add teacher module" />
+    <MESSAGE value="Update script.php" />
+    <MESSAGE value="pdf monthly report" />
+    <MESSAGE value="search class" />
+    <MESSAGE value="login" />
+    <MESSAGE value="edit profile student" />
+    <MESSAGE value="class_avail_search.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="class_avail_search.php" />
   </component>
   <component name="WindowStateProjectService">
     <state x="256" y="264" key="#SQL_Resolution_Scopes" timestamp="1703685709017">
@@ -417,10 +472,26 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="361" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1704893773287" />
+    <state x="500" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1706581763064">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="500" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.816@0.0.1536.816" timestamp="1706581763064" />
+    <state x="516" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1706623939334">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="516" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.816@0.0.1536.816" timestamp="1706623939334" />
     <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1706281960594">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1706281960594" />
+    <state x="230" y="64" key="MergeDialog" timestamp="1706627016112">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="230" y="64" key="MergeDialog/0.0.1536.816@0.0.1536.816" timestamp="1706627016112" />
+    <state x="657" y="276" width="388" height="263" key="MultipleFileMergeDialog" timestamp="1706627017633">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="657" y="276" width="388" height="263" key="MultipleFileMergeDialog/0.0.1536.816@0.0.1536.816" timestamp="1706627017633" />
     <state x="604" y="332" key="NewPhpFileDialog" timestamp="1703345875314">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -429,14 +500,14 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="591" y="111" key="RollbackChangesDialog/0.0.1536.816@0.0.1536.816" timestamp="1703766052080" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706541654974">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706627739502">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706541654974" />
-    <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706273680041">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706627739502" />
+    <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706619966124">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816@0.0.1536.816" timestamp="1706273680041" />
+    <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.816@0.0.1536.816" timestamp="1706619966124" />
     <state x="550" y="121" key="git4idea.branch.GitSmartOperationDialog" timestamp="1706542551606">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -445,5 +516,9 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="425" y="185" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1706108201092" />
+    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1706582213975">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1706582213975" />
   </component>
 </project>

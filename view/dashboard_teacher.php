@@ -1,4 +1,9 @@
 <!-- Session start here -->
+<?
+    session_start();
+    require '../global/session_check.php';
+
+?>
 
 <html lang="en">
 <head>

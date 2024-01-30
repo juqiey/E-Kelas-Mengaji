@@ -1,4 +1,6 @@
 <?
+    session_start();
+    require '../global/session_check.php';
     require '../model/booking_function.php';
 
     $id=$_GET['id'];
