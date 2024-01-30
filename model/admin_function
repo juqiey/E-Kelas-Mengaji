@@ -18,11 +18,12 @@
         return $conn->query($sql);
     }
 
-    function updateAdmin($id,$name,$email,$phone,$poskod,$city,$address){
+    function updateAdmin($id,$name,$email,$phone,$poskod,$city,$address,$image){
         $conn=db();
+        $update_image = ($image != "") ? ", adminurl='$image'" : "";
         $sql="UPDATE admin SET adminname='$name, adminemail='$email',
                    adminphone='$phone',adminposkod='$poskod',
-                   admincity='$city',adminaddress='$address' WHERE adminid='$id'";
+                   admincity='$city',adminaddress='$address',$update_image WHERE adminid='$id'";
 
         return $conn->query($sql);
     }
