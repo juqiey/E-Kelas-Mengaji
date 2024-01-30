@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?
     require '../model/user_function.php';
+
+    $teacher_id = 2;
+    $teacher_data = viewTeacher($teacher_id)->fetch_assoc();
 ?>
 <html lang="en">
   <head> <?php
@@ -95,23 +98,36 @@
               </div>
               <br>
               <div class="container">
+              <form action="../controller/update_teacher_exec.php" method="post" enctype="multipart/form-data">
                 <div class="row gutters">
                   <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                       <div class="card-body">
                         <div class="account-settings">
                           <div class="user-profile">
-                            <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile">
-                            <h5 class="user-name">Ustaz Ali</h5>
+                            <?
+                              $profileurl=$teacher_data['teacherurl'];
+                              if($teacher_data['teacherurl']==null){
+                              $profileurl="default.jpg";
+                              }
+                            ?>
+                            <img class="image-cover" src="../img/<? echo $profileurl ?>" alt="Profile">
+                            <h5 class="user-name">
+                              <?php echo $teacher_data['teachername']; ?>
+                            </h5>
                             <div class="card-body" style="text-align: left">
                               <p class="mb-0">
-                                <strong class="pr-1">Username: </strong>ustazali
+                                <strong class="pr-1">Username: </strong>
+                                <?php echo $teacher_data['teacherusername']; ?>
+                              </p>
                               </p>
                               <p class="mb-0">
-                                <strong class="pr-1">ID Pengajar: </strong>321000001
+                                <strong class="pr-1">ID Pengajar: </strong>
+                                <?php echo $teacher_data['teacherid']; ?>
                               </p>
                               <p class="mb-0">
-                                <strong class="pr-1">Email: </strong>ustazali@gmail.com
+                                <strong class="pr-1">Email: </strong>
+                                <?php echo $teacher_data['teacheremail']; ?>
                               </p>
                             </div>
                           </div>
@@ -130,34 +146,33 @@
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <label for="fullName">Nama Penuh</label>
-                              <input type="text" class="form-control" id="fullName" placeholder="">
+                              <input type="text" class="form-control" id="teachername" name="teachername">
+                              value="<?php echo $teacher_data['teachername']; ?>">
                             </div>
                           </div>
-                          <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                              <label for="ic">No. Kad Pengenalan</label>
-                              <input type="number" class="form-control" id="ic" placeholder="">
-                            </div>
-                          </div> -->
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <label for="gender">Jantina</label>
-                                <select id="gender" class="form-control" placeholder="Sila pilih jantina">
+                                <!-- <select id="gender" class="form-control" placeholder="Sila pilih jantina">
                                     <option value="Lelaki">Lelaki</option>
                                     <option value="Perempuan">Perempuan</option>
-                                </select>
+                                </select> -->
+                                <input type="text" class="form-control" id="gender" name="teachergender"
+                                value="<?php echo $teacher_data['teachergender']; ?>">
                             </div>
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <label for="phone">No. Telefon</label>
-                              <input type="tel" class="form-control" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                              <input type="text" class="form-control" id="phone" name="teacherphoneno"
+                              value="<?php echo $teacher_data['teacherphoneno']; ?>">
                             </div>
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
-                              <label for="email">Email</label>
-                              <input type="email" class="form-control" id="email" placeholder="">
+                              <label for="teacheremail">Email</label>
+                              <input type="text" name="teacheremail" class="form-control" id="teacheremail"
+                              value="<?php echo $teacher_data['teacheremail']; ?>">
                             </div>
                           </div>
                         </div> <br>
@@ -165,23 +180,27 @@
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <h6 class="mt-3 mb-2 text-primary">Alamat Tempat Tinggal</h6>
+                                
                             </div>
                             <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                 <label for="address">Alamat Penuh </label>
-                                <input type="" class="form-control" id="address" placeholder="">
+                                <input type="text" class="form-control" id="address" name="teacheraddress"
+                                value="<?php echo $teacher_data['teacheraddress']; ?>">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                 <label for="poskod">Poskod</label>
-                                <input type="number" class="form-control" id="poskod">
+                                <input type="number" class="form-control" id="poskod" name="teacherposkod"
+                                value="<?php echo $teacher_data['teacherposkod']; ?>">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                 <label for="city">Bandar</label>
-                                <input type="text" class="form-control" id="city" placeholder="">
+                                <input type="text" class="form-control" id="city"
+                                value="<?php echo $teacher_data['teachercity']; ?>">
                                 </div>
                             </div>
                         </div> <br>
@@ -201,36 +220,18 @@
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <label for="noacc">No. Akaun Bank</label>
-                              <input type="number" class="form-control" id="noacc" >
+                              <input type="number" class="form-control" id="accountno"
+                              value="<?php echo $teacher_data['teacheraccountno']; ?>">
                             </div>
                           </div>
                         </div> <br>
 
                         <div class="row gutters">
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                              <h6 class="mt-3 mb-2 text-primary">Update New Password</h6>
-                          </div>
-                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="form-group">
-                                  <label for="newPassword">New Password</label>
-                                  <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
-                              </div>
-                          </div>
-                          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                              <div class="form-group">
-                                  <label for="confirmPassword">Confirm Password</label>
-                                  <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
-                              </div>
-                          </div>
-                      </div> <br>
-
-                        <div class="row gutters">
-                          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
                               <a href="edit_teacher_profile.php" class="btn btn-secondary">Cancel</a>
-                              <a href="teacher_profile.php" class="btn btn-primary">Update</a>
-                              <button type="button" class="btn btn-warning" id="updatePassword">Update Password</button>
-                            </div>
+                              <input type="hidden" name="teacherid" id="teacher_id" value="<?php echo $student_data['teacherid']; ?>">
+                              <button type="submit" class="btn btn-primary">Update</button>                            </div>
                           </div>
                         </div>
                       </div>
