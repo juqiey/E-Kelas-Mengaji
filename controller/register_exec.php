@@ -1,5 +1,6 @@
 <?php
-require '../model/function.php';
+require_once '../model/function.php';
+require '../db/config.php';
 
 $studentname = clean($_POST['studentname']);
 $studentbirth = clean($_POST['studentbirth']);
@@ -16,9 +17,9 @@ $parentsname = clean($_POST['parentsname']);
 $parentsnum = clean($_POST['parentsnum']);
 
 $role = clean($_POST['role']);
+$conn = db();
 
-$result = registerUser($studentname,$studentbirth, $studentgender, $studentnum, $studentaddress, $studentposkod, $studentcity ,$studentemail,
-$studentpassword ,$parentsname ,$parentsnum, $role);
+$result = mysqli_query($conn, $sql);
 
 //Check whether the query was successful or not
 if($result!="" && $result > 0) {

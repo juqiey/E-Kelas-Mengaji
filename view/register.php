@@ -5,7 +5,20 @@
         $title="Register";
         require '../global/header.php';
     ?>
+    <script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      // get the values of the new password and confirm password fields
+      var newPassword = document.getElementById('newPassword').value;
+      var confirmPassword = document.getElementById('confirmPassword').value;
 
+      // check if the new password and confirm password match
+      if (newPassword !== confirmPassword) {
+        // display an error message
+        alert('The new password and confirm password do not match.');
+        event.preventDefault(); // prevent the form from being submitted
+      }
+    });
+    </script>
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -78,7 +91,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                        <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
                                                         <label for="inputPasswordConfirm">Confirm Password</label>
                                                     </div>
                                                 </div>
@@ -102,6 +115,7 @@
                                                 <div class="d-grid"><a class="btn btn-primary btn-block" href="login.php">Daftar</a></div>
                                             </div>
                                         </form>
+                                        <form id="registerForm" method="post" action="register_exec.php"></form>
                                     </div>
                                     <div class="card-footer text-center py-3">
                                         <div class="small"><a href="login.php">Mempunyai akaun? Pergi ke login</a></div>
