@@ -45,6 +45,9 @@ require '../global/navigation_header.php';
                         <h3>
                             <i class="fas fa-table me-1"></i>
                             Senarai Pengajar
+                            <a href="../view/teacher_add.php" class="btn btn-md btn-success" style="color:#ebedef" >
+                                Tambah Pengajar
+                            </a>
                         </h3>
                     </div>
                     <div class="card-body">
@@ -57,8 +60,6 @@ require '../global/navigation_header.php';
                                 <th>Jantina</th>
                                 <th>Nombor Telefon</th>
                                 <th>Emel</th>
-                                <th>Bank</th>
-                                <th>Nombor Akaun</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -70,8 +71,6 @@ require '../global/navigation_header.php';
                                 <th>Jantina</th>
                                 <th>Nombor Telefon</th>
                                 <th>Emel</th>
-                                <th>Bank</th>
-                                <th>Nombor Akaun</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
@@ -88,15 +87,13 @@ require '../global/navigation_header.php';
                                     <td><? echo $row['teachersex'] ?></td>
                                     <td><? echo $row['teacherphoneno'] ?></td>
                                     <td><? echo $row['teacheremail'] ?></td>
-                                    <td><? echo $row['teacherbank'] ?></td>
-                                    <td><? echo $row['teacheraccountno'] ?></td>
                                     <td>
                                         <div class="row text-center">
                                             <div class="col-md-6">
-                                                <a href="../view/teacher_view.php?id=<? echo $row['studentid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
+                                                <a href="../view/teacher_view.php?id=<? echo $row['teacherid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
                                             <div class="col-md-6">
-                                                <a href="" class="btn btn-danger" id="card-btn">Padam</a>
+                                                <a href="" class="btn btn-danger delete" data-name="<? echo $row['teachername'] ?>" data-id="<? echo $row['teacherid'] ?> id="card-btn">Padam</a>
                                             </div>
                                         </div>
                                     </td>
@@ -116,5 +113,27 @@ require '../global/navigation_header.php';
 <?
 require '../global/script.php';
 ?>
+<script>
+    // Delete data
+    $(document).on('click', '.delete', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        var name = $(this).data('name')
+
+        Swal.fire({
+            title: "Padam Akaun Ini?",
+            text: "Akaun "+name+" akan dipadam secara kekal",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: 'Yes!',
+            confirmButtonColor: '#E71C1C',
+        })
+            .then((value) => {
+                if (value.isConfirmed) {
+                    location.href = "../controller/teacher_delete_exec.php?id="+id;
+                }
+            });
+    });
+</script>
 </body >
 </html>

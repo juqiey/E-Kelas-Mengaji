@@ -13,7 +13,6 @@ $class=viewClass($id)->fetch_assoc();
     ?>
     <style>
         #card-btn{
-            display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             cursor: pointer;
@@ -65,6 +64,15 @@ $class=viewClass($id)->fetch_assoc();
         .text{
             font-size: 18px;
         }
+        .image-cover {
+            width: 200px;
+            height: 200px;
+            border-radius: 60%;
+            margin: 20px;
+
+            object-fit: cover;
+            object-position: center right;
+        }
     </style>
 </head>
 <body class="sb-nav-fixed">
@@ -113,7 +121,18 @@ require '../global/navigation_header.php';
                                 <hr>
                             </div>
                             <div class="row justify-content-center">
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-6 text-center">
+                                    <?
+                                    $profile=$class['teacherurl'];
+
+                                    if($class['teacherurl']==null)
+                                        $profile='default.jpg'
+                                    ?>
+                                    <img src="../img/<? echo $profile ?>" class="image-cover">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
                                     <p class="text">Nama: <b><? echo $class['teachername']; ?></b></p>
                                 </div>
                             </div>
@@ -128,9 +147,9 @@ require '../global/navigation_header.php';
                         </div>
                         <form action="../controller/booking_add_exec.php" method="POST" enctype="multipart/form-data">
                             <div class="row justify-content-center mt-4 mb-4">
-                                <div class="col-md-3 text-center">
+                                <div class="col-md-6 text-center">
                                     <input type="hidden" name="classid" value="<? echo $class['classid'] ?>">
-                                    <input type="hidden" name="userid" value="1">
+                                    <input type="hidden" name="userid" value="1"><!-- Session here -->
                                     <button type="submit" class="btn btn-success" id="card-btn">Tempah Slot</button>
                                 </div>
                             </div>

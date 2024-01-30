@@ -65,6 +65,15 @@ $class=viewClass($id)->fetch_assoc();
         .text{
             font-size: 18px;
         }
+        .image-cover {
+            width: 200px;
+            height: 200px;
+            border-radius: 60%;
+            margin: 20px;
+
+            object-fit: cover;
+            object-position: center right;
+        }
     </style>
 </head>
 <body class="sb-nav-fixed">
@@ -112,9 +121,31 @@ require '../global/navigation_header.php';
                                 <p style="font-size:16px;font-style: italic">Butiran Pengajar</p>
                                 <hr>
                             </div>
+                            <!-- Photo here -->
                             <div class="row justify-content-center">
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-6 text-center">
+                                    <?
+                                        $profile=$class['teacherurl'];
+
+                                        if($class['teacherurl']==null)
+                                            $profile='default.jpg'
+                                    ?>
+                                    <img src="../img/<? echo $profile ?>" class="image-cover">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
                                     <p class="text">Nama: <b><? echo $class['teachername']; ?></b></p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Tarikh Lahir: <b><? echo date('d F Y',strtotime($class['teacherdob'])) ?></b></p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 text-center">
+                                    <p class="text">Jantina: <b><? echo $class['teachersex']; ?></b></p>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
@@ -188,7 +219,7 @@ require '../global/navigation_header.php';
                                 </tbody>
                             </table>
                             <div class="text-center justify-content-center">
-                                <button class="btn btn-success">Cetak Laporan</button>
+                                <a href="../view/pdf_class_report.php?id=<? echo $class['classid'] ?>" class="btn btn-success">Cetak Laporan</a>
                             </div>
                         </div>
                     </div>

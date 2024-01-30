@@ -44,14 +44,16 @@
                                 <h3>Slot Kelas Mengaji</h3>
                             </div>
                             <div class="card-body">
-                                <form action="" name="search" method="get">
+                                <form action="../view/class_avail_search.php" name="search" method="get">
                                     <div class="row">
-                                        <div class="form-floating mb-3 mb-md-0">
-                                            <div class="col-md-10">
-                                                <input type="text" class="form-control" placeholder="Search for class">
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <input type="text" name="query" class="form-control" placeholder="Carian Kelas">
                                             </div>
-                                            <div class="col-md-2">
-                                                <button type="submit" class="btn btn-success">Search</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success">Cari</button>
                                             </div>
                                         </div>
                                     </div>
@@ -66,7 +68,7 @@
                                         <div class="card mb-4">
                                             <div class="card-header"><h3 class="text-center"><? echo $row['classsubject'];?></h3></div>
                                             <div class="card-body">
-                                                <p class="text-center">Lokasi: <b><? echo $row['classlocation']; ?></b></p>
+                                                <p class="text-center">Lokasi: <b><? echo $row['mosquename']; ?></b></p>
                                                 <div class="row text-center mb-2">
                                                     <div class="col-md-6">
                                                         Tarikh: <b><? echo date('d M Y',strtotime($row['classdate'])); ?></b>
@@ -90,7 +92,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-footer">
-                                                <div class="row">
+                                                <div class="row justify-content-center">
                                                     <div class="col-md-6 mb-md-3 text-center">
                                                         <a href="../view/class_view.php?id=<? echo $row['classid'] ?>" class="btn btn-success" id="card-btn">View</a>
                                                     </div>

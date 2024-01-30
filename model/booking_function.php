@@ -25,11 +25,12 @@
 
     function viewBooking($id){
         $conn=db();
-        $sql="SELECT booking.*,student.*,class.*,teacher.*
+        $sql="SELECT booking.*,student.*,class.*,teacher.*,mosque.*
             FROM booking
             JOIN student ON booking.studentid=student.studentid
             JOIN class ON booking.classid=class.classid
             JOIN teacher ON class.teacherid = teacher.teacherid
+            JOIN mosque ON class.mosqueid = mosque.mosqueid
             WHERE booking.bookingid='$id'";
 
         return $conn->query($sql);
@@ -37,16 +38,16 @@
 
     function getDropdownBank($selected){
         $banks = [
-            'maybank' => 'Maybank',
-            'cimb' => 'CIMB Bank',
-            'public' => 'Public Bank',
-            'hongleong' => 'Hong Leong Bank',
-            'rhb' => 'RHB Bank',
-            'ambank' => 'AmBank',
-            'uob' => 'United Overseas Bank (UOB)',
-            'hsbc' => 'HSBC Bank',
-            'standardchartered' => 'Standard Chartered Bank',
-            'bankislam' => 'Bank Islam Malaysia',
+            'Maybank' => 'Maybank',
+            'CIMB' => 'CIMB Bank',
+            'Public' => 'Public Bank',
+            'Hong Leong' => 'Hong Leong Bank',
+            'RHB' => 'RHB Bank',
+            'AmBank' => 'AmBank',
+            'UOB' => 'United Overseas Bank (UOB)',
+            'HSBC' => 'HSBC Bank',
+            'Standard Chartered' => 'Standard Chartered Bank',
+            'Bank Islam' => 'Bank Islam Malaysia',
             // Add more banks as needed
         ];
 
@@ -85,9 +86,9 @@
         $conn=db();
         $sql="INSERT INTO booking(bookingdate,bookingstatus,studentid,classid) VALUES(CURRENT_TIMESTAMP,'0','$userid','$classid')";
 
-        $result=$conn->query($sql);
+        $conn->query($sql);
 
-        return !$result?mysqli_error($conn):$result;
+        return $conn->insert_id;
     }
 
     function updateClassQuota($classid){
@@ -100,6 +101,13 @@
     function deleteBooking($id){
         $conn=db();
         $sql="DELETE FROM booking WHERE bookingid='$id'";
+
+        return $conn->query($sql);
+    }
+
+    function getPaymentID($id){
+        $conn=db();
+        $sql="SELECT paymentid FROM payment WHERE bookingid='$id'";
 
         return $conn->query($sql);
     }

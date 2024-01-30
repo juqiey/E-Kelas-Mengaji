@@ -16,7 +16,7 @@
         $sql="SELECT class.*, teacher.*,mosque.* FROM class
             JOIN teacher ON class.teacherid=teacher.teacherid
             JOIN mosque ON class.mosqueid=mosque.mosqueid
-            WHERE classdate>CURRENT_TIMESTAMP";
+            WHERE classdate>CURRENT_TIMESTAMP AND classquota>0";
 
         return $conn->query($sql);
     }
@@ -40,11 +40,11 @@
         return $conn->query($sql);
     }
 
-    function getClassTeacherList($id){
+    function getClassTeacherList($id,$month,$year){
         $conn=db();
         $sql="SELECT c.*,m.* FROM class c 
             JOIN mosque m ON c.mosqueid=m.mosqueid    
-            WHERE c.teacherid='$id'";
+            WHERE c.teacherid='$id' AND MONTH(c.classdate)='$month' AND YEAR(c.classdate)='$year'";
 
         return $conn->query($sql);
     }
@@ -76,6 +76,35 @@
         $conn=db();
         $sql="INSERT INTO class(classsubject,classdescription,classdate,classquota,classfee,mosqueid,teacherid)
             VALUES('$subject','$desc','$date','$quota','$fee','$mosque','$teacherid')";
+
+        return $conn->query($sql);
+    }
+
+    function searchClass($query){
+        $conn=db();
+        $sql="SELECT class.*,teacher.*,mosque.* FROM class
+            JOIN teacher ON class.teacherid=teacher.teacherid
+            JOIN mosque ON class.mosqueid=mosque.mosqueid
+            WHERE classsubject LIKE '%$query%' 
+               OR classdescription LIKE '%$query%'
+               OR classdate LIKE '%$query$%'
+               OR classfee LIKE '%$query%'
+               OR teachername LIKE '%$query%'
+               OR mosquename LIKE '%$query%'";
+
+        return $conn->query($sql);
+    }
+
+    function getCountBooking($id){
+        $conn=db();
+        $sql="SELECT COUNT(*) as totalstudent FROM booking WHERE classid='$id'";
+
+        return $conn->query($sql);
+    }
+
+    function viewTeacher($id){
+        $conn=db();
+        $sql="SELECT * FROM teacher WHERE teacherid='$id'";
 
         return $conn->query($sql);
     }

@@ -82,12 +82,12 @@ require '../global/navigation_header.php';
                                     <td><? echo $row['classsubject']; ?></td>
                                     <td><? echo $row['classquota'] ?></td>
                                     <td><? echo $row['classfee'] ?></td>
-                                    <td><? echo $row['classlocation'] ?></td>
+                                    <td><? echo $row['mosquename'] ?></td>
                                     <td><? echo $row['teachername'] ?></td>
                                     <td>
                                         <div class="row text-center">
                                             <div class="col-md-6">
-                                                <a href="../view/class_view.php?id=<? echo $row['classid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
+                                                <a href="../view/class_admin_view.php?id=<? echo $row['classid'];?>" class="btn btn-primary" id="card-btn">Lihat</a>
                                             </div>
                                             <div class="col-md-6">
                                                 <a href="" class="btn btn-danger" id="card-btn">Padam</a>

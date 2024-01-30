@@ -1,6 +1,8 @@
 <!-- Session start here -->
 <?php
 require '../model/class_function.php';
+$year = ($_GET['year']) ?: date('Y');
+$month=($_GET['month']?:date('n'));
 ?>
 
 <html lang="en">
@@ -45,9 +47,40 @@ require '../global/navigation_header.php';
                         <h3>
                             <i class="fas fa-table me-1"></i>
                             Senarai Kelas Saya
+                            <a href="../view/pdf_monthly_report.php?month=<? echo $month ?>&year=<? echo $year ?>" target="_blank" class="btn btn-md btn-success" style="color:#ebedef">
+                                Cetak
+                            </a>
                         </h3>
                     </div>
                     <div class="card-body">
+                        <!-- Filter year here -->
+                        <form action="" method="get">
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-2">
+                                    <select type="select" class="form-select" name="month" id="month">
+                                        <?
+                                        $month_option=["Januari","Februari","Mac","April","Mei","Jun","Julai",
+                                            "Ogos","September","Oktober","November","Disember"];
+
+                                        for($n=1;$n<=12;$n++){
+                                            ?>
+                                            <option <? if ($month == $n) echo 'selected' ?> value="<? echo $n; ?>"><? echo $month_option[$n-1];?></option>
+                                        <? } ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select type="select" class="form-select" name="year" id="year">
+                                        <? for($i=0; $i<4; $i++){
+                                            $option_year = date('Y') - $i;?>
+                                            <option <? if ($year == $option_year) echo 'selected' ?>><? echo $option_year?></option>
+                                        <? } ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="submit" class="btn btn-info" style="color:#ebedef">Filter</button>
+                                </div>
+                            </div>
+                        </form>
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
@@ -73,7 +106,7 @@ require '../global/navigation_header.php';
                             <?
 
                             //Nanti ubah ke session id
-                            $class=getClassTeacherList(1);
+                            $class=getClassTeacherList(1,$month,$year);
 
                             while($row=$class->fetch_assoc()){
                                 ?>
@@ -103,6 +136,29 @@ require '../global/navigation_header.php';
                 </div>
             </div>
         </main>
+    </div>
+</div>
+<!-- modal to export ucua excel -->
+<div class="modal fade" id="printReport" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exportExcel">Export UCUA Reports</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="row text-center mt-1">
+                <h5><b><u>Please select month & year</u></b></h5>
+            </div>
+            <form method="post" action="../controller/ucua_excel_export_exec.php" enctype="multipart/form-data">
+                <div class="modal-body" id="view">
+                    <!-- Modal content goes here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" style="color:#ebedef">Export</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <?
