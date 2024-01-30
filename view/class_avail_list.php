@@ -44,14 +44,16 @@
                                 <h3>Slot Kelas Mengaji</h3>
                             </div>
                             <div class="card-body">
-                                <form action="" name="search" method="get">
+                                <form action="../view/class_avail_search.php" name="search" method="get">
                                     <div class="row">
-                                        <div class="form-floating mb-3 mb-md-0">
-                                            <div class="col-md-10">
-                                                <input type="text" class="form-control" placeholder="Search for class">
+                                        <div class="col-md-10">
+                                            <div class="form-group">
+                                                <input type="text" name="query" class="form-control" placeholder="Carian Kelas">
                                             </div>
-                                            <div class="col-md-2">
-                                                <button type="submit" class="btn btn-success">Search</button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-success">Cari</button>
                                             </div>
                                         </div>
                                     </div>

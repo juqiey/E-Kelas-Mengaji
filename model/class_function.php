@@ -16,7 +16,7 @@
         $sql="SELECT class.*, teacher.*,mosque.* FROM class
             JOIN teacher ON class.teacherid=teacher.teacherid
             JOIN mosque ON class.mosqueid=mosque.mosqueid
-            WHERE classdate>CURRENT_TIMESTAMP";
+            WHERE classdate>CURRENT_TIMESTAMP AND classquota>0";
 
         return $conn->query($sql);
     }
@@ -82,7 +82,15 @@
 
     function searchClass($query){
         $conn=db();
-        $sql="SELECT * FROM class WHERE classsubject LIKE '%$query%'";
+        $sql="SELECT class.*,teacher.*,mosque.* FROM class
+            JOIN teacher ON class.teacherid=teacher.teacherid
+            JOIN mosque ON class.mosqueid=mosque.mosqueid
+            WHERE classsubject LIKE '%$query%' 
+               OR classdescription LIKE '%$query%'
+               OR classdate LIKE '%$query$%'
+               OR classfee LIKE '%$query%'
+               OR teachername LIKE '%$query%'
+               OR mosquename LIKE '%$query%'";
 
         return $conn->query($sql);
     }
