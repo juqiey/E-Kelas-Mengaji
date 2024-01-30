@@ -57,17 +57,18 @@ function login($email, $password) {
 
 
 
-function registerUser($conn,$studentname,$studentbirth, $studentgender, $studentnum, $studentaddress, $studentposkod, $studentcity ,$studentemail,
-$studentpassword ,$parentsname ,$parentsnum, $role) {
+function registerUser($conn, $studentname, $studentbirth, $studentgender, $studentnum, $studentaddress, $studentposkod, $studentcity, $studentemail, $studentpassword, $parentsname, $parentsnum, $role) 
+    {
     // Validate and sanitize data (you should add more validation)
     // ...
 
     // Insert user data into the database
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $hashedPassword = password_hash($studentpassword, PASSWORD_BCRYPT);
 
-    $sql = "INSERT INTO users (firstName, birthdate, gender, phone, address, poskod, city, email, password) 
+    $sql = "INSERT INTO student (studentname, studentbirth, studentgender, studentnum, studentaddress, studentposkod, studentcity, studentemail, studentpassword
+            parentsname, parentsnum) 
             VALUES ('$studentname', '$studentbirth', '$studentgender', '$studentnum', '$studentaddress', '$studentposkod', '$studentcity',
-             '$studentemail', 'parentsname', '$hashedPassword')";
+             '$studentemail', '$hashedPassword', '$parentsname', '$parentsnum')";
 
     // Execute the SQL query
     // Note: Use prepared statements to prevent SQL injection
