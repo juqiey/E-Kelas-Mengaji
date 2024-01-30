@@ -127,6 +127,7 @@
                 </footer>
             </div>
         </div>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
         <?
         require '../global/script.php';
         ?>
