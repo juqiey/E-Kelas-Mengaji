@@ -41,7 +41,7 @@ function getAuthInfo($id){
 
     if($_SESSION["role"]==3){
         $sql="SELECT * FROM student WHERE studentid='$id'";
-    } else if($_SESSION["role"]==2){
+    } else if($_SESSION["role"]==1){
         $sql="SELECT * FROM teacher WHERE teacherid='$id'";
     }
 

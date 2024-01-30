@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-/*// Check if the user is already logged in, if yes then redirect to the welcome page
+// Check if the user is already logged in, if yes then redirect to the welcome page
 if (isset($_SESSION["auth"]) && $_SESSION["auth"] === true) {
     header("location: dashboard_teacher.php");
     exit;
-}*/
+}
 
 session_destroy();
 
@@ -59,7 +59,7 @@ $navname = "login";
     </script>
 </head>
 
-<body class="bg-primary">
+<body>
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
         <main>

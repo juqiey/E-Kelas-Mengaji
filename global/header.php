@@ -36,3 +36,6 @@
 
 <link href="../css/styles.css" rel="stylesheet" />
 <link href="../resources/css/examples.css" rel="stylesheet">
+
+<!-- CSS calendar -->
+<link href='../lib/calendar/lib/main.css' rel='stylesheet'>

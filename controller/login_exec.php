@@ -10,7 +10,7 @@ echo $studentemail.' '.$password.' '.$userRole;
 
 if($userRole=='3'){
     $login=loginStudent($studentemail);
-}else if($userRole==2){
+}else if($userRole==1){
     $login=loginTeacher($studentemail);
 }
 
@@ -22,52 +22,52 @@ if (mysqli_num_rows($login)>0){
   if (verifyPassword($password,$login['password'])){
     session_regenerate_id(true);
     // Store data in session variables
-    if($userRole==1){
+    if($userRole==2){
         $_SESSION["auth"] = true;
         $_SESSION["id"] = $login['adminid'];
-        $_SESSION["adminusername"] = $login['adminusername'];
-        $_SESSION["adminpassword"] = $login['adminpassword'];
-        $_SESSION["adminname"] = $login['adminname'];
-        $_SESSION["adminaddress"] = $login['adminaddress'];
-        $_SESSION["admincity"] = $login['admincity'];
-        $_SESSION["adminposkod"] = $login['adminposkod'];
-        $_SESSION["adminphone"] = $login['adminphone'];
-        $_SESSION["adminemail"] = $login['adminemail'];
-        $_SESSION["profileurl"] = $login['profileurl'];
+        $_SESSION["username"] = $login['adminusername'];
+        $_SESSION["password"] = $login['adminpassword'];
+        $_SESSION["name"] = $login['adminname'];
+        $_SESSION["address"] = $login['adminaddress'];
+        $_SESSION["city"] = $login['admincity'];
+        $_SESSION["postcode"] = $login['adminposkod'];
+        $_SESSION["phoneno"] = $login['adminphone'];
+        $_SESSION["email"] = $login['adminemail'];
+        $_SESSION["profileurl"] = $login['adminurl'];
     }
 
     if($userRole==3){
         $_SESSION["auth"] = true;
         $_SESSION["id"] = $login['studentid'];
         $_SESSION["name"] = $login['studentname'];
-        $_SESSION["studentusername"] = $login['studentusername'];
+        $_SESSION["username"] = $login['studentusername'];
         $_SESSION["password"] = $login['password'];
-        $_SESSION["studentdob"] = $login['studentdob'];
-        $_SESSION["studentgender"] = $login['studentsex'];
-        $_SESSION["studentaddress"] = $login['studentaddress'];
-        $_SESSION["studentphoneno"] = $login['studentphoneno'];
-        $_SESSION["studentemail"] = $login['studentemail'];
+        $_SESSION["dob"] = $login['studentdob'];
+        $_SESSION["gender"] = $login['studentsex'];
+        $_SESSION["address"] = $login['studentaddress'];
+        $_SESSION["phoneno"] = $login['studentphoneno'];
+        $_SESSION["email"] = $login['studentemail'];
         $_SESSION["parentsname"] = $login['parentsname'];
         $_SESSION["parentsphoneno"] = $login['parentsphoneno'];
-        $_SESSION["studenturl"] = $login['studenturl'];
-        $_SESSION["studentposkod"] = $login['studentpostcode'];
-        $_SESSION["studentcity"] = $login['studentcity'];
+        $_SESSION["url"] = $login['studenturl'];
+        $_SESSION["poskod"] = $login['studentpostcode'];
+        $_SESSION["city"] = $login['studentcity'];
     }
 
-    if($userRole==2){
+    if($userRole==1){
         $_SESSION["auth"] = true;
         $_SESSION["id"] = $login['teacherid'];
-        $_SESSION["teachername"] = $login['teachername'];
-        $_SESSION["teacherphoneno"] = $login['teacherphoneno'];
-        $_SESSION["teacheremail"] = $login['teacheremail'];
-        $_SESSION["teacherbank"] = $login['teacherbank'];
-        $_SESSION["teacheraccountno"] = $login['[teacheraccountno]'];
-        $_SESSION["teacherusername"] = $login['teacherusername'];
-        $_SESSION["teacherpassword"] = $login['teacherpassword'];
-        $_SESSION["teacheraddress"] = $login['teacheraddress'];
-        $_SESSION["profileurl"] = $login['profileurl'];
-        $_SESSION["teacherposkod"] = $login['[teacherposkod]'];
-        $_SESSION["teachercity"] = $login['[teachercity]'];
+        $_SESSION["name"] = $login['teachername'];
+        $_SESSION["phoneno"] = $login['teacherphoneno'];
+        $_SESSION["email"] = $login['teacheremail'];
+        $_SESSION["bank"] = $login['teacherbank'];
+        $_SESSION["accountno"] = $login['teacheraccountno'];
+        $_SESSION["username"] = $login['teacherusername'];
+        $_SESSION["password"] = $login['teacherpassword'];
+        $_SESSION["address"] = $login['teacheraddress'];
+        $_SESSION["url"] = $login['teacher'];
+        $_SESSION["postcode"] = $login['teacherpostcode'];
+        $_SESSION["city"] = $login['teachercity'];
     }
 
     $_SESSION["role"] = $userRole;

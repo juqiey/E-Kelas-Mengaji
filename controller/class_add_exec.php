@@ -8,7 +8,7 @@
     $quota=clean($_POST['quota']);
     $fee=clean($_POST['fee']);
     $mosque=clean($_POST['mosque']);
-    $teacherid=1;
+    $teacherid=$_POST['teacherid'];
 
     $result=addClass($subject,$desc,$date,$quota,$fee,$mosque,$teacherid);
 ?>
@@ -22,7 +22,7 @@
 
             .then((value)=>{
                 if(value.isConfirmed){
-                    window.location.href='../view/class_list.php';
+                    window.location.href='../view/class_teacher_list.php';
                 }
             });
     });

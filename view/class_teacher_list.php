@@ -108,7 +108,7 @@ require '../global/navigation_header.php';
                             <?
 
                             //Nanti ubah ke session id
-                            $class=getClassTeacherList(1,$month,$year);
+                            $class=getClassTeacherList($_SESSION['id'],$month,$year);
 
                             while($row=$class->fetch_assoc()){
                                 ?>
