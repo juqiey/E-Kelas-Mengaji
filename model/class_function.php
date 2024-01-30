@@ -40,11 +40,11 @@
         return $conn->query($sql);
     }
 
-    function getClassTeacherList($id){
+    function getClassTeacherList($id,$month,$year){
         $conn=db();
         $sql="SELECT c.*,m.* FROM class c 
             JOIN mosque m ON c.mosqueid=m.mosqueid    
-            WHERE c.teacherid='$id'";
+            WHERE c.teacherid='$id' AND MONTH(c.classdate)='$month' AND YEAR(c.classdate)='$year'";
 
         return $conn->query($sql);
     }
@@ -83,6 +83,20 @@
     function searchClass($query){
         $conn=db();
         $sql="SELECT * FROM class WHERE classsubject LIKE '%$query%'";
+
+        return $conn->query($sql);
+    }
+
+    function getCountBooking($id){
+        $conn=db();
+        $sql="SELECT COUNT(*) as totalstudent FROM booking WHERE classid='$id'";
+
+        return $conn->query($sql);
+    }
+
+    function viewTeacher($id){
+        $conn=db();
+        $sql="SELECT * FROM teacher WHERE teacherid='$id'";
 
         return $conn->query($sql);
     }
