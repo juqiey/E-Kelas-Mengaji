@@ -80,7 +80,6 @@ require '../global/navigation_header.php';
             <div class="container-fluid px-4">
                 <h1 class="mt-4"><? echo $title; ?></h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a class="visit" href="class_avail_list.php">Tempahan Kelas</a></li>
                     <li class="breadcrumb-item active"><? echo $title; ?></li>
                 </ol>
                 <div class="card">
@@ -148,6 +147,7 @@ require '../global/navigation_header.php';
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="teacherid" value="<? echo $_SESSION['id'] ?>">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

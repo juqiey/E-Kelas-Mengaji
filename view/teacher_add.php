@@ -1,5 +1,7 @@
 <!-- Session start here -->
 <?
+session_start();
+require '../global/session_check.php';
     require '../model/teacher_function.php';
 ?>
 

@@ -100,6 +100,21 @@ require '../global/navigation_header.php';
                             </div>
                         </div>
                     </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="card text-center flex-grow-1 px-3">
+                                    <h3 class="title">Program Calendar</h3>
+                                    <div class="card-body">
+                                        <div id="calendar" style="margin-bottom: 12px; margin-top: 12px;"></div>
+                                    </div>
+                                    <div class="card-footer bg-white">
+                                        <p><i>This calendar is just for display events and training only!</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -109,5 +124,56 @@ require '../global/navigation_header.php';
 <?
 require '../global/script.php';
 ?>
+<script>
+    //script for calendar
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            initialDate: '<? echo date("Y-m-d"); ?>',
+            navLinks: true, // can click day/week names to navigate views
+            selectable: true,
+            selectMirror: true,
+            /*select: function(arg) {
+              var title = prompt('Event Title:');
+              if (title) {
+              calendar.addEvent({
+                  title: title,
+                  start: arg.start,
+                  end: arg.end,
+                  allDay: arg.allDay
+              })
+
+              //insert into database here
+              }
+              calendar.unselect()
+          },*/
+            editable: false,
+            dayMaxEvents: true, // allow "more" link when too many events
+            //display from database
+            events: [
+                //loop for data from database here
+                <?
+                $train=getUpcomingClassTeacher($_SESSION['id']);
+                while($row=$train->fetch_assoc()){
+                ?>
+                {
+                    title: '<? echo $row['classsubject'] ?>',
+                    start: '<? echo date('Y-m-d',strtotime($row['classdate'])) ?>',
+                    end: '<? echo date('Y-m-d',strtotime($row['classdate'])) ?>',
+                    backgroundColor:'#00539CFF',
+                    borderColor:'#f5f5f5'
+                },
+                <? } ?>
+            ]
+        });
+        calendar.render();
+    });
+</script>
 </body >
 </html>

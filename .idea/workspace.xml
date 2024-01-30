@@ -20,24 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e179ef93-e606-4d2b-a283-4d39567680d8" name="Default Changelist" comment="finish class module">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/E-Kelas-Mengaji.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/booking_add_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/booking_add_exec.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/class_add_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/class_add_exec.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/login_exec.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/login_exec.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global/session_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/session_check.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/global/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/booking_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/TeachBook.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/TeachPage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/TeachPayment.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/view/booking_payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/booking_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/booking_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_admin_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_admin_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_avail_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_avail_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/class_avail_search.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_avail_search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/class_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/class_teacher_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_teacher_add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/class_teacher_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_teacher_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/class_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/class_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/dashboard_teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/dashboard_teacher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/student_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/student_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/student_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/student_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/teacher_add.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/teacher_add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/teacher_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/teacher_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/teacher_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/teacher_view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -500,10 +503,10 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="591" y="111" key="RollbackChangesDialog/0.0.1536.816@0.0.1536.816" timestamp="1703766052080" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706627739502">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1706631017228">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706627739502" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1706631017228" />
     <state x="578" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1706619966124">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

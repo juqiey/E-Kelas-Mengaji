@@ -84,7 +84,7 @@ $user=getAuthInfo($_SESSION['id']);
         <?
             if($_SESSION['role']==3){
                 $name=$user->studentusername;
-            } else if($_SESSION['role']==2){
+            } else if($_SESSION['role']==1){
                 $name=$user->teacherusername;
             }
         ?>
