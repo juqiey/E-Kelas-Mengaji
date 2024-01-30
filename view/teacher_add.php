@@ -109,7 +109,7 @@ require '../global/navigation_header.php';
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 text-center">
-                                            <div class="gallery" id="gallery">
+                                            <div class="image-cover" id="gallery">
                                                 <!-- Preview image here -->
                                             </div>
                                         </div>
@@ -199,7 +199,7 @@ require '../global/script.php';
 
         $('#img').on('change', function() {
             $('#gallery').empty();
-            imagesPreview(this, 'div.gallery');
+            imagesPreview(this, 'div.image-cover');
         });
     });
 </script>

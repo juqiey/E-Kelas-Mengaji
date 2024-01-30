@@ -73,11 +73,12 @@
         return $conn->query($sql);
     }
 
-    function updateTeacher($id,$name,$dob,$sex,$email,$phoneno,$bank,$accountno,$postcode,$city,$address){
+    function updateTeacher($id,$name,$dob,$sex,$email,$phoneno,$bank,$accountno,$postcode,$city,$address,$image){
         $conn=db();
+        $update_image = ($image != "") ? ", teacherurl='$image'" : "";
         $sql="UPDATE teacher SET teachername='$name',teacherdob='$dob',teachersex='$sex',teacheremail='$email',
                    teacherphoneno='$phoneno',teacherbank='$bank',teacheraccountno='$accountno',teacherpostcode='$postcode',
-                   teachercity='$city',teacheraddress='$address' WHERE teacherid='$id'";
+                   teachercity='$city',teacheraddress='$address' $update_image WHERE teacherid='$id'";
 
         return $conn->query($sql);
     }

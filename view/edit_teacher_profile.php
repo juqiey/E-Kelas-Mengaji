@@ -153,12 +153,12 @@
                               <div>
                                   <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="teachergender" id="teachergender-lelaki" value="Lelaki"
-                                          <?php if ($teacher_data['teachergender'] == 'Lelaki') echo 'checked'; ?>>
+                                          <?php if ($teacher_data['teachersex'] == 'Lelaki') echo 'checked'; ?>>
                                       <label class="form-check-label" for="teachergender-lelaki">Lelaki</label>
                                   </div>
                                   <div class="form-check form-check-inline">
                                       <input class="form-check-input" type="radio" name="teachergender" id="teachergender-perempuan" value="Perempuan"
-                                          <?php if ($teacher_data['teachergender'] == 'Perempuan') echo 'checked'; ?>>
+                                          <?if ($teacher_data['teachersex'] == 'Perempuan') echo 'checked'; ?>>
                                       <label class="form-check-label" for="teachergender-perempuan">Perempuan</label>
                                   </div>
                               </div>
@@ -196,13 +196,13 @@
                                 <div class="form-group">
                                 <label for="poskod">Poskod</label>
                                 <input type="number" class="form-control" id="poskod" name="teacherposkod"
-                                value="<?php echo $teacher_data['teacherposkod']; ?>">
+                                value="<?php echo $teacher_data['teacherpostcode']; ?>">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                 <label for="city">Bandar</label>
-                                <input type="text" class="form-control" id="city"
+                                <input type="text" class="form-control" name="teachercity" id="city"
                                 value="<?php echo $teacher_data['teachercity']; ?>">
                                 </div>
                             </div>
@@ -228,7 +228,24 @@
                             </div>
                           </div>
                         </div> <br>
-
+                          <div class="row gutters">
+                              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                  <h6 class="mt-3 mb-2 text-primary">Maklumat Bank</h6>
+                              </div>
+                              <div class="form-group">
+                                  <div class="col-md-6">
+                                      <label for="profileurl">Gambar Profil</label>
+                                      <input type="file" name="profileurl" id="img" class="form-control" accept=".jpg,.jpeg,.png,.gif">
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6 text-center">
+                                      <div class="image-cover" id="gallery">
+                                          <!-- Preview image here -->
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
                         <div class="row gutters">
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
@@ -245,7 +262,10 @@
             </div>
         </main>
       </div>
-    </div> <?php
+    </div>
+  <?php
             require '../global/script.php'
-        ?> </body>
+        ?>
+
+  </body>
 </html>
