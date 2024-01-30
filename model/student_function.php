@@ -18,11 +18,12 @@
         return $conn->query($sql);
     }
 
-    function updateStudent($id,$name,$dob,$sex,$email,$phoneno,$parentsname,$parentsphone,$postcode,$city,$address){
+    function updateStudent($id,$name,$dob,$sex,$email,$phoneno,$parentsname,$parentsphone,$postcode,$city,$address, $image){
         $conn=db();
+        $update_image = ($image != "") ? ", studenturl='$image'" : "";
         $sql="UPDATE student SET studentname='$name',studentdob='$dob',studentsex='$sex',studentemail='$email',
                    studentphoneno='$phoneno',parentsname='$parentsname',parentsphoneno='$parentsphone',studentpostcode='$postcode',
-                   studentcity='$city',studentaddress='$address' WHERE studentid='$id'";
+                   studentcity='$city',studentaddress='$address' $update_image WHERE studentid='$id'";
 
         return $conn->query($sql);
     }
