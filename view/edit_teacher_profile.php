@@ -151,15 +151,21 @@
                             </div>
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
+                          <div class="form-group">
                               <label for="gender">Jantina</label>
-                                <!-- <select id="gender" class="form-control" placeholder="Sila pilih jantina">
-                                    <option value="Lelaki">Lelaki</option>
-                                    <option value="Perempuan">Perempuan</option>
-                                </select> -->
-                                <input type="text" class="form-control" id="gender" name="teachergender"
-                                value="<?php echo $teacher_data['teachergender']; ?>">
-                            </div>
+                              <div>
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="teachergender" id="teachergender-lelaki" value="Lelaki"
+                                          <?php if ($teacher_data['teachergender'] == 'Lelaki') echo 'checked'; ?>>
+                                      <label class="form-check-label" for="teachergender-lelaki">Lelaki</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                      <input class="form-check-input" type="radio" name="teachergender" id="teachergender-perempuan" value="Perempuan"
+                                          <?php if ($teacher_data['teachergender'] == 'Perempuan') echo 'checked'; ?>>
+                                      <label class="form-check-label" for="teachergender-perempuan">Perempuan</label>
+                                  </div>
+                              </div>
+                          </div>
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
