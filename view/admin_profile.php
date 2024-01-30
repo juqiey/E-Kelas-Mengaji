@@ -223,6 +223,12 @@ $admin_data = viewAdmin($admin_id)->fetch_assoc();
                             value="<?php echo $admin_data['adminphone']; ?>">
                           </div>
                         </div>
+                        <div class="row mb-3">
+                          <label for="profileurl" class="col-md-4 col-lg-3 col-form-label">Gambar Profile</label>
+                          <div class="col-md-8 col-lg-9">
+                            <input type="file" name="profileurl" id="img" class="form-control" accept=".jpg,.jpeg,.png,.gif">
+                          </div>
+                        </div>
                         <div class="text-center">
                           <input type="hidden" name="adminid" id="admin_id" value="<?php echo $admin_data['adminid']; ?>">
                           <button type="submit" class="btn btn-primary">Save Changes</button>
