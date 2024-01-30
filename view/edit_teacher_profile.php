@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?
+    session_start();
+    require '../global/session_check.php';
     require '../model/user_function.php';
 
-    $teacher_id = 2;
+    $teacher_id = $_SESSION['id'];
     $teacher_data = viewTeacher($teacher_id)->fetch_assoc();
 ?>
 <html lang="en">
@@ -120,11 +122,6 @@
                                 <strong class="pr-1">Username: </strong>
                                 <?php echo $teacher_data['teacherusername']; ?>
                               </p>
-                              </p>
-                              <p class="mb-0">
-                                <strong class="pr-1">ID Pengajar: </strong>
-                                <?php echo $teacher_data['teacherid']; ?>
-                              </p>
                               <p class="mb-0">
                                 <strong class="pr-1">Email: </strong>
                                 <?php echo $teacher_data['teacheremail']; ?>
@@ -146,7 +143,7 @@
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <label for="fullName">Nama Penuh</label>
-                              <input type="text" class="form-control" id="teachername" name="teachername">
+                              <input type="text" class="form-control" id="teachername" name="teachername"
                               value="<?php echo $teacher_data['teachername']; ?>">
                             </div>
                           </div>
@@ -212,15 +209,15 @@
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                             <label for="bank">Nama Bank</label>
-                                <select id="bank" class="form-control">
-                                    <? echo getDropdownBank('') ?>
+                                <select id="bank" name="teacherbank" class="form-control">
+                                    <? echo getDropdownBank($teacher['teacherbank']) ?>
                                 </select>
                             </div>
                           </div>
                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <label for="noacc">No. Akaun Bank</label>
-                              <input type="number" class="form-control" id="accountno"
+                              <input type="text" name="teacheraccountno" class="form-control" id="accountno"
                               value="<?php echo $teacher_data['teacheraccountno']; ?>">
                             </div>
                           </div>
@@ -230,7 +227,7 @@
                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="text-right">
                               <a href="edit_teacher_profile.php" class="btn btn-secondary">Cancel</a>
-                              <input type="hidden" name="teacherid" id="teacher_id" value="<?php echo $student_data['teacherid']; ?>">
+                              <input type="hidden" name="teacherid" id="teacher_id" value="<?php echo $teacher_data['teacherid']; ?>">
                               <button type="submit" class="btn btn-primary">Update</button>                            </div>
                           </div>
                         </div>

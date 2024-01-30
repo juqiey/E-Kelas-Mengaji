@@ -13,9 +13,8 @@
     $teacheraddress=$_POST['teacheraddress'];
     $teachercity=$_POST['teachercity'];
     $teacherposkod=$_POST['teacherposkod'];
-    $profileurl=$_POST['profileurl'];
 
-    $result=updateStudent($teacherid,$teachername,$teacherbirth,$teachergender,$teacheremail,$teacherphoneno,$teacherbank,$teacheraccountno,$teacheraddress,$teachercity,$teacherposkod,$profileurl);
+    $result=updateTeacher($teacherid,$teachername,$teacherbirth,$teachergender,$teacheremail,$teacherphoneno,$teacherbank,$teacheraccountno,$teacherposkod,$teachercity,$teacheraddress);
 ?>
 
 <script>

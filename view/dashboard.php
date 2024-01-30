@@ -248,8 +248,13 @@ require '../global/script.php';
             events: [
                 //loop for data from database here
                 <?
-                $train=getUpcomingClassTeacher($_SESSION['id']);
-                while($row=$train->fetch_assoc()){
+                    if($_SESSION['role']==1){
+                        $class=getUpcomingClassTeacher($_SESSION['id']);
+                    }else if($_SESSION['role']==3){
+                        $class=getBookingList($_SESSION['id']);
+                    }
+
+                while($row=$class->fetch_assoc()){
                 ?>
                 {
                     title: '<? echo $row['classsubject'] ?>',

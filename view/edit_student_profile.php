@@ -1,6 +1,9 @@
 <?php
   require '../model/student_function.php';
 
+session_start();
+require '../global/session_check.php';
+
   $student_id = 2;
   $student_data = viewStudent($student_id)->fetch_assoc();
 ?>

@@ -72,7 +72,7 @@ if (mysqli_num_rows($login)>0){
 
     $_SESSION["role"] = $userRole;
 
-    echo "<script>window.location.href = '../view/dashboard_teacher.php';</script>";
+    echo "<script>window.location.href = '../view/dashboard.php';</script>";
     exit();
   } else {
     $fail = 'Failed to login. Invalid Username or Password.';
