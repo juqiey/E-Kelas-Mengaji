@@ -4,9 +4,10 @@ require "../model/function.php";
 
 $username = ($_POST['username']);
 $password = ($_POST['password']);
+$userRole = ($_POST['userRole']);
 
 //call function
-$login = login($username);
+$login = login($username, $userRole);
 
 if(mysqli_num_rows($login)>0){
   $login = $login->fetch_assoc();
@@ -26,7 +27,7 @@ if(mysqli_num_rows($login)>0){
     /*echo $_SESSION['role'];
     exit();*/
 
-    echo "<script>window.location.href = '../view/dashboard.php';</script>";
+    echo "<script>window.location.href = '../view/test.php';</script>";
   }else{
     $fail = 'Failed to login.\Invalid Username or Password.';
   }

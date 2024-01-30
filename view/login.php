@@ -1,108 +1,135 @@
 <?
-  session_start();
-  // Check if the user is already logged in, if yes then redirect him to welcome page
-  if(isset($_SESSION["auth"]) && $_SESSION["auth"] === true){
-    header("location: dashboard.php");
+session_start();
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if (isset($_SESSION["auth"]) && $_SESSION["auth"] === true) {
+    header("location: test.php");
     exit;
-  }
-  session_destroy();
+}
+session_destroy();
 
-  $navname="login";
+$navname = "login";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php
     $title = "Login";
     require '../global/header.php';
     ?>
     <link href="../resources/styles.css" rel="stylesheet" />
+    <script>
+        function toggleRoleRadio(role) {
+            var roleDiv = document.getElementById('roleDiv');
+            var studentTab = document.querySelector('#student');
+            var staffTab = document.querySelector('#staff');
+            var userRoleInput = document.querySelector('#userRole');
+
+            if (role === 'student') {
+                roleDiv.style.display = 'none';
+                studentTab.classList.add('active');
+                staffTab.classList.remove('active');
+                userRoleInput.value = 'student';
+            } else if (role === 'staff') {
+                roleDiv.style.display = 'block'; // Or 'inline-block' as needed
+                staffTab.classList.add('active');
+                studentTab.classList.remove('active');
+                userRoleInput.value = 'teacher'; // Assuming 'teacher' corresponds to staff
+            }
+        }
+    </script>
 </head>
+
 <body class="bg-primary">
-<div id="layoutAuthentication">
-    <div id="layoutAuthentication_content">
-        <main>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-5">
-                        <div class="card shadow-lg border-0 rounded-lg mt-5">
-                            <ul class="nav nav-pills navtab-bg nav-justified">
-                                <li class="nav-item">
-                                    <a id="student" href="#student" data-toggle="tab" aria-expanded="false"
-                                       class="nav-link active" onclick="toggleRoleRadio('student')"> PELAJAR </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a id="staff" href="#staff" data-toggle="tab" aria-expanded="true"
-                                       class="nav-link" onclick="toggleRoleRadio('staff')"> PEKERJA </a>
-                                </li>
-                            </ul>
-                            
-                            <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Daftar</h3>
-                            </div>
-                            <br>
-                            <div class="tab-content">
-                                <form action="/login" class="form-horizontal" id="StaffForm" autocomplete="off"
-                                      method="post" accept-charset="utf-8">
-                                    <div id="roleDiv" class="form-group text-center">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="data[User][role]"
-                                                   id="adminCheckbox" value="2" required="required" checked>
-                                            <label class="form-check-label"> Admin </label>
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <ul class="nav nav-pills navtab-bg nav-justified">
+                                    <li class="nav-item">
+                                        <a id="student" href="#student" data-toggle="tab" aria-expanded="false"
+                                            class="nav-link active" onclick="toggleRoleRadio('student')"> PELAJAR </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a id="staff" href="#staff" data-toggle="tab" aria-expanded="true"
+                                            class="nav-link" onclick="toggleRoleRadio('staff')"> PEKERJA </a>
+                                    </li>
+                                </ul>
+
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">Daftar</h3>
+                                </div>
+                                <br>
+                                <div class="tab-content">
+                                    <form action="/login" class="form-horizontal" id="StaffForm" autocomplete="off"
+                                        method="post" accept-charset="utf-8">
+                                        <div id="roleDiv" class="form-group text-center">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="data[User][role]"
+                                                    id="adminCheckbox" value="2" required="required" checked>
+                                                <label class="form-check-label"> Admin </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="data[User][role]"
+                                                    id="teacherCheckbox" value="1" required="required">
+                                                <label class="form-check-label"> Pengajar </label>
+                                            </div>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="data[User][role]"
-                                                   id="teacherCheckbox" value="1" required="required">
-                                            <label class="form-check-label"> Pengajar </label>
+                                    </form>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" action="../controller/login_exec.php">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="username" class="form-control" id="username"
+                                                placeholder="Username" required autofocus>
+                                            <label for="inputEmail">Alamat Emel</label>
                                         </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" name="password" class="form-control" id="password"
+                                                placeholder="Password" required autofocus>
+                                            <label for="inputPassword">Kata Laluan</label>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" id="inputRememberPassword"
+                                                name="inputRememberPassword" type="checkbox" value="" />
+                                            <label class="form-check-label" for="inputRememberPassword">Ingat Kata
+                                                Laluan</label>
+                                        </div>
+                                        <input type="hidden" name="userRole" id="userRole" value="" />
+                                        <script>
+                                            document.getElementById("userRole").value = $("input[name='data[User][role]']:checked").val();
+                                        </script>
+                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <a class="small" href="password.php">Lupa Kata Laluan?</a>
+                                            <button type="submit" class="btn btn-primary">Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-center py-3">
+                                    <div class="small">
+                                        <a href="register.php">Anda tiada akaun? Daftar sekarang!</a>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="card-body">
-                                <form method="post" action="login_exec.php">
-                                    <div class="form-floating mb-3">
-                                    <input type="text" name="username" class="form-control" id="username" 
-                                        placeholder="Username" required autofocus>
-                                        <label for="inputEmail">Alamat Emel</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                    <input type="password" name="password" class="form-control" id="password" 
-                                    placeholder="Password" required autofocus>
-                                        <label for="inputPassword">Kata Laluan</label>
-                                    </div>
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" id="inputRememberPassword"
-                                               name="inputRememberPassword" type="checkbox" value=""/>
-                                        <label class="form-check-label" for="inputRememberPassword">Ingat Kata Laluan</label>
-                                    </div>
-                                    <input type="hidden" name="userRole" id="userRole" value="student" />
-                                    <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="small" href="password.php">Lupa Kata Laluan?</a>
-                                        <button type="submit" class="btn btn-primary">Login</button>
-                                    </div>
-                                </form>
-                            </div> 
-                            <div class="card-footer text-center py-3">
-                                <div class="small">
-                                    <a href="register.php">Anda tiada akaun? Daftar sekarang!</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
-</div>
-<?php
-require '../global/script.php';
-?>
+    <?php
+    require '../global/script.php';
+    ?>
 </body>
+
 </html>
 <script>
-    $(document).ready(function(){
-        $('#show_password').on('change', function(){
-            $('#password').attr('type',$('#show_password').prop('checked')===true?"text":"password");
+    $(document).ready(function () {
+        $('#show_password').on('change', function () {
+            $('#password').attr('type', $('#show_password').prop('checked') === true ? "text" : "password");
         });
     });
 </script>
