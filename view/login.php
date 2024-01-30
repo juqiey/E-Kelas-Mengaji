@@ -6,9 +6,73 @@ if (isset($_SESSION["auth"]) && $_SESSION["auth"] === true) {
     exit;
 }
 session_destroy();
-
 $navname = "login";
 ?>
+
+<?php
+require_once 'C:\Users\softphea\E-Kelas-Mengaji\db\config.php';
+
+// Check if the user has submitted the form
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the user's input
+    $email = $_POST['inputEmail'];
+    $password = $_POST['inputPassword'];
+    $userRole = $_POST['userRole'];
+
+    // Determine the table based on the user role
+    $tableName = '';
+    switch ($userRole) {
+        case 'student':
+            $tableName = 'student';
+            break;
+        case 'admin':
+            $tableName = 'admin';
+            break;
+        case 'teacher':
+            $tableName = 'teacher';
+            break;
+        default:
+            // Handle invalid role
+            break;
+    }
+
+    // Prepare a SQL query to select the user from the respective table
+    $sql = "SELECT * FROM $tableName WHERE email = ?";
+    $stmt = db()->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if the user exists
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+
+            // Verify the password
+            if (password_verify($password, $user['password'])) {
+                // Password is correct, log the user in
+                session_start();
+                $_SESSION['user'] = $user;
+                header("Location: C:\Users\softphea\E-Kelas-Mengaji\view\student_profile.php");
+                exit;
+            } else {
+                // Incorrect password
+                $error = "Incorrect password";
+            }
+        } else {
+            // User not found
+            $error = "User not found";
+        }
+
+        // Close the prepared statement
+        $stmt->close();
+    } else {
+        echo "Error preparing statement: " . db()->error;
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,9 +162,14 @@ $navname = "login";
                                             <label class="form-check-label" for="inputRememberPassword">Ingat Kata
                                                 Laluan</label>
                                         </div>
-                                        <input type="hidden" name="userRole" id="userRole" value="" />
+                                        <input type="hidden" name="userRole" id="userRole" value="student" />
                                         <script>
-                                            document.getElementById("userRole").value = $("input[name='data[User][role]']:checked").val();
+                                            // Updated script to dynamically set userRole based on the selected radio button
+                                            $(document).ready(function () {
+                                                $('input[name="data[User][role]"]').on('change', function () {
+                                                    $('#userRole').val($('input[name="data[User][role]"]:checked').val());
+                                                });
+                                            });
                                         </script>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="password.php">Lupa Kata Laluan?</a>
