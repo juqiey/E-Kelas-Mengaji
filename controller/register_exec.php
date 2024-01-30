@@ -1,39 +1,37 @@
 <?php
 require_once '../model/function.php';
-require '../db/config.php';
+require '../global/script.php';
 
-$studentname = clean($_POST['studentname']);
-$studentbirth = clean($_POST['studentbirth']);
-$studentgender = clean($_POST['studentgender']);
-$studentnum = clean($_POST['studentnum']);
+$studentname = clean($_POST['name']);
+$studentbirth = clean($_POST['dob']);
+$studentgender = clean($_POST['sex']);
+$studentnum = clean($_POST['phone']);
 
-$studentaddress= clean($_POST['studentaddress']);
-$studentposkod = clean($_POST['studentposkod']);
-$studentcity = clean($_POST['studentcity']);
+$studentaddress= clean($_POST['address']);
+$studentposkod = clean($_POST['postcode']);
+$studentcity = clean($_POST['city']);
 
-$studentemail = clean($_POST['studentemail']);
-$studentpassword = clean($_POST['studentpassword']);
+$studentemail = clean($_POST['email']);
+$studentpassword = clean($_POST['password']);
 $parentsname = clean($_POST['parentsname']);
-$parentsnum = clean($_POST['parentsnum']);
+$parentsnum = clean($_POST['parentsphoneno']);
 
-$role = clean($_POST['role']);
-$conn = db();
+$result=registerStudent($studentname,$studentbirth,$studentgender,$studentnum,$studentaddress,$studentposkod,$studentcity,$studentemail,$studentpassword,$parentsname,$parentsnum);
 
-$result = mysqli_query($conn, $sql);
-
-//Check whether the query was successful or not
-if($result!="" && $result > 0) {
-    echo ("<script LANGUAGE='JavaScript'>
-            alert('Successfully sign up.')
-            window.location.href='../view/login.php';
-            </script>");
-    exit();
-} else {
-    echo ("<script LANGUAGE='JavaScript'>
-            alert('Failed to sign up.')
-            history.back();
-            </script>");
-    exit();
-}
 
 ?>
+<script>
+    $(document).ready(function(){
+        <?if($result!="" && $result>0){?>
+        Swal.fire('Berjaya','Berjaya Daftar Akaun Baharu!','success')
+        <? }else{ ?>
+        Swal.fire('Gagal','Gagal Daftar Akaun Baharu!','error')
+        <? } ?>
+
+            .then((value)=>{
+                if(value.isConfirmed){
+                    window.location.href='../view/login.php';
+                }
+            });
+    });
+</script>

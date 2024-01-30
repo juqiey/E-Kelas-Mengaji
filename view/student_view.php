@@ -4,6 +4,10 @@
     require '../global/session_check.php';
     require '../model/user_function.php';
 
+//check role that are not authorized
+$non_authorize = ['3'];
+blockAccess($non_authorize);
+
     $id=$_GET['id'];
 
     $student=viewStudent($id)->fetch_assoc();

@@ -1,6 +1,10 @@
 <?php
 require '../model/profile_function.php';
 
+//check role that are not authorized
+$non_authorize = ['2','1'];
+blockAccess($non_authorize);
+
 // Get the student ID from the URL parameter
 $student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
 

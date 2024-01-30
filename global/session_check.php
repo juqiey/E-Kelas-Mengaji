@@ -43,6 +43,8 @@ function getAuthInfo($id){
         $sql="SELECT * FROM student WHERE studentid='$id'";
     } else if($_SESSION["role"]==1){
         $sql="SELECT * FROM teacher WHERE teacherid='$id'";
+    } else if($_SESSION['role']==2){
+        $sql="SELECT * FROM admin WHERE adminid='$id'";
     }
 
     return $conn->query($sql)->fetch_object();
@@ -50,7 +52,6 @@ function getAuthInfo($id){
 
 function blockAccess($role_list){
     if(in_array($_SESSION['role'], $role_list)){
-        echo 'asd';
         echo "<script>
     $(document).ready(function() {
       Swal.fire(

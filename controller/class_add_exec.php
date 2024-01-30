@@ -15,9 +15,9 @@
 <script>
     $(document).ready(function(){
         <?if($result!="" && $result>0){?>
-        Swal.fire('Berjaya','Tempahan Slot Berjaya!','success')
+        Swal.fire('Berjaya','Kelas Baharu Berjaya!','success')
         <? }else{ ?>
-        Swal.fire('Gagal','Tempahan Slot Gagal!','error')
+        Swal.fire('Gagal','Kelas Baharu Gagal!','error')
         <? } ?>
 
             .then((value)=>{

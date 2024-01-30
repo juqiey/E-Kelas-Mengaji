@@ -3,6 +3,10 @@
 session_start();
 require '../global/session_check.php';
 require '../model/class_function.php';
+
+//check role that are not authorized
+$non_authorize = ['3'];
+blockAccess($non_authorize);
 $year = ($_GET['year']) ?: date('Y');
 $month=($_GET['month']?:date('n'));
 ?>

@@ -3,6 +3,10 @@
     require '../global/session_check.php';
     require '../model/booking_function.php';
 
+//check role that are not authorized
+$non_authorize = ['2','1'];
+blockAccess($non_authorize);
+
     $id=$_GET['id'];
     $booking=viewBooking($id)->fetch_assoc();
 ?>

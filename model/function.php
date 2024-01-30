@@ -23,30 +23,19 @@ function loginTeacher($email){
     return $conn->query($sql);
 }
 
-/*function loginAdmin($email){
+function loginAdmin($email){
     $conn = db();
     $sql = "SELECT * FROM admin WHERE adminemail='$email' ORDER BY adminid DESC LIMIT 1";
     return $conn->query($sql);
-}*/
+}
 
-/*function registerUser($conn,$studentname,$studentbirth, $studentgender, $studentnum, $studentaddress, $studentposkod, $studentcity ,$studentemail,
-$studentpassword ,$parentsname ,$parentsnum, $role) {
-    // Validate and sanitize data (you should add more validation)
-    // ...
+function registerStudent($name,$dob,$sex,$phone,$address,$postcode,$city,$email,$password,$parentsname,$parentsphoneno){
+    $conn=db();
+    $sql="INSERT INTO student(studentname,studentdob,studentsex,studentphoneno,studentaddress,studentpostcode,studentcity,studentemail,password,parentsname,parentsphoneno)
+            VALUES('$name','$dob','$sex','$phone','$address','$postcode','$city','$email','$password','$parentsname','$parentsphoneno')";
 
-    // Insert user data into the database
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-    $sql = "INSERT INTO users (firstName, birthdate, gender, phone, address, poskod, city, email, password) 
-            VALUES ('$studentname', '$studentbirth', '$studentgender', '$studentnum', '$studentaddress', '$studentposkod', '$studentcity',
-             '$studentemail', '$parentsname', '$hashedPassword')";
-
-    // Execute the SQL query
-    // Note: Use prepared statements to prevent SQL injection
-    $result = mysqli_query($conn, $sql);
-
-    return $result;
-}*/
+    return $conn->query($sql);
+}
 
 // Custom password verification function
 function verifyPassword($inputPassword, $storedPassword) {

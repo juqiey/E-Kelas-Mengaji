@@ -6,12 +6,12 @@ $studentemail = ($_POST['email']);
 $password = $_POST['password'];
 $userRole = ($_POST['userRole']);
 
-echo $studentemail.' '.$password.' '.$userRole;
-
-if($userRole=='3'){
+if($userRole==3){
     $login=loginStudent($studentemail);
 }else if($userRole==1){
     $login=loginTeacher($studentemail);
+}else if($userRole==2){
+    $login=loginAdmin($studentemail);
 }
 
 

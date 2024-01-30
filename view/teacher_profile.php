@@ -3,6 +3,10 @@ session_start();
 require '../global/session_check.php';
   require '../model/profile_function.php';
 
+//check role that are not authorized
+$non_authorize = ['3','1'];
+blockAccess($non_authorize);
+
   $teacher_id = isset($_GET['id']) ? intval($_GET['id']) : 1;
   $teacher = getTeacherProfile($teacher_id);
 
