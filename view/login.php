@@ -1,66 +1,14 @@
-<?php
-require_once 'C:\Users\softphea\E-Kelas-Mengaji\db\config.php';
+<?
+  session_start();
+  // Check if the user is already logged in, if yes then redirect him to welcome page
+  if(isset($_SESSION["auth"]) && $_SESSION["auth"] === true){
+    header("location: dashboard.php");
+    exit;
+  }
+  session_destroy();
 
-// Check if the user has submitted the form
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the user's input
-    $username = $_POST['inputEmail'];
-    $password = $_POST['inputPassword'];
-    $userRole = $_POST['userRole'];
-
-    // Determine the table based on the user role
-    $tableName = '';
-    switch ($userRole) {
-        case 'student':
-            $tableName = 'student';
-            break;
-        case 'admin':
-            $tableName = 'admin';
-            break;
-        case 'teacher':
-            $tableName = 'teacher';
-            break;
-        default:
-            // Handle invalid role
-            break;
-    }
-
-    // Prepare a SQL query to select the user from the respective table
-    $sql = "SELECT * FROM $tableName WHERE username = ?";
-    $stmt = db()->prepare($sql);
-    if ($stmt) {
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        // Check if the user exists
-        if ($result->num_rows > 0) {
-            $user = $result->fetch_assoc();
-
-            // Verify the password
-            if (password_verify($password, $user['password'])) {
-                // Password is correct, log the user in
-                session_start();
-                $_SESSION['user'] = $user;
-                header("Location: dashboard.php");
-                exit;
-            } else {
-                // Incorrect password
-                $error = "Incorrect password";
-            }
-        } else {
-            // User not found
-            $error = "User not found";
-        }
-
-        // Close the prepared statement
-        $stmt->close();
-    } else {
-        echo "Error preparing statement: " . db()->error;
-    }
-}
+  $navname="login";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,23 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require '../global/header.php';
     ?>
     <link href="../resources/styles.css" rel="stylesheet" />
-    <script>
-        function toggleRoleRadio(role) {
-            var roleDiv = document.getElementById('roleDiv');
-            var studentTab = document.querySelector('#student');
-            var staffTab = document.querySelector('#staff');
-
-            if (role === 'student') {
-                roleDiv.style.display = 'none';
-                studentTab.classList.add('active');
-                staffTab.classList.remove('active');
-            } else if (role === 'staff') {
-                roleDiv.style.display = 'block'; // Or 'inline-block' as needed
-                staffTab.classList.add('active');
-                studentTab.classList.remove('active');
-            }
-        }
-    </script>
 </head>
 <body class="bg-primary">
 <div id="layoutAuthentication">
@@ -128,15 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </form>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="login.php">
+                                <form method="post" action="login_exec.php">
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="inputEmail" name="inputEmail" type="email"
-                                               placeholder="name@example.com"/>
+                                    <input type="text" name="username" class="form-control" id="username" 
+                                        placeholder="Username" required autofocus>
                                         <label for="inputEmail">Alamat Emel</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="inputPassword" name="inputPassword"
-                                               type="password" placeholder="Password"/>
+                                    <input type="password" name="password" class="form-control" id="password" 
+                                    placeholder="Password" required autofocus>
                                         <label for="inputPassword">Kata Laluan</label>
                                     </div>
                                     <div class="form-check mb-3">
@@ -150,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <button type="submit" class="btn btn-primary">Login</button>
                                     </div>
                                 </form>
-                            </div>
+                            </div> 
                             <div class="card-footer text-center py-3">
                                 <div class="small">
                                     <a href="register.php">Anda tiada akaun? Daftar sekarang!</a>
@@ -168,3 +99,10 @@ require '../global/script.php';
 ?>
 </body>
 </html>
+<script>
+    $(document).ready(function(){
+        $('#show_password').on('change', function(){
+            $('#password').attr('type',$('#show_password').prop('checked')===true?"text":"password");
+        });
+    });
+</script>
