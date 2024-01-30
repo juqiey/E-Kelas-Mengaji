@@ -1,17 +1,34 @@
-<?php
-require '../model/profile_function.php';
+<?
+    require '../global/script.php';
+    require '../model/student_function.php';
 
-// Get the student ID and form data from the request
-$student_id = $_POST['student_id'];
-$formData = $_POST;
+    $studentid=$_POST['studentid'];
+    $studentname=$_POST['studentname'];
+    $studentdob=$_POST['studentdob'];
+    $studentsex=$_POST['studentsex'];
+    $studentemail=$_POST['studentemail'];
+    $studentphoneno=$_POST['studentphoneno'];
+    $parentsname=$_POST['parentsname'];
+    $parentsphoneno=$_POST['parentsphoneno'];
+    $studentpostcode=$_POST['studentpostcode'];
+    $studentcity=$_POST['studentcity'];
+    $studentaddress=$_POST['studentaddress'];
 
-// Remove the student_id from the form data
-unset($formData['student_id']);
-
-// Update the student information in the database
-updateStudentProfile($student_id, $formData['studentname'], $formData['studentbirth'], $formData['studentgender'], $formData['studentnum'], $formData['studentemail'], $formData['studentaddress'], $formData['studentposkod'], $formData['studentcity'], $formData['parentsname'], $formData['parentsnum'], $formData['newPassword']);
-
-// Redirect back to the student profile page
-header('Location: student_profile.php?id=' . $student_id);
-exit;
+    $result=updateStudent($studentid,$studentname,$studentdob,$studentsex,$studentemail,$studentphoneno,$parentsname,$parentsphoneno,$studentpostcode,$studentcity,$studentaddress);
 ?>
+
+<script>
+    $(document).ready(function(){
+        <?if($result!="" && $result>0){?>
+        Swal.fire('Berjaya','Berjaya Kemaskini Profil!','success')
+        <? }else{ ?>
+        Swal.fire('Gagal','Kemaskini Profil Gagal!','error')
+        <? } ?>
+
+            .then((value)=>{
+                if(value.isConfirmed){
+                    window.location.href='../view/student_profile.php';
+                }
+            });
+    });
+</script>
