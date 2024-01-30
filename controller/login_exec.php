@@ -2,12 +2,15 @@
 session_start();
 require "../model/function.php";
 
-$email = ($_POST['username']);
+$studentemail = ($_POST['studentemail']);
+
+echo $studentemail;
+
 $password = ($_POST['password']);
 $userRole = ($_POST['userRole']);
 
 //call function
-$login = login($username, $password);
+$login = login($studentemail, $password);
 
 if ($login !== false){
   if (password_verify($password, $login['password'])) {

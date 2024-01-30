@@ -1,17 +1,24 @@
 <?php
-
 require '../model/function.php';
 
-$name = clean($_POST['name']);
-$ic = clean($_POST['ic']);
-$email = clean($_POST['email']);
-$phone_no = clean($_POST['phone_no']);
-$company_id = clean($_POST['company_id']);
-$role = clean($_POST['role']);
-$username = clean($_POST['username']);
-$password = clean($_POST['password']);
+$studentname = clean($_POST['studentname']);
+$studentbirth = clean($_POST['studentbirth']);
+$studentgender = clean($_POST['studentgender']);
+$studentnum = clean($_POST['studentnum']);
 
-$result = addUser($name,$ic,$email,$phone_no,$company_id,$role,$username,$password);
+$studentaddress= clean($_POST['studentaddress']);
+$studentposkod = clean($_POST['studentposkod']);
+$studentcity = clean($_POST['studentcity']);
+
+$studentemail = clean($_POST['studentemail']);
+$studentpassword = clean($_POST['studentpassword']);
+$parentsname = clean($_POST['parentsname']);
+$parentsnum = clean($_POST['parentsnum']);
+
+$role = clean($_POST['role']);
+
+$result = registerUser($studentname,$studentbirth, $studentgender, $studentnum, $studentaddress, $studentposkod, $studentcity ,$studentemail,
+$studentpassword ,$parentsname ,$parentsnum, $role);
 
 //Check whether the query was successful or not
 if($result!="" && $result > 0) {
