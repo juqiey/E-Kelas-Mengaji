@@ -4,7 +4,7 @@
 session_start();
 require '../global/session_check.php';
 
-  $student_id = 2;
+  $student_id = $_SESSION['id'];
   $student_data = viewStudent($student_id)->fetch_assoc();
 ?>
 
@@ -214,13 +214,19 @@ require '../global/session_check.php';
                                                 <input type="text" class="form-control" id="city"
                                                        value="<?php echo $student_data['studentcity']; ?>">
                                             </div>
-                                        </div> 
-                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="col-md-6">
-                                            <label for="profileurl">Gambar Profil</label>
-                                            <input type="file" name="profileurl" id="img" class="form-control" accept=".jpg,.jpeg,.png,.gif">
                                         </div>
+                                        <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <h6 class="mt-3 mb-2 text-primary">Gambar Profil</h6>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <label for="profileurl">Gambar Profil</label>
+                                                    <input type="file" name="profileurl" id="img" class="form-control" accept=".jpg,.jpeg,.png,.gif">
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <br>
 
                                         <div class="row gutters">

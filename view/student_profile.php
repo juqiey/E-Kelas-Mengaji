@@ -1,4 +1,6 @@
 <?php
+session_start();
+require '../global/session_check.php';
 require '../model/profile_function.php';
 
 //check role that are not authorized
@@ -6,7 +8,7 @@ $non_authorize = ['2','1'];
 blockAccess($non_authorize);
 
 // Get the student ID from the URL parameter
-$student_id = isset($_GET['id']) ? intval($_GET['id']) : 2;
+$student_id = $_SESSION['id'];
 
 // Fetch the student profile using the getstudentProfile function
 $student = getStudentProfile($student_id);
@@ -62,6 +64,15 @@ if ($student) {
       padding: 5px 10px;
       color: #000;
     }
+    .image-cover {
+        width: 200px;
+        height: 200px;
+        border-radius: 60%;
+        margin: 20px;
+
+        object-fit: cover;
+        object-position: center right;
+    }
   </style>
 </head>
 
@@ -91,7 +102,14 @@ if ($student) {
                     // Your existing code for fetching and displaying student profile picture, name, and username
                     ?>
                     <!-- <img class="rounded-circle" src="https://shorturl.at/s0379" alt="Profile"> -->
-                    <img class="rounded-circle" src="<?php echo htmlspecialchars($student['profileurl']); ?>" alt="Profile">
+                      <?
+                        $profileurl=$student['studenturl'];
+
+                        if($profileurl==null){
+                            $profileurl='default.jpg';
+                        }
+                      ?>
+                    <img class="image-cover" src="../img/<? echo $profileurl; ?>" alt="Profile">
                     <h3>
                       <?php echo $student['studentname']; ?>
                     </h3>
@@ -134,12 +152,12 @@ if ($student) {
                       <tr>
                         <th width="30%">Tarikh Lahir</th>
 			<td width="2%">:</td>
-                        <td><?php echo htmlspecialchars($student['studentbirth']); ?></td>
+                        <td><?php echo htmlspecialchars($student['studentdob']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">Jantina</th>
                         <td width="2%">:</td>
-                        <td><?php echo htmlspecialchars($student['studentgender']); ?></td>
+                        <td><?php echo htmlspecialchars($student['studentsex']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">Alamat Rumah</th>
@@ -149,7 +167,7 @@ if ($student) {
                       <tr>
                         <th width="30%">No. Telefon</th>
                         <td width="2%">:</td>
-                        <td><?php echo htmlspecialchars($student['studentnum']); ?></td>
+                        <td><?php echo htmlspecialchars($student['studentphoneno']); ?></td>
                       </tr>
                       <tr>
                         <th width="30%">Email</th>

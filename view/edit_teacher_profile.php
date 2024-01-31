@@ -88,6 +88,15 @@ blockAccess($non_authorize);
         border: 0;
         margin-bottom: 1rem;
       }
+      .image-cover {
+          width: 200px;
+          height: 200px;
+          border-radius: 60%;
+          margin: 20px;
+
+          object-fit: cover;
+          object-position: center right;
+      }
     </style>
   </head>
   <body class="sb-nav-fixed"> <?php
