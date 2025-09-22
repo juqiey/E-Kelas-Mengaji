@@ -80,11 +80,14 @@
       }
     </style>
   </head>
-  <body> <?php
-        require '../global/navigation_header.php';
-    ?> <div id="layoutSidenav"> <?php
-            require '../global/sidebar.php';
-        ?> <div id="layoutSidenav_content">
+  <body> 
+    <?php
+      require '../global/navigation_header.php';
+    ?> 
+    <div id="layoutSidenav"> <?php
+        require '../global/sidebar.php';
+    ?> 
+        <div id="layoutSidenav_content">
         <main id="main" class="main">
           <!-- Admin Profile -->
           <div class="pagetitle">
